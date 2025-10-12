@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfkna8eviveaf"]
 
 [ext_resource type="PackedScene" uid="uid://dgxi6v5gdyebj" path="res://player.tscn" id="1_2ipky"]
-[ext_resource type="PackedScene" uid="uid://1r001oqha421" path="res://mansion.blend" id="2_sos65"]
+[ext_resource type="PackedScene" uid="uid://0iravobt04ol" path="res://rooms/starting_room.tscn" id="2_2ipky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk465"]
 size = Vector3(2235.07, 2, 1527.5)
@@ -23,8 +23,6 @@ ssao_power = 3.69343
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_2ipky")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 1, 0)
 
-[node name="mansion" parent="." instance=ExtResource("2_sos65")]
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -36,3 +34,5 @@ environment = SubResource("Environment_hk465")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0491984, -0.837797, -0.543761, -0.420956, -0.511097, 0.749383, -0.905746, 0.192031, -0.37782, -337.937, 260.125, 0)
+
+[node name="StartingRoom" parent="." instance=ExtResource("2_2ipky")]

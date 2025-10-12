@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1r001oqha421"
-path="res://.godot/imported/mansion.blend-af8b89e1593a8b4d2eb0bada6aeb6132.scn"
+path="res://.godot/imported/tiles.blend-af29b2de7e441c2991bda50964cd38a5.scn"
 
 [deps]
 
-source_file="res://mansion.blend"
-dest_files=["res://.godot/imported/mansion.blend-af8b89e1593a8b4d2eb0bada6aeb6132.scn"]
+source_file="res://rooms/modular_gridmap/tiles.blend"
+dest_files=["res://.godot/imported/tiles.blend-af29b2de7e441c2991bda50964cd38a5.scn"]
 
 [params]
 
