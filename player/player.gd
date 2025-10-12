@@ -1,16 +1,16 @@
 extends CharacterBody3D
-
-@export var speed := 5.0
+@export var speed := 3.0
+@export var speed_multiplier := 1.0
 @export var jump_height := 5.0
 @export var sprint_multiplier := 2.0
 @export var sens := 0.002
 @export var cam : Camera3D
+@export var gravity := 9.8
 var pitch := 0.0
 
 func _ready(): 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * sens)
@@ -26,12 +26,12 @@ func _physics_process(_d):
 		int(Input.is_action_pressed("move_back")) - int(Input.is_action_pressed("move_forward"))
 		)
 		
-	velocity.y -= 9.8 * _d
+	velocity.y -= gravity * _d
 		
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_height 
 			
-	var current_speed = speed
+	var current_speed = speed * speed_multiplier
 	if Input.is_action_pressed("sprint"):
 		current_speed *= sprint_multiplier
 

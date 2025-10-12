@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=4 format=3 uid="uid://dgxi6v5gdyebj"]
 
-[ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cvrqbeennkyhn" path="res://player/god_mode.gd" id="2_rkbax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei6nx"]
-radius = 0.258925
+radius = 0.114015
 height = 1.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
@@ -17,3 +18,8 @@ shape = SubResource("CapsuleShape3D_ei6nx")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75577, 0)
 fov = 100.853
+
+[node name="GodMode" type="Node" parent="." node_paths=PackedStringArray("player", "cam")]
+script = ExtResource("2_rkbax")
+player = NodePath("..")
+cam = NodePath("../Camera3D")
