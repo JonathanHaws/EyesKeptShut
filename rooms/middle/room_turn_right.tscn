@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=5 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="Script" uid="uid://bmr64gp8eokhr" path="res://rooms/room.gd" id="1_ila4k"]
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
@@ -6,6 +6,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0jrq"]
 resource_local_to_scene = true
 size = Vector3(7.66821, 4.26149, 11.7023)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0tsg"]
 
 [node name="Room" type="Node3D" node_paths=PackedStringArray("area", "grid_map")]
 script = ExtResource("1_ila4k")
@@ -29,6 +31,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Exit" type="Node3D" parent="." groups=["room_exit"]]
-
-[node name="Exit2" type="Node3D" parent="." groups=["room_exit"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
+mesh = SubResource("BoxMesh_m0tsg")

@@ -1,6 +1,7 @@
 extends Node3D
 @export var area: Area3D ## Used to tell if this room is intersecting with another 
 @export var grid_map: GridMap
+@export var entry: Node
 
 func intersecting_area(area_group_name: String) -> bool:
 	var params = PhysicsShapeQueryParameters3D.new()

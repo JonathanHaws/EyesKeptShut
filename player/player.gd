@@ -26,7 +26,7 @@ func _physics_process(_d):
 		int(Input.is_action_pressed("move_back")) - int(Input.is_action_pressed("move_forward"))
 		)
 		
-	velocity.y -= gravity * _d
+	if not is_on_floor(): velocity.y -= gravity * _d
 		
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_height 
