@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://0iravobt04ol"]
+[gd_scene load_steps=6 format=3 uid="uid://0iravobt04ol"]
 
-[ext_resource type="Script" uid="uid://bmr64gp8eokhr" path="res://rooms/room.gd" id="1_4e5cs"]
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="1_a0jrq"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="4_q774w"]
 
@@ -14,10 +13,7 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_4atgp"]
 size = Vector3(0.25, 1, 0.25)
 
-[node name="Room" type="Node3D" node_paths=PackedStringArray("area", "grid_map")]
-script = ExtResource("1_4e5cs")
-area = NodePath("Area3D")
-grid_map = NodePath("GridMap")
+[node name="Room" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="." groups=["room_intersecting"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
