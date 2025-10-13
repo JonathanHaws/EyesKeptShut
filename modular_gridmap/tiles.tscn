@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bumqohqcr32ay"]
 
-[ext_resource type="PackedScene" uid="uid://1r001oqha421" path="res://rooms/modular_gridmap/tiles.blend" id="1_qxscv"]
+[ext_resource type="PackedScene" uid="uid://1r001oqha421" path="res://modular_gridmap/tiles.blend" id="1_qxscv"]
 
 [node name="Tiles" type="Node3D"]
 
