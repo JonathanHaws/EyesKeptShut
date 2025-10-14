@@ -26,12 +26,27 @@ func areas_overlap(a: Area3D, b: Area3D) -> bool: # manually check if areas are 
 
 func is_bounds_occupied(area: Area3D, bounds_group: String = "room_bounds") -> bool:
 	for existing_area in get_tree().get_nodes_in_group(bounds_group) as Array[Area3D]:
-		if existing_area == area: continue
 		if areas_overlap(area, existing_area): return true
 	return false
 	
+func keep_farthest_end():
+	var endings = get_tree().get_nodes_in_group("end")
+	if endings.size() <= 1: return
+	var origin = Vector3.ZERO
+	var farthest = endings[0]
+	var max_dist = farthest.global_transform.origin.distance_to(origin)
+	for e in endings:
+		var dist = e.global_transform.origin.distance_to(origin)
+		if dist > max_dist:
+			max_dist = dist
+			farthest = e
+	for e in endings:
+		if e != farthest:
+			e.queue_free()	
+	
+	
 func expand():
-	var exits = get_tree().get_nodes_in_group("room_exit")
+	var exits = get_tree().get_nodes_in_group("room_exit") # For some reason self intersect doesnt work when doing them all at once...
 	if exits.size() == 0: return
 	var exit = exits[randi() % exits.size()]
 	exit.remove_from_group("room_exit")
@@ -46,6 +61,7 @@ func expand():
 	else:
 		exit.queue_free()
 	
+	keep_farthest_end()
 			
 func genrate(expansions: int = 3):
 	for child in get_children(): child.queue_free()

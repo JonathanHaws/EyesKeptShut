@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=7 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
+[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_lgf22"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
@@ -43,6 +44,7 @@ data = {
 
 [node name="Arrow" type="MeshInstance3D" parent="Exit"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 5.29396e-23, 0.391355, 0.799065)
+visible = false
 material_override = ExtResource("3_kj7pg")
 mesh = SubResource("PrismMesh_kj7pg")
 
@@ -52,3 +54,6 @@ material_override = ExtResource("3_kj7pg")
 mesh = SubResource("BoxMesh_lgf22")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Ending" parent="." instance=ExtResource("3_lgf22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50723, 0.663332, 11.3726)

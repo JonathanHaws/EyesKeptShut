@@ -1,0 +1,9 @@
+extends Node3D
+@export var trigger_area: Area3D
+
+func _ready():
+	trigger_area.body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body):
+	if not body.is_in_group("player"): return
+	get_tree().reload_current_scene()

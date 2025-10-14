@@ -43,6 +43,7 @@ data = {
 
 [node name="Arrow" type="MeshInstance3D" parent="Exit"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 5.29396e-23, 0.391355, 0.639834)
+visible = false
 material_override = ExtResource("2_xvlgr")
 mesh = SubResource("PrismMesh_msq30")
 

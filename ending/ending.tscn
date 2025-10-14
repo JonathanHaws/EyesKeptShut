@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2x4py0bkprgv"]
+
+[ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/ending.gd" id="1_lvm68"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhtnl"]
+albedo_color = Color(0.419892, 0.165177, 0.109489, 1)
+emission_enabled = true
+emission = Color(0.419608, 0.164706, 0.109804, 1)
+emission_energy_multiplier = 11.61
+
+[sub_resource type="BoxMesh" id="BoxMesh_lvm68"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
+
+[node name="Ending" type="Node3D" node_paths=PackedStringArray("trigger_area") groups=["end"]]
+script = ExtResource("1_lvm68")
+trigger_area = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_lhtnl")
+mesh = SubResource("BoxMesh_lvm68")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_r7gcc")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmlytjqjib184"]
+[gd_scene load_steps=7 format=3 uid="uid://dmlytjqjib184"]
 
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
+[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_ay4le"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="4_l7uai"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bssjq"]
@@ -43,6 +44,7 @@ data = {
 
 [node name="Arrow" type="MeshInstance3D" parent="Exit"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0.391355, 0.606112)
+visible = false
 material_override = ExtResource("4_l7uai")
 mesh = SubResource("PrismMesh_l7uai")
 
@@ -63,6 +65,7 @@ data = {
 
 [node name="Arrow" type="MeshInstance3D" parent="Exit2"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 5.29396e-23, 0.391355, 0.828159)
+visible = false
 material_override = ExtResource("4_l7uai")
 mesh = SubResource("PrismMesh_l7uai")
 
@@ -70,3 +73,6 @@ mesh = SubResource("PrismMesh_l7uai")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898831, -7.50693e-23)
 material_override = ExtResource("4_l7uai")
 mesh = SubResource("BoxMesh_ndi8a")
+
+[node name="Ending" parent="." instance=ExtResource("3_ay4le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10671, 0.840675, 11.1244)

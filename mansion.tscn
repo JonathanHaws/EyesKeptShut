@@ -42,7 +42,7 @@ shape = SubResource("BoxShape3D_hk465")
 environment = SubResource("Environment_hk465")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0491984, -0.837797, -0.543761, -0.420956, -0.511097, 0.749383, -0.905746, 0.192031, -0.37782, -337.937, 260.125, 0)
+transform = Transform3D(0.21456, 0.68809, 0.693178, -0.830117, -0.245493, 0.500638, 0.514655, -0.682836, 0.518523, -337.937, 260.125, 0)
 
 [node name="DungeonGenerator" type="Node3D" parent="."]
 script = ExtResource("2_sos65")
