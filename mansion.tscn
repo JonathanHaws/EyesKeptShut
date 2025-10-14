@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfkna8eviveaf"]
+[gd_scene load_steps=12 format=3 uid="uid://dfkna8eviveaf"]
 
 [ext_resource type="PackedScene" uid="uid://dgxi6v5gdyebj" path="res://player/player.tscn" id="1_2ipky"]
 [ext_resource type="PackedScene" uid="uid://0iravobt04ol" path="res://rooms/starting/room_starting.tscn" id="2_2ipky"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btp82fmwrwhyh" path="res://rooms/middle/room_turn_right.tscn" id="4_vhekr"]
 [ext_resource type="PackedScene" uid="uid://4qjxjhthyt12" path="res://rooms/middle/room_turn_left.tscn" id="5_hokdp"]
 [ext_resource type="PackedScene" uid="uid://dmlytjqjib184" path="res://rooms/middle/room_fork.tscn" id="6_chle2"]
+[ext_resource type="PackedScene" uid="uid://d346ej2b2u1ep" path="res://rooms/middle/room_stairs_up.tscn" id="7_chle2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk465"]
 size = Vector3(2235.07, 2, 1527.5)
@@ -46,4 +47,4 @@ transform = Transform3D(0.0491984, -0.837797, -0.543761, -0.420956, -0.511097, 0
 [node name="DungeonGenerator" type="Node3D" parent="."]
 script = ExtResource("2_sos65")
 starting_rooms = Array[PackedScene]([ExtResource("2_2ipky")])
-middle_rooms = Array[PackedScene]([ExtResource("6_chle2"), ExtResource("5_hokdp"), ExtResource("4_vhekr")])
+middle_rooms = Array[PackedScene]([ExtResource("6_chle2"), ExtResource("5_hokdp"), ExtResource("4_vhekr"), ExtResource("7_chle2")])

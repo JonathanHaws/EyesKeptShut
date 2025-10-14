@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://cvrqbeennkyhn" path="res://player/god_mode.gd" id="2_rkbax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei6nx"]
-radius = 0.114015
+radius = 0.198059
 height = 1.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_4flbx")
 cam = NodePath("Camera3D")
 

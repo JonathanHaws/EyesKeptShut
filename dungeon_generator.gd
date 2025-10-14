@@ -7,7 +7,7 @@ func get_starting_room() -> Node3D: return starting_rooms[randi() % starting_roo
 
 func get_middle_room() -> Node3D: return middle_rooms[randi() % middle_rooms.size()].instantiate()
 	
-func areas_overlap(a: Area3D, b: Area3D) -> bool: # manually check if areas are colliding without waiting 
+func areas_overlap(a: Area3D, b: Area3D) -> bool: # manually check if areas are colliding without waiting until next physics frame
 	var space = PhysicsServer3D.space_create()
 	PhysicsServer3D.area_set_space(a.get_rid(), space)
 	PhysicsServer3D.area_set_space(b.get_rid(), space)
@@ -47,7 +47,7 @@ func expand():
 		exit.queue_free()
 	
 			
-func genrate(expansions: int = 3, complete: bool = true):
+func genrate(expansions: int = 3):
 	for child in get_children(): child.queue_free()
 	add_child(get_starting_room())
 	for i in range(expansions): #await get_tree().create_timer(1.0).timeout
@@ -60,7 +60,7 @@ func _ready():
 func _process(_delta):
 	if OS.is_debug_build():
 		if Input.is_action_just_pressed("clear"):
-			genrate(0, false)
+			genrate(0)
 		if Input.is_action_just_pressed("expand"):
 			expand()
 		if Input.is_action_just_pressed("reload"):

@@ -30,7 +30,7 @@ func _physics_process(_d):
 		
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_height 
-			
+	
 	var current_speed = speed * speed_multiplier
 	if Input.is_action_pressed("sprint"):
 		current_speed *= sprint_multiplier

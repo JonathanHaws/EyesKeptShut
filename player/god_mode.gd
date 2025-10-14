@@ -32,4 +32,4 @@ func _physics_process(_delta):
 		var fly_dir = cam.global_transform.basis * movement_vector
 		player.global_position += fly_dir * speed * _delta
 		
-	old_player_position = player.global_position
+		old_player_position = player.global_position
