@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [global_group]
 
-room_intersecting="area for rooms to tell if they are intersecting another"
 room_exit="where procuedural rooms will connect"
+room_bounds="area for rooms to tell if they are intersecting another"
 
 [input]
 

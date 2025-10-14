@@ -7,24 +7,47 @@ func get_starting_room() -> Node3D: return starting_rooms[randi() % starting_roo
 
 func get_middle_room() -> Node3D: return middle_rooms[randi() % middle_rooms.size()].instantiate()
 	
-func is_area_occupied(area: Area3D) -> bool: #Crucial its instant not relying on awaiting another physics frame
-	for a in get_tree().get_nodes_in_group("room_intersecting"):
-		if a != area and a.overlaps_area(area):
-			return true
+func areas_overlap(a: Area3D, b: Area3D) -> bool:
+	var space = PhysicsServer3D.space_create()
+	PhysicsServer3D.area_set_space(a.get_rid(), space)
+	PhysicsServer3D.area_set_space(b.get_rid(), space)
+	PhysicsServer3D.area_set_transform(a.get_rid(), a.global_transform)
+	PhysicsServer3D.area_set_transform(b.get_rid(), b.global_transform)
+
+	var state = PhysicsServer3D.space_get_direct_state(space)
+
+	var params = PhysicsShapeQueryParameters3D.new()
+	params.shape_rid = a.get_node("CollisionShape3D").shape.get_rid()
+	params.transform = a.global_transform
+	params.collide_with_areas = true
+	params.exclude = [a]
+
+	var intersect = state.intersect_shape(params, 32)
+
+	PhysicsServer3D.free_rid(space)
+	print(intersect)
+	return intersect.size() > 0
+
+func is_bounds_occupied(area: Area3D, bounds_group: String = "room_bounds") -> bool:
+	for existing_area in get_tree().get_nodes_in_group(bounds_group) as Array[Area3D]:
+		if existing_area == area: continue
+		if areas_overlap(area, existing_area): return true
 	return false
 	
 func expand():
-	for exit in get_tree().get_nodes_in_group("room_exit"):
+	var exits = get_tree().get_nodes_in_group("room_exit")
+	if exits.size() == 0: return
+	var exit = exits[randi() % exits.size()]
 		
-		var new_room = get_middle_room()
-		add_child(new_room)
-		new_room.global_transform = exit.global_transform
-		new_room.rotation_degrees.y += 180
-	
-		if is_area_occupied(new_room.get_node("Area3D")): # Space already taken.
-			new_room.queue_free()	
-		else:
-			exit.queue_free()
+	var new_room = get_middle_room()
+	add_child(new_room)
+	new_room.global_transform = exit.global_transform
+	new_room.rotation_degrees.y += 180
+
+	if is_bounds_occupied(new_room.get_node("Area3D")): # Space already taken.
+		new_room.queue_free()	
+	else:
+		exit.queue_free()
 			
 func genrate(expansions: int = 3, complete: bool = true):
 	for child in get_children(): child.queue_free()
@@ -33,6 +56,7 @@ func genrate(expansions: int = 3, complete: bool = true):
 		expand()	
 
 func _ready():
+	#pass
 	genrate(expansions)
 	
 func _process(_delta):

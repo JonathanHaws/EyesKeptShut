@@ -15,7 +15,7 @@ size = Vector3(0.25, 1, 0.25)
 
 [node name="Room" type="Node3D"]
 
-[node name="Area3D" type="Area3D" parent="." groups=["room_intersecting"]]
+[node name="Area3D" type="Area3D" parent="." groups=["room_bounds"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -50,3 +50,5 @@ mesh = SubResource("PrismMesh_msq30")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898831, -7.50693e-23)
 material_override = ExtResource("3_msq30")
 mesh = SubResource("BoxMesh_op4xn")
+
+[node name="Node3D" type="Node3D" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a0jrq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
 size = Vector3(7.66821, 4.26149, 11.7023)
 
@@ -15,13 +15,13 @@ size = Vector3(0.25, 1, 0.25)
 
 [node name="Room" type="Node3D"]
 
-[node name="Area3D" type="Area3D" parent="." groups=["room_intersecting"]]
+[node name="Area3D" type="Area3D" parent="." groups=["room_bounds"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019165, 1.96152, -3.96564)
-shape = SubResource("BoxShape3D_a0jrq")
-debug_color = Color(0.878431, 0.584314, 0.278431, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019165, 1.96152, -4.09463)
+shape = SubResource("BoxShape3D_xaf06")
+debug_color = Color(0.877855, 0.585429, 0.277921, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
@@ -50,3 +50,5 @@ mesh = SubResource("PrismMesh_kj7pg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898831, -7.50693e-23)
 material_override = ExtResource("3_kj7pg")
 mesh = SubResource("BoxMesh_lgf22")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
