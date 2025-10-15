@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5cjlmay4qhby"]
 
 [node name="OmniLight3D" type="OmniLight3D"]
-light_color = Color(0.97, 0.757247, 0.5141, 1)
-light_energy = 4.0
+light_color = Color(0.97, 0.86136, 0.7663, 1)
+light_energy = 3.0
 omni_range = 13.3271

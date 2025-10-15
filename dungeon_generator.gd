@@ -52,6 +52,7 @@ func expand():
 	exit.remove_from_group("room_exit")
 		
 	var new_room = get_middle_room()
+	new_room.visible = false
 	add_child(new_room)
 	new_room.global_transform = exit.global_transform
 	new_room.rotation_degrees.y += 180
@@ -59,6 +60,7 @@ func expand():
 	if is_bounds_occupied(new_room.get_node("Area3D")): # Space already taken.
 		new_room.queue_free()
 	else:
+		new_room.visible = true
 		exit.queue_free()
 	
 	keep_farthest_end()

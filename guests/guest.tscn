@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.867959)
 script = ExtResource("2_j2afm")
 
 [node name="Offset" type="Node3D" parent="Target"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607829, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 
 [node name="Guest" parent="." instance=ExtResource("3_vhaxy")]
 
