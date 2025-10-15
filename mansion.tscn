@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfkna8eviveaf"]
+[gd_scene load_steps=14 format=3 uid="uid://dfkna8eviveaf"]
 
 [ext_resource type="PackedScene" uid="uid://dgxi6v5gdyebj" path="res://player/player.tscn" id="1_2ipky"]
 [ext_resource type="PackedScene" uid="uid://0iravobt04ol" path="res://rooms/starting/room_starting.tscn" id="2_2ipky"]
@@ -10,6 +10,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk465"]
 size = Vector3(2235.07, 2, 1527.5)
+
+[sub_resource type="Curve" id="Curve_chle2"]
+_data = [Vector2(0, 0), 0.0, 0.526172, 0, 0, Vector2(0.6375, 0.573034), 0.779026, 0.779026, 0, 0, Vector2(1, 0.977528), 1.28895, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_srgtr"]
+curve = SubResource("Curve_chle2")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ipky"]
 sky_top_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
@@ -25,8 +32,14 @@ sky_material = SubResource("ProceduralSkyMaterial_2ipky")
 [sub_resource type="Environment" id="Environment_hk465"]
 background_mode = 2
 sky = SubResource("Sky_sos65")
+ambient_light_energy = 0.0
 ssao_enabled = true
-ssao_power = 3.69343
+ssao_radius = 0.1
+ssao_intensity = 500000.0
+ssao_power = 18.1885
+ssao_detail = 5.0
+adjustment_enabled = true
+adjustment_color_correction = SubResource("CurveTexture_srgtr")
 
 [node name="Node3D" type="Node3D"]
 
@@ -43,6 +56,7 @@ environment = SubResource("Environment_hk465")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.21456, 0.68809, 0.693178, -0.830117, -0.245493, 0.500638, 0.514655, -0.682836, 0.518523, -337.937, 260.125, 0)
+light_energy = 0.04
 
 [node name="DungeonGenerator" type="Node3D" parent="."]
 script = ExtResource("2_sos65")

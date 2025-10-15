@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0iravobt04ol"]
+[gd_scene load_steps=8 format=3 uid="uid://0iravobt04ol"]
 
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="1_a0jrq"]
+[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://guests/guest.tscn" id="3_d7dw0"]
+[ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="3_q774w"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="4_q774w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3h0ff"]
@@ -52,5 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898831, -7.50693e-23)
 material_override = ExtResource("4_q774w")
 mesh = SubResource("BoxMesh_4atgp")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06373, -4.03932)
+[node name="OmniLight3D" parent="." instance=ExtResource("3_q774w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33569, 2.06373, -6.0728)
+
+[node name="Guests" type="Node3D" parent="."]
+
+[node name="Guest" parent="." instance=ExtResource("3_d7dw0")]
+transform = Transform3D(0.949069, 0, -0.315069, 0, 1, 0, 0.315069, 0, 0.949069, 3.49382, 0, -6.9479)
+
+[node name="OmniLight3D2" parent="." instance=ExtResource("3_q774w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818413, 2.38377, 1.71118)

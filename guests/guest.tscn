@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://b13fw37sa4dh6"]
+
+[ext_resource type="PackedScene" uid="uid://djmogo2vdcj3q" path="res://guests/guests.blend" id="1_7w6bm"]
+[ext_resource type="Script" uid="uid://cqyv4b85w6r3" path="res://guests/target.gd" id="2_j2afm"]
+
+[sub_resource type="Animation" id="Animation_7w6bm"]
+resource_name = "POSE_1"
+length = 1.66667
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("guests/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Idle"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j2afm"]
+_data = {
+&"POSE_1": SubResource("Animation_7w6bm")
+}
+
+[node name="Guest" type="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j2afm")
+}
+autoplay = "POSE_1"
+
+[node name="guests" parent="." instance=ExtResource("1_7w6bm")]
+
+[node name="Skeleton3D" parent="guests/metarig" index="0"]
+bones/2/rotation = Quaternion(-0.246823, -7.12731e-10, -6.14911e-08, 0.969061)
+bones/6/rotation = Quaternion(0.047124, -1.19077e-07, 5.61762e-09, 0.998889)
+bones/18/rotation = Quaternion(-0.20679, -0.541612, 0.770321, -0.26552)
+bones/49/rotation = Quaternion(0.372435, 0.806988, 0.102116, -0.446806)
+bones/55/rotation = Quaternion(-0.554674, 0.659797, 0.233929, -0.449758)
+bones/59/rotation = Quaternion(0.866308, 6.51683e-17, 6.51722e-17, -0.49951)
+bones/61/position = Vector3(0.0117189, 0.139264, -0.0329735)
+bones/61/rotation = Quaternion(-0.335468, 0.680437, -0.509394, 0.406183)
+bones/62/rotation = Quaternion(0.261023, 0.0132569, 0.0199334, 0.965036)
+bones/84/position = Vector3(-0.0129703, 0.144427, -0.0374703)
+bones/84/rotation = Quaternion(-0.372013, -0.661982, 0.47008, 0.449901)
+bones/85/rotation = Quaternion(0.305623, -0.0671955, 0.0629829, 0.947688)
+bones/106/rotation = Quaternion(1.43582e-07, 0.586138, 0.810211, -4.42522e-08)
+bones/107/rotation = Quaternion(1.43582e-07, 0.586139, 0.810211, -4.42522e-08)
+bones/108/rotation = Quaternion(0.316802, 0.826674, 0.198701, -0.420435)
+bones/113/rotation = Quaternion(-0.00255088, 0.998439, -0.0557962, -0.000141356)
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="1"]
+transform = Transform3D(2.38128, 0, 0, 0, 2.38128, 0, 0, 0, 2.38128, 0, 0, 0)
+target_node = NodePath("../../../../Target/Offset")
+bone_name = "spine.006"
+bone = 6
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 2.32827
+primary_damp_threshold = 1.0
+secondary_limit_angle = 0.955568
+secondary_damp_threshold = 1.0
+
+[node name="Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.867959)
+script = ExtResource("2_j2afm")
+
+[node name="Offset" type="Node3D" parent="Target"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607829, 0)
+
+[editable path="guests"]

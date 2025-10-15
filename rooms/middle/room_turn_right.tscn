@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=8 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
 [ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_lgf22"]
+[ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_lgf22"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
@@ -57,3 +58,6 @@ mesh = SubResource("BoxMesh_lgf22")
 
 [node name="Ending" parent="." instance=ExtResource("3_lgf22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50723, 0.663332, 11.3726)
+
+[node name="OmniLight3D" parent="." instance=ExtResource("4_lgf22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927687, 2.10336, 7.09527)

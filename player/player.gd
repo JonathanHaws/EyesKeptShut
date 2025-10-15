@@ -7,18 +7,23 @@ extends CharacterBody3D
 @export var cam : Camera3D
 @export var gravity := 9.8
 var pitch := 0.0
+var mouse_delta := Vector2.ZERO
 
 func _ready(): 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * sens)
-		pitch = clamp(pitch - event.relative.y * sens, -1.5, 1.5)
-		$Camera3D.rotation.x = pitch
+		mouse_delta += event.relative
 
 func _physics_process(_d):
 		
+	# Move Camera
+	rotate_y(-mouse_delta.x * sens)
+	pitch = clamp(pitch - mouse_delta.y * sens, -1.5, 1.5)
+	cam.rotation.x = pitch
+	mouse_delta = Vector2.ZERO
+			
 	if Input.is_action_just_pressed("ui_cancel"): get_tree().quit()	
 		
 	var movement_vector = Vector3(
