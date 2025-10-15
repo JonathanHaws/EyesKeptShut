@@ -59,8 +59,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33569, 2.06373, -6.0728)
 
 [node name="Guests" type="Node3D" parent="."]
 
-[node name="Guest" parent="." instance=ExtResource("3_d7dw0")]
+[node name="Guest" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.949069, 0, -0.315069, 0, 1, 0, 0.315069, 0, 0.949069, 3.49382, 0, -6.9479)
+
+[node name="Guest2" parent="Guests" instance=ExtResource("3_d7dw0")]
+transform = Transform3D(0.315417, 0, -0.948953, 0, 1, 0, 0.948953, 0, 0.315417, 4.16655, 0, -6.34929)
+
+[node name="Guest3" parent="Guests" instance=ExtResource("3_d7dw0")]
+transform = Transform3D(-0.0402016, 0, -0.999192, 0, 1, 0, 0.999192, 0, -0.0402016, 4.54153, 0, -2.30062)
+
+[node name="Guest4" parent="Guests" instance=ExtResource("3_d7dw0")]
+transform = Transform3D(-0.723967, 0, 0.689834, 0, 1, 0, -0.689834, 0, -0.723967, -2.41138, 0, 3.22855)
 
 [node name="OmniLight3D2" parent="." instance=ExtResource("3_q774w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818413, 2.38377, 1.71118)
