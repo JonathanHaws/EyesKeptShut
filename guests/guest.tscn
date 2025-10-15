@@ -2,23 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="Script" uid="uid://cqyv4b85w6r3" path="res://guests/target.gd" id="2_j2afm"]
-[ext_resource type="PackedScene" uid="uid://cwjipmk10k27w" path="res://guests/guests.glb" id="3_vhaxy"]
+[ext_resource type="PackedScene" uid="uid://djmogo2vdcj3q" path="res://guests/guests.blend" id="3_vhaxy"]
 
 [sub_resource type="Animation" id="Animation_7w6bm"]
 resource_name = "POSE_1"
 length = 1.66667
 loop_mode = 1
 step = 0.0416667
-tracks/0/type = "animation"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Guest/AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": PackedStringArray("Idle"),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2afm"]
 _data = {
@@ -27,7 +17,7 @@ _data = {
 
 [node name="Guest" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_vhaxy")
-mesh = NodePath("Guest/metarig/Skeleton3D/Body")
+mesh = NodePath("guests/metarig/Skeleton3D/Body")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -42,10 +32,11 @@ script = ExtResource("2_j2afm")
 [node name="Offset" type="Node3D" parent="Target"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 
-[node name="Guest" parent="." instance=ExtResource("3_vhaxy")]
+[node name="guests" parent="." instance=ExtResource("3_vhaxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0397505, 0, 0.741414)
 
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Guest/metarig/Skeleton3D" index="1"]
-transform = Transform3D(2.38128, 0, 0, 0, 2.38128, 0, 0, 0, 2.38128, -1.99411, 0, 0.852969)
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="0"]
+transform = Transform3D(2.38128, 0, 0, 0, 2.38128, 0, 0, 0, 2.38128, -1.89945, 0, -0.912543)
 target_node = NodePath("../../../../Target/Offset")
 bone_name = "spine.006"
 bone = 6
@@ -59,4 +50,4 @@ primary_damp_threshold = 1.0
 secondary_limit_angle = 0.955568
 secondary_damp_threshold = 1.0
 
-[editable path="Guest"]
+[editable path="guests"]

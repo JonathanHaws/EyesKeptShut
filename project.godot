@@ -31,6 +31,13 @@ window/stretch/aspect="expand"
 room_exit="where procuedural rooms will connect"
 room_bounds="area for rooms to tell if they are intersecting another"
 
+[importer_defaults]
+
+animation_library={
+&"blender/meshes/colors": true,
+&"blender/meshes/export_geometry_nodes_instances": true
+}
+
 [input]
 
 move_forward={
