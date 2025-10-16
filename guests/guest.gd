@@ -7,10 +7,14 @@ extends Node3D
 
 @export var random_hair: bool = true
 @export var hair_index: int = -1
+
+@export var dress_colors: Array[Color] = [Color(1,1,1), Color(1,0,0), Color(0,1,0), Color(0,0,1)]
+@export var female_dresses_gltf: Array[PackedScene] = []
+
 @export var female_hair_gltf: Array[PackedScene] = []
 @export var male_hair_gltf: Array[PackedScene] = []
 
-func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, skeleton: Skeleton3D) -> void:
+func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, skeleton: Skeleton3D) -> MeshInstance3D:
 	var instance = gltf_scene.instantiate()
 	add_child(instance)
 	var mesh = instance.get_child(0).get_child(0).get_child(0) as MeshInstance3D
@@ -21,6 +25,7 @@ func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, skeleton: Skelet
 	skeleton.add_child(mesh)
 	mesh.global_transform = old_global_transform
 	instance.queue_free()
+	return mesh
 
 
 func _ready():
@@ -28,8 +33,12 @@ func _ready():
 	if random_gender:
 		value = randi() % 2
 	mesh.set("blend_shapes/Male", value)
+	male_blend = mesh.get("blend_shapes/Male")
 	
-	add_skinned_mesh_gltf_to_skeleton(female_hair_gltf.pick_random(), skeleton)
+	if male_blend == 0.0:
+		add_skinned_mesh_gltf_to_skeleton(female_hair_gltf.pick_random(), skeleton)
+		var dress_mesh = add_skinned_mesh_gltf_to_skeleton(female_dresses_gltf.pick_random(), skeleton)
+		#dress_mesh.modulate = dress_colors[randi() % dress_colors.size()]
 
 	
 	#hair.queue_free()
