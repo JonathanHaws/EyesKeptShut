@@ -16,7 +16,15 @@ run/main_scene="res://mansion.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://t7xujos2rp45"
+
+[audio]
+
+buses/default_bus_layout="uid://tpglduvk2v5n"
+
+[autoload]
+
+Controls="*res://pause/controls.gd"
 
 [display]
 

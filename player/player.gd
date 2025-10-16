@@ -23,8 +23,6 @@ func _physics_process(_d):
 	pitch = clamp(pitch - mouse_delta.y * sens, -1.5, 1.5)
 	cam.rotation.x = pitch
 	mouse_delta = Vector2.ZERO
-			
-	if Input.is_action_just_pressed("ui_cancel"): get_tree().quit()	
 		
 	var movement_vector = Vector3(
 		int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")),0,
