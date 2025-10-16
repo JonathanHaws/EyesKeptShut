@@ -1,10 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://dmlytjqjib184"]
+[gd_scene load_steps=13 format=3 uid="uid://dmlytjqjib184"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_ay4le"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="4_l7uai"]
 [ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_ndi8a"]
 [ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://guests/guest.tscn" id="5_ndi8a"]
+[ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://guests/outfits/materials/black_dress.tres" id="6_xqlsd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bssjq"]
 resource_local_to_scene = true
@@ -16,179 +17,18 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_ndi8a"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndi8a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmh3"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqlsd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
 resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
+albedo_color = Color(0.4316, 0.455173, 0.52, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ysy8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10gfo"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7a54"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhjat"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fw1hd"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8irr"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crc4x"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqsvw"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghc5d"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ch8nd"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ls4j3"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2bv4"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjxpi"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4wud"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnuiq"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we5es"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjsxl"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rvnl"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3nlk"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ncun"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkcyv"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knw1n"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1aw7"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpsfu"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv4v8"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2egxf"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2f2x"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujpxa"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_darvn"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my35g"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yptni"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3v1d"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6hdg"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqpxs"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0d84"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf8sy"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cmq0"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlpl6"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r58ea"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yd1h"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
 [node name="Room" type="Node3D"]
 
@@ -260,36 +100,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01489, 2.2369, 7.21745)
 
 [node name="Guest" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(-0.859174, 0, -0.511683, 0, 1, 0, 0.511683, 0, -0.859174, 4.40701, 0.0010355, 6.91517)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ndi8a")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_xqlsd"), SubResource("StandardMaterial3D_1ysy8"), SubResource("StandardMaterial3D_10gfo")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_y7a54"), SubResource("StandardMaterial3D_jhjat"), SubResource("StandardMaterial3D_fw1hd")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
 
 [node name="Guest2" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(0.900463, 0, 0.434933, 0, 1, 0, -0.434933, 0, 0.900463, 4.22933, 0.0010355, 6.22833)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_u8irr")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_crc4x"), SubResource("StandardMaterial3D_gqsvw"), SubResource("StandardMaterial3D_ghc5d")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ch8nd"), SubResource("StandardMaterial3D_ls4j3"), SubResource("StandardMaterial3D_t2bv4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
 
 [node name="Guest3" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(-0.426585, 0, -0.904448, 0, 1, 0, 0.904448, 0, -0.426585, 3.18321, 0.0010355, 1.93799)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_yjxpi")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_h4wud"), SubResource("StandardMaterial3D_rnuiq"), SubResource("StandardMaterial3D_we5es")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_fjsxl"), SubResource("StandardMaterial3D_2rvnl"), SubResource("StandardMaterial3D_r3nlk")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
 
 [node name="Guest4" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(0.503714, 0, 0.863871, 0, 1, 0, -0.863871, 0, 0.503714, 2.65205, 0.0010355, 1.46768)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_6ncun")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_kkcyv"), SubResource("StandardMaterial3D_knw1n"), SubResource("StandardMaterial3D_p1aw7")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_dpsfu"), SubResource("StandardMaterial3D_bv4v8"), SubResource("StandardMaterial3D_2egxf")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
 
 [node name="Guest5" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(-0.996976, 0, -0.0777108, 0, 1, 0, 0.0777108, 0, -0.996976, -2.1508, 0.0010355, 4.69201)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_w2f2x")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ujpxa"), SubResource("StandardMaterial3D_darvn"), SubResource("StandardMaterial3D_my35g")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_yptni"), SubResource("StandardMaterial3D_d3v1d"), SubResource("StandardMaterial3D_m6hdg")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
 
 [node name="Guest6" parent="Guests" instance=ExtResource("5_ndi8a")]
 transform = Transform3D(0.999956, 0, -0.00938976, 0, 1, 0, 0.00938976, 0, 0.999956, -2.00554, 0.0010355, 3.99759)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_kqpxs")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_n0d84"), SubResource("StandardMaterial3D_sf8sy"), SubResource("StandardMaterial3D_5cmq0")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_jlpl6"), SubResource("StandardMaterial3D_r58ea"), SubResource("StandardMaterial3D_3yd1h")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])

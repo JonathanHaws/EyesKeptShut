@@ -2,8 +2,19 @@ extends Node3D
 @export var mesh: MeshInstance3D
 @export var skeleton: Skeleton3D
 
+@export var masks_bone_attachment: BoneAttachment3D
+
 #@exportsubgroup
+@export var eyes_materials: Array[StandardMaterial3D] = []
 @export var skin_materials: Array[StandardMaterial3D] = []
+@export var underwear_materials: Array[StandardMaterial3D] = []
+@export var undershirt_materials: Array[StandardMaterial3D] = []
+@export var socks_materials: Array[StandardMaterial3D] = []
+
+
+
+
+
 @export var dress_materials: Array[StandardMaterial3D] = []
 @export var hair_materials: Array[StandardMaterial3D] = []
 
@@ -53,7 +64,12 @@ func _ready():
 	mesh.set("blend_shapes/Male", value)
 	male_blend = mesh.get("blend_shapes/Male")
 	
+	
+	set_mesh_material(mesh, eyes_materials, 1)
 	set_mesh_material(mesh, skin_materials, 0)
+	set_mesh_material(mesh, socks_materials, 2)
+	set_mesh_material(mesh, underwear_materials, 2)
+	set_mesh_material(mesh, undershirt_materials, 2)
 	
 	if male_blend == 0.0:
 		hair = add_skinned_mesh_gltf_to_skeleton(female_hair_gltf.pick_random(), skeleton)
@@ -66,5 +82,8 @@ func _ready():
 		add_skinned_mesh_gltf_to_skeleton(male_outfits_gltf.pick_random(), skeleton)
 
 	if hair: set_mesh_material(hair, hair_materials)
+	
+	for child in masks_bone_attachment.get_children():
+		child.set("blend_shapes/Male", male_blend)
 	
 	
