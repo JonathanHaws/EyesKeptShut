@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b30qiap05v184"]
+
+[ext_resource type="FontFile" uid="uid://dshfm8qyr6em8" path="res://pause/Stockport - Serif Personal Use.otf" id="1_73sly"]
+
+[resource]
+default_font = ExtResource("1_73sly")
+default_font_size = 24
+Button/colors/font_color = Color(0.385493, 0.385492, 0.385492, 1)
+Label/colors/font_color = Color(0.741385, 0.741385, 0.741385, 1)
