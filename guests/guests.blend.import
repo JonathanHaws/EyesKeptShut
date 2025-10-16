@@ -57,6 +57,9 @@ _subresources={
 },
 "PATH:metarig/Skeleton3D/female_hair_1": {
 "import/skip_import": true
+},
+"PATH:metarig/Skeleton3D/suit_1": {
+"import/skip_import": true
 }
 }
 }

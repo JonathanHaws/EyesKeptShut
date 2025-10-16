@@ -1,29 +1,39 @@
-[gd_scene load_steps=16 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=17 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://guests/guest.gd" id="1_vhaxy"]
-[ext_resource type="Material" uid="uid://sy2pxcs74jk0" path="res://guests/dresses/materials/blue_dress.tres" id="2_4reb1"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://guests/hair/f_hair1.glb" id="2_4s7mr"]
 [ext_resource type="Script" uid="uid://cqyv4b85w6r3" path="res://guests/target.gd" id="2_j2afm"]
 [ext_resource type="PackedScene" uid="uid://beqcg4mpxtp82" path="res://guests/hair/f_hair2.glb" id="3_ltj53"]
-[ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://guests/dresses/materials/black_dress.tres" id="3_ocwtx"]
 [ext_resource type="PackedScene" uid="uid://bcin7w6n6uiru" path="res://guests/guests.blend" id="3_vhaxy"]
-[ext_resource type="Material" uid="uid://dv6tgfc35hk6s" path="res://guests/dresses/materials/red_dress.tres" id="4_axorh"]
-[ext_resource type="PackedScene" uid="uid://5oo8tgoey4cd" path="res://guests/dresses/dress_1.glb" id="4_hipnf"]
+[ext_resource type="PackedScene" uid="uid://5oo8tgoey4cd" path="res://guests/outfits/dress_1.glb" id="4_hipnf"]
+[ext_resource type="PackedScene" uid="uid://j4sswi017qmr" path="res://guests/outfits/suit_1.glb" id="5_4reb1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q774w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltj53"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w06p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hipnf"]
+resource_local_to_scene = true
+albedo_color = Color(0.51, 0.3417, 0.383775, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4reb1"]
+resource_local_to_scene = true
+albedo_color = Color(0.3952, 0.42848, 0.52, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwtx"]
+resource_local_to_scene = true
+albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axorh"]
 resource_local_to_scene = true
 albedo_color = Color(0.72, 0.43464, 0.4248, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4atgp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7062"]
 resource_local_to_scene = true
 albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmh3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31eai"]
 resource_local_to_scene = true
 albedo_color = Color(0.16, 0.124427, 0.1136, 1)
 
@@ -52,11 +62,13 @@ _data = {
 script = ExtResource("1_vhaxy")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_q774w")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("4_axorh"), ExtResource("2_4reb1"), ExtResource("3_ocwtx")])
-female_dresses_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_1w06p"), SubResource("StandardMaterial3D_4atgp"), SubResource("StandardMaterial3D_atmh3")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ltj53")])
+dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hipnf"), SubResource("StandardMaterial3D_4reb1"), SubResource("StandardMaterial3D_ocwtx")])
+hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_axorh"), SubResource("StandardMaterial3D_n7062"), SubResource("StandardMaterial3D_31eai")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
+male_hair_gltf = Array[PackedScene]([null])
+female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
+male_outfits_gltf = Array[PackedScene]([ExtResource("5_4reb1")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
