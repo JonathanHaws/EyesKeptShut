@@ -5,32 +5,32 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4reb1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7gcc"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwtx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7yp5"]
 resource_local_to_scene = true
 albedo_color = Color(0.3952, 0.42848, 0.52, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axorh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05p0a"]
 resource_local_to_scene = true
 albedo_color = Color(0.51, 0.3417, 0.383775, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7062"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nix8d"]
 resource_local_to_scene = true
 albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31eai"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18v65"]
 resource_local_to_scene = true
 albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqkd8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr4ya"]
 resource_local_to_scene = true
 albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhti6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrnca"]
 resource_local_to_scene = true
 albedo_color = Color(0.72, 0.43464, 0.4248, 1)
 
@@ -45,6 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592147, 0)
 shape = SubResource("BoxShape3D_r7gcc")
 
 [node name="Guest" parent="." instance=ExtResource("2_r7gcc")]
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4reb1")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ocwtx"), SubResource("StandardMaterial3D_axorh"), SubResource("StandardMaterial3D_n7062")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_31eai"), SubResource("StandardMaterial3D_oqkd8"), SubResource("StandardMaterial3D_lhti6")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_r7gcc")])
+dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_o7yp5"), SubResource("StandardMaterial3D_05p0a"), SubResource("StandardMaterial3D_nix8d")])
+hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v65"), SubResource("StandardMaterial3D_pr4ya"), SubResource("StandardMaterial3D_mrnca")])

@@ -1,19 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfkna8eviveaf"]
+[gd_scene load_steps=20 format=3 uid="uid://dfkna8eviveaf"]
 
 [ext_resource type="PackedScene" uid="uid://dgxi6v5gdyebj" path="res://player/player.tscn" id="1_2ipky"]
-[ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_song.gd" id="1_3i3j3"]
-[ext_resource type="Script" uid="uid://b8p8erp3eltc" path="res://pause/toggle.gd" id="1_v5sn2"]
+[ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="1_3i3j3"]
 [ext_resource type="PackedScene" uid="uid://0iravobt04ol" path="res://rooms/starting/room_starting.tscn" id="2_2ipky"]
-[ext_resource type="Script" uid="uid://xt7lp4k1n72h" path="res://pause/restart.gd" id="2_bqb3x"]
-[ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="2_h365a"]
 [ext_resource type="Script" uid="uid://cgliwughelwqf" path="res://dungeon_generator.gd" id="2_sos65"]
-[ext_resource type="Script" uid="uid://drlmwek5j5fu2" path="res://pause/quit.gd" id="3_r2ycf"]
-[ext_resource type="AudioStream" uid="uid://0wuihfc10i2k" path="res://audio/Level Music 2.ogg" id="3_teaka"]
+[ext_resource type="AudioStream" uid="uid://0wuihfc10i2k" path="res://audio/music/Level Music 2.ogg" id="3_teaka"]
+[ext_resource type="AudioStream" uid="uid://c4vnkgti6cl7b" path="res://audio/music/Level Music 3.ogg" id="4_ovqqf"]
 [ext_resource type="PackedScene" uid="uid://btp82fmwrwhyh" path="res://rooms/middle/room_turn_right.tscn" id="4_vhekr"]
 [ext_resource type="PackedScene" uid="uid://4qjxjhthyt12" path="res://rooms/middle/room_turn_left.tscn" id="5_hokdp"]
+[ext_resource type="AudioStream" uid="uid://bfm0a1yic5pmt" path="res://audio/music/Level Music 4.ogg" id="5_r58pa"]
 [ext_resource type="PackedScene" uid="uid://dmlytjqjib184" path="res://rooms/middle/room_fork.tscn" id="6_chle2"]
 [ext_resource type="PackedScene" uid="uid://d346ej2b2u1ep" path="res://rooms/middle/room_stairs_up.tscn" id="7_chle2"]
-[ext_resource type="AudioStream" uid="uid://bc51mxw2qijuv" path="res://audio/Level Music 1.ogg" id="8_srgtr"]
+[ext_resource type="AudioStream" uid="uid://bc51mxw2qijuv" path="res://audio/music/Level Music 1.ogg" id="8_srgtr"]
+[ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="13_r2ycf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk465"]
 size = Vector3(2235.07, 2, 1527.5)
@@ -52,6 +51,7 @@ adjustment_color_correction = SubResource("CurveTexture_srgtr")
 
 [node name="RandomSong" type="Node" parent="." node_paths=PackedStringArray("audio_players")]
 script = ExtResource("1_3i3j3")
+auto_play = true
 audio_players = [NodePath("AudioStreamPlayer"), NodePath("AudioStreamPlayer2")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomSong"]
@@ -61,7 +61,14 @@ bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="RandomSong"]
 stream = ExtResource("3_teaka")
-volume_db = -8.665
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="RandomSong"]
+stream = ExtResource("4_ovqqf")
+bus = &"Music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="RandomSong"]
+stream = ExtResource("5_r58pa")
 bus = &"Music"
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_2ipky")]
@@ -85,45 +92,4 @@ starting_rooms = Array[PackedScene]([ExtResource("2_2ipky")])
 middle_rooms = Array[PackedScene]([ExtResource("6_chle2"), ExtResource("5_hokdp"), ExtResource("4_vhekr"), ExtResource("7_chle2")])
 expansions = 13
 
-[node name="ColorRect" type="ColorRect" parent="."]
-process_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0509804, 0.0509804, 0.0509804, 0.913725)
-script = ExtResource("1_v5sn2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.5
-offset_top = -56.0
-offset_right = 116.5
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_h365a")
-
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "EYES KEPT SHUT"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Restart"
-script = ExtResource("2_bqb3x")
-
-[node name="Quit" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Quit
-"
-script = ExtResource("3_r2ycf")
+[node name="ColorRect" parent="." instance=ExtResource("13_r2ycf")]

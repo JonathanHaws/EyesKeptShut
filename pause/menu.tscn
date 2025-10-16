@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2n4qf764ytnb"]
+
+[ext_resource type="Script" uid="uid://b8p8erp3eltc" path="res://pause/toggle.gd" id="1_iwc58"]
+[ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="2_m5bgr"]
+[ext_resource type="Script" uid="uid://xt7lp4k1n72h" path="res://pause/restart.gd" id="3_rr6mn"]
+[ext_resource type="Script" uid="uid://bnmwighscwt2m" path="res://pause/volume_adjustment.gd" id="4_0q8sd"]
+[ext_resource type="Script" uid="uid://2lqoj4mjgk6j" path="res://pause/window_mode.gd" id="5_i384g"]
+[ext_resource type="Script" uid="uid://drlmwek5j5fu2" path="res://pause/quit.gd" id="6_drxtb"]
+
+[node name="ColorRect" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0509804, 0.0509804, 0.913725)
+script = ExtResource("1_iwc58")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -56.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m5bgr")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_font_sizes/font_size = 26
+text = "EYES KEPT SHUT"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+script = ExtResource("3_rr6mn")
+
+[node name="Master" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Master"]
+layout_mode = 2
+text = "MASTER"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Master"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+script = ExtResource("4_0q8sd")
+bus_name = "Master"
+
+[node name="Music" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Music"]
+layout_mode = 2
+text = "Music "
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Music"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+script = ExtResource("4_0q8sd")
+bus_name = "Music"
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/SFX"]
+layout_mode = 2
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFX"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+script = ExtResource("4_0q8sd")
+bus_name = "SFX"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+selected = 0
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+script = ExtResource("5_i384g")
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit
+"
+script = ExtResource("6_drxtb")

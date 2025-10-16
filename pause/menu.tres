@@ -6,4 +6,4 @@
 default_font = ExtResource("1_73sly")
 default_font_size = 24
 Button/colors/font_color = Color(0.385493, 0.385492, 0.385492, 1)
-Label/colors/font_color = Color(0.741385, 0.741385, 0.741385, 1)
+Label/colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)

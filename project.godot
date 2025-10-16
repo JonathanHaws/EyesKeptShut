@@ -20,16 +20,17 @@ config/icon="uid://t7xujos2rp45"
 
 [audio]
 
-buses/default_bus_layout="uid://tpglduvk2v5n"
+buses/default_bus_layout="uid://c85cv4k56huqk"
 
 [autoload]
 
 Controls="*res://pause/controls.gd"
+Config="*res://pause/config.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
