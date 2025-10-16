@@ -6,4 +6,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if not body.is_in_group("player"): return
+	call_deferred("_reload_scene")
+
+func _reload_scene():
 	get_tree().reload_current_scene()
