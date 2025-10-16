@@ -68,7 +68,9 @@ func expand():
 func genrate(expansion_count: int = 3):
 	for child in get_children(): child.queue_free()
 	add_child(get_starting_room())
-	for i in range(expansion_count): #await get_tree().create_timer(1.0).timeout
+	for i in range(expansion_count): 
+		await get_tree().physics_frame
+		await get_tree().create_timer(0.01).timeout
 		expand()	
 
 func _ready():

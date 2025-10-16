@@ -19,32 +19,32 @@ extends Node3D
 @export var male_outfits_gltf: Array[PackedScene] = []
 var hair
 
-func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, skeleton: Skeleton3D) -> MeshInstance3D:
+func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, target_skeleton: Skeleton3D) -> MeshInstance3D:
 	if gltf_scene == null: return null
 	
 	var instance = gltf_scene.instantiate()
 	add_child(instance)
-	var mesh = instance.get_child(0).get_child(0).get_child(0) as MeshInstance3D
-	mesh.skeleton = skeleton.get_path()
+	var new_mesh = instance.get_child(0).get_child(0).get_child(0) as MeshInstance3D
+	new_mesh.skeleton = target_skeleton.get_path()
 	
-	mesh.mesh = mesh.mesh.duplicate()
+	new_mesh.mesh = new_mesh.mesh.duplicate()
 	
-	var old_global_transform = mesh.global_transform
-	mesh.get_parent().remove_child(mesh)
-	skeleton.add_child(mesh)
-	mesh.global_transform = old_global_transform
+	var old_global_transform = new_mesh.global_transform
+	new_mesh.get_parent().remove_child(new_mesh)
+	target_skeleton.add_child(new_mesh)
+	new_mesh.global_transform = old_global_transform
 	instance.queue_free()
-	return mesh
+	return new_mesh
 
-func set_mesh_material(mesh: MeshInstance3D, materials: Array[StandardMaterial3D], slot: int = -1) -> void:
-	if mesh == null or mesh.mesh == null: return
+func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMaterial3D], slot: int = -1) -> void:
+	if target_mesh == null or target_mesh.mesh == null: return
 	if materials.size() == 0: return
 	var mat = materials[randi() % materials.size()].duplicate()
-	if slot >= 0 and slot < mesh.mesh.get_surface_count():
-		mesh.mesh.surface_set_material(slot, mat)
+	if slot >= 0 and slot < target_mesh.mesh.get_surface_count():
+		target_mesh.mesh.surface_set_material(slot, mat)
 	else:
-		for i in range(mesh.mesh.get_surface_count()):
-			mesh.mesh.surface_set_material(i, mat)
+		for i in range(target_mesh.mesh.get_surface_count()):
+			target_mesh.mesh.surface_set_material(i, mat)
 
 func _ready():
 	var value := male_blend
@@ -61,7 +61,7 @@ func _ready():
 		var female_outfit_mesh = add_skinned_mesh_gltf_to_skeleton(female_outfits_gltf.pick_random(), skeleton)
 		set_mesh_material(female_outfit_mesh, dress_materials)
 	else:
-		hair = add_skinned_mesh_gltf_to_skeleton(male_hair_gltf.pick_random(), skeleton)
+		#hair = add_skinned_mesh_gltf_to_skeleton(male_hair_gltf.pick_random(), skeleton)
 		
 		add_skinned_mesh_gltf_to_skeleton(male_outfits_gltf.pick_random(), skeleton)
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://4qjxjhthyt12"]
 
-[ext_resource type="MeshLibrary" uid="uid://b5qudxwy2gt52" path="res://modular_gridmap/tiles.meshlib" id="2_iseoo"]
+[ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_iseoo"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_msq30"]
 [ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_op4xn"]
 [ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_op4xn"]
@@ -57,7 +57,9 @@ mesh = SubResource("BoxMesh_op4xn")
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Ending" parent="." instance=ExtResource("3_op4xn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37036, 0.671984, 9.44468)
+transform = Transform3D(-0.849672, 0, 0.527312, 0, 1, 0, -0.527312, 0, -0.849672, -2.37036, -0.016488, 9.44468)
 
 [node name="OmniLight3D" parent="." instance=ExtResource("4_op4xn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425457, 1.85051, 3.90404)
+
+[node name="Guests" type="Node3D" parent="."]

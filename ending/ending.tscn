@@ -1,28 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2x4py0bkprgv"]
+[gd_scene load_steps=11 format=3 uid="uid://c2x4py0bkprgv"]
 
 [ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/ending.gd" id="1_lvm68"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhtnl"]
-albedo_color = Color(0.419892, 0.165177, 0.109489, 1)
-emission_enabled = true
-emission = Color(0.419608, 0.164706, 0.109804, 1)
-emission_energy_multiplier = 11.61
-
-[sub_resource type="BoxMesh" id="BoxMesh_lvm68"]
-size = Vector3(0.3, 0.3, 0.3)
+[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://guests/guest.tscn" id="2_r7gcc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4reb1"]
+resource_local_to_scene = true
+albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwtx"]
+resource_local_to_scene = true
+albedo_color = Color(0.3952, 0.42848, 0.52, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axorh"]
+resource_local_to_scene = true
+albedo_color = Color(0.51, 0.3417, 0.383775, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7062"]
+resource_local_to_scene = true
+albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31eai"]
+resource_local_to_scene = true
+albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqkd8"]
+resource_local_to_scene = true
+albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhti6"]
+resource_local_to_scene = true
+albedo_color = Color(0.72, 0.43464, 0.4248, 1)
 
 [node name="Ending" type="Node3D" node_paths=PackedStringArray("trigger_area") groups=["end"]]
 script = ExtResource("1_lvm68")
 trigger_area = NodePath("Area3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_lhtnl")
-mesh = SubResource("BoxMesh_lvm68")
-skeleton = NodePath("")
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592147, 0)
 shape = SubResource("BoxShape3D_r7gcc")
+
+[node name="Guest" parent="." instance=ExtResource("2_r7gcc")]
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4reb1")])
+dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ocwtx"), SubResource("StandardMaterial3D_axorh"), SubResource("StandardMaterial3D_n7062")])
+hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_31eai"), SubResource("StandardMaterial3D_oqkd8"), SubResource("StandardMaterial3D_lhti6")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=18 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -8,34 +8,38 @@
 [ext_resource type="PackedScene" uid="uid://5oo8tgoey4cd" path="res://guests/outfits/dress_1.glb" id="4_hipnf"]
 [ext_resource type="PackedScene" uid="uid://j4sswi017qmr" path="res://guests/outfits/suit_1.glb" id="5_4reb1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltj53"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4reb1"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hipnf"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4reb1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwtx"]
 resource_local_to_scene = true
 albedo_color = Color(0.3952, 0.42848, 0.52, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocwtx"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axorh"]
 resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+albedo_color = Color(0.51, 0.3417, 0.383775, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7062"]
 resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
+albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31eai"]
 resource_local_to_scene = true
-albedo_color = Color(0.16, 0.124427, 0.1136, 1)
+albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqkd8"]
+resource_local_to_scene = true
+albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhti6"]
+resource_local_to_scene = true
+albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4reb1"]
+radius = 0.0938112
+height = 0.876953
 
 [sub_resource type="Animation" id="Animation_7w6bm"]
 resource_name = "POSE_1"
@@ -58,17 +62,20 @@ _data = {
 &"POSE_1": SubResource("Animation_7w6bm")
 }
 
-[node name="Guest" type="Node3D" node_paths=PackedStringArray("mesh", "skeleton")]
+[node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("mesh", "skeleton")]
 script = ExtResource("1_vhaxy")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ltj53")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hipnf"), SubResource("StandardMaterial3D_4reb1"), SubResource("StandardMaterial3D_ocwtx")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_axorh"), SubResource("StandardMaterial3D_n7062"), SubResource("StandardMaterial3D_31eai")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4reb1")])
+dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ocwtx"), SubResource("StandardMaterial3D_axorh"), SubResource("StandardMaterial3D_n7062")])
+hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_31eai"), SubResource("StandardMaterial3D_oqkd8"), SubResource("StandardMaterial3D_lhti6")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
-male_hair_gltf = Array[PackedScene]([null])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
 male_outfits_gltf = Array[PackedScene]([ExtResource("5_4reb1")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444062, 0)
+shape = SubResource("CapsuleShape3D_4reb1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

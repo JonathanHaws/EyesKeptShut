@@ -3,4 +3,5 @@
 [resource]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
+roughness = 0.47
+emission_enabled = true
