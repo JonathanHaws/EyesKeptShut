@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=35 format=4 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
@@ -20,6 +20,28 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt46e"]
 size = Vector3(0.347107, 0.868835, 0.348022)
+
+[sub_resource type="Animation" id="Animation_0wchr"]
+resource_name = "DEATH"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrxv1"]
+_data = {
+&"DEATH": SubResource("Animation_0wchr")
+}
 
 [sub_resource type="Animation" id="Animation_rgyib"]
 resource_name = "Jump"
@@ -221,12 +243,18 @@ cam = NodePath("Camera3D")
 fov_lerp = NodePath("FovLerp")
 audio_anim = NodePath("Audio/AnimationPlayer")
 
-[node name="Hitshape" type="Area3D" parent="."]
+[node name="Hitshape" type="Area3D" parent="." node_paths=PackedStringArray("DEATH_ANIMATION_PLAYER") groups=["player_hitshape"]]
 script = ExtResource("2_0wchr")
+DEATH_ANIMATION_PLAYER = NodePath("Death")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitshape"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00112915, 0.515472, 0.00421143)
 shape = SubResource("BoxShape3D_rt46e")
+
+[node name="Death" type="AnimationPlayer" parent="Hitshape"]
+libraries = {
+&"": SubResource("AnimationLibrary_qrxv1")
+}
 
 [node name="FovLerp" type="Node" parent="." node_paths=PackedStringArray("camera_node")]
 script = ExtResource("2_12xki")
@@ -381,8 +409,7 @@ offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_kb6p2")
-text = "0
-"
+text = "0/3"
 horizontal_alignment = 1
 script = ExtResource("16_rt46e")
 

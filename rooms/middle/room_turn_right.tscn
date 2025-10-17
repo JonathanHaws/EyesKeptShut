@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=11 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
-[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_lgf22"]
+[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/exit.tscn" id="3_lgf22"]
 [ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_lgf22"]
+[ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="5_pclft"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
@@ -23,6 +24,9 @@ size = Vector3(1, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lgf22"]
 size = Vector3(0.25, 1, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aio8d"]
+size = Vector3(8.98067, 1, 2.92328)
 
 [node name="Room" type="Node3D"]
 
@@ -75,3 +79,11 @@ transform = Transform3D(-0.779863, 0, -0.625951, 0, 1, 0, 0.625951, 0, -0.779863
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927687, 2.10336, 7.09527)
 
 [node name="Guests" type="Node3D" parent="."]
+
+[node name="Area3D2" type="Area3D" parent="."]
+script = ExtResource("5_pclft")
+damage = 100000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08581, -3.10825, 5.00392)
+shape = SubResource("BoxShape3D_aio8d")

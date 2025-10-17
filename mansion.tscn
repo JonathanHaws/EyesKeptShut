@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfkna8eviveaf"]
+[gd_scene load_steps=18 format=3 uid="uid://dfkna8eviveaf"]
 
-[ext_resource type="PackedScene" uid="uid://dgxi6v5gdyebj" path="res://actors/player/player.tscn" id="1_2ipky"]
 [ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="1_3i3j3"]
 [ext_resource type="PackedScene" uid="uid://0iravobt04ol" path="res://rooms/starting/room_starting.tscn" id="2_2ipky"]
 [ext_resource type="Script" uid="uid://cgliwughelwqf" path="res://dungeon_generator.gd" id="2_sos65"]
@@ -13,9 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://d346ej2b2u1ep" path="res://rooms/middle/room_stairs_up.tscn" id="7_chle2"]
 [ext_resource type="AudioStream" uid="uid://bc51mxw2qijuv" path="res://audio/music/Level Music 1.ogg" id="8_srgtr"]
 [ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="13_r2ycf"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hk465"]
-size = Vector3(2235.07, 2, 1527.5)
 
 [sub_resource type="Curve" id="Curve_chle2"]
 _data = [Vector2(0, 0.001), 0.0, 0.0561802, 0, 0, Vector2(0.635897, 0.47191), 1.20506, 1.20506, 0, 0, Vector2(1, 0.977528), 1.28895, 0.0, 0, 0]
@@ -74,14 +70,6 @@ bus = &"Music"
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="RandomSong"]
 stream = ExtResource("5_r58pa")
 bus = &"Music"
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_2ipky")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.635, -1, -132.416)
-shape = SubResource("BoxShape3D_hk465")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hk465")

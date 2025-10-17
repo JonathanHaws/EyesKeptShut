@@ -19,7 +19,7 @@ extends Node3D
 @export var AWARENESS_AREA: Area3D ## How close they have to be to give chase. If none is specified its everywhere
 @export var AWARENESS_ANIMATION: String = "Attack" ## Animation to play when they gain awareness
 @export var AWARENESS_ANIM: AnimationPlayer ## Which animation to play awareness animation
-@export var AWARENESS_DISABLED: bool = false ## Determines wether enemy will never give chase
+@export var AWARENESS_DISABLED: bool = true ## Determines wether enemy will never give chase
 
 @export_subgroup("Tracking")
 @export var SPEED = 9.0 ## speed in which target will give chase

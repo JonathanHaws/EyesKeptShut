@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_iseoo"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_msq30"]
-[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/ending.tscn" id="3_op4xn"]
+[ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/exit.tscn" id="3_op4xn"]
 [ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_op4xn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ouih5"]

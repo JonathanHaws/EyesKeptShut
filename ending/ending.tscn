@@ -1,67 +1,214 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2x4py0bkprgv"]
+[gd_scene load_steps=13 format=3 uid="uid://bw6y72sjgf46l"]
 
-[ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/ending.gd" id="1_lvm68"]
-[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_r7gcc"]
+[ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_o7yp5"]
+[ext_resource type="Script" uid="uid://dvdliak3hdm3t" path="res://actors/player/time_taken.gd" id="2_05p0a"]
+[ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="3_nix8d"]
+[ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="4_05p0a"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
+[sub_resource type="Animation" id="Animation_1q7yv"]
+resource_name = "Completed"
+length = 13.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2/VBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.46667, 4.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/TimeTaken:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.43333, 5.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(8.59, -0.875, 0), Vector3(8.59, 2.305, 0)]
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7gcc"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
+[sub_resource type="Animation" id="Animation_w5fwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2/VBoxContainer/TimeTaken:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.59, -1.43, 0)]
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7yp5"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qn5o3"]
+_data = {
+&"Completed": SubResource("Animation_1q7yv"),
+&"RESET": SubResource("Animation_w5fwb")
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05p0a"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
+[sub_resource type="Curve" id="Curve_05p0a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0561798), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nix8d"]
-resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+[sub_resource type="CurveTexture" id="CurveTexture_nix8d"]
+curve = SubResource("Curve_05p0a")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18v65"]
-resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18v65"]
+ground_bottom_color = Color(0.384314, 0.454902, 0.54902, 1)
+ground_curve = 0.226275
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr4ya"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
+[sub_resource type="Sky" id="Sky_pr4ya"]
+sky_material = SubResource("ProceduralSkyMaterial_18v65")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrnca"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+[sub_resource type="Environment" id="Environment_mrnca"]
+background_mode = 2
+sky = SubResource("Sky_pr4ya")
+fog_enabled = true
+fog_density = 0.002
+adjustment_enabled = true
+adjustment_color_correction = SubResource("CurveTexture_nix8d")
 
-[node name="Ending" type="Node3D" node_paths=PackedStringArray("trigger_area") groups=["end"]]
-script = ExtResource("1_lvm68")
-trigger_area = NodePath("Area3D")
+[node name="FinishCutscene" type="Node3D"]
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qn5o3")
+}
+autoplay = "Completed"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592147, 0)
-shape = SubResource("BoxShape3D_r7gcc")
+[node name="ColorRect2" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.0
+offset_top = 246.0
+offset_right = -714.0
+offset_bottom = -364.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.247059)
 
-[node name="Guest" parent="." instance=ExtResource("2_r7gcc")]
-wearing_target_mask = true
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_r7gcc")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_o7yp5"), SubResource("StandardMaterial3D_05p0a"), SubResource("StandardMaterial3D_nix8d")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v65"), SubResource("StandardMaterial3D_pr4ya"), SubResource("StandardMaterial3D_mrnca")])
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -28.0
+offset_right = 156.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AnimationPlayer" parent="Guest" index="1"]
-autoplay = "Guest_1"
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_o7yp5")
+theme_override_colors/font_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_font_sizes/font_size = 26
+text = "Thank you For Playing!"
+horizontal_alignment = 1
 
-[node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
-transform = Transform3D(0.748549, 0.00851635, -0.663025, -1.3411e-07, 0.999918, 0.0128435, 0.66308, -0.00961404, 0.748487, 2.82567e-14, 0.75189, -0.0203926)
-wearing_target_mask = true
+[node name="TimeTaken" type="Label" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_o7yp5")
+theme_override_colors/font_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_font_sizes/font_size = 26
+text = "TIME TAKEN: "
+horizontal_alignment = 1
+script = ExtResource("2_05p0a")
 
-[node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
-blend_shapes/Male = 0.0
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.913725)
 
-[node name="basic_2" parent="Guest/guests/metarig/Skeleton3D/Mask" index="1"]
-blend_shapes/Male = 0.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mrnca")
 
-[editable path="Guest"]
-[editable path="Guest/guests"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.026177, 0.0871259, 0.995853, 0, 0.996195, -0.0871557, -0.999657, 0.00228148, 0.0260774, 8.59, -1.43, 0)
+fov = 25.0
+
+[node name="ending" parent="." instance=ExtResource("3_nix8d")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.620523, -0.579481, 0.52835, 0.253556, 0.785825, 0.564083, -0.742065, -0.21606, 0.634553, 0, 7.32366, 0)
+light_color = Color(0.990871, 0.733807, 0.550533, 1)
+shadow_enabled = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_05p0a")]

@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2x4py0bkprgv"]
+
+[ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/exit.gd" id="1_latt8"]
+[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_hsqxx"]
+
+[sub_resource type="Animation" id="Animation_latt8"]
+resource_name = "exit"
+length = 1.66667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_go_to_next_level"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hsqxx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rn2p6"]
+_data = {
+&"RESET": SubResource("Animation_hsqxx"),
+&"exit": SubResource("Animation_latt8")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_latt8"]
+resource_local_to_scene = true
+albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsqxx"]
+resource_local_to_scene = true
+albedo_color = Color(0.3952, 0.42848, 0.52, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
+resource_local_to_scene = true
+albedo_color = Color(0.51, 0.3417, 0.383775, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
+resource_local_to_scene = true
+albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6kxi"]
+resource_local_to_scene = true
+albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vehme"]
+resource_local_to_scene = true
+albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvi5s"]
+resource_local_to_scene = true
+albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+
+[node name="Ending" type="Node3D" node_paths=PackedStringArray("trigger_area", "anim") groups=["end"]]
+script = ExtResource("1_latt8")
+trigger_area = NodePath("Area3D")
+anim = NodePath("AnimationPlayer")
+scene_file = "uid://bw6y72sjgf46l"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rn2p6")
+}
+autoplay = "RESET"
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592147, 0)
+shape = SubResource("BoxShape3D_r7gcc")
+
+[node name="Guest" parent="." instance=ExtResource("2_hsqxx")]
+wearing_target_mask = true
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_latt8")])
+dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hsqxx"), SubResource("StandardMaterial3D_rn2p6"), SubResource("StandardMaterial3D_6qjqh")])
+hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_y6kxi"), SubResource("StandardMaterial3D_vehme"), SubResource("StandardMaterial3D_pvi5s")])
+
+[node name="AnimationPlayer" parent="Guest" index="1"]
+autoplay = "Guest_1"
+
+[node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
+transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
+wearing_target_mask = true
+
+[node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
+blend_shapes/Male = 0.0
+
+[node name="basic_2" parent="Guest/guests/metarig/Skeleton3D/Mask" index="1"]
+blend_shapes/Male = 0.0
+
+[editable path="Guest"]
+[editable path="Guest/guests"]
