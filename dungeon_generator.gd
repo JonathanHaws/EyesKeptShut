@@ -81,7 +81,8 @@ func _process(_delta):
 	if OS.is_debug_build():
 		if Input.is_action_just_pressed("clear"):
 			genrate(0)
+		if Input.is_action_just_pressed("reload"):
+			Mask.set_random_target()
+			get_tree().reload_current_scene()
 		if Input.is_action_just_pressed("expand"):
 			expand()
-		if Input.is_action_just_pressed("reload"):
-			get_tree().reload_current_scene()
