@@ -50,8 +50,11 @@ skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_r7gc
 dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_o7yp5"), SubResource("StandardMaterial3D_05p0a"), SubResource("StandardMaterial3D_nix8d")])
 hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v65"), SubResource("StandardMaterial3D_pr4ya"), SubResource("StandardMaterial3D_mrnca")])
 
+[node name="AnimationPlayer" parent="Guest" index="1"]
+autoplay = "Guest_1"
+
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
-transform = Transform3D(0.748549, 0.00851633, -0.663025, -1.2666e-07, 0.999918, 0.0128435, 0.66308, -0.00961403, 0.748487, 2.65733e-14, 0.75189, -0.0203925)
+transform = Transform3D(0.748549, 0.00851635, -0.663025, -1.3411e-07, 0.999918, 0.0128435, 0.66308, -0.00961404, 0.748487, 2.82567e-14, 0.75189, -0.0203926)
 wearing_target_mask = true
 
 [node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]

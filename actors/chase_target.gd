@@ -1,4 +1,5 @@
 extends Node3D
+
 @export_subgroup("Navigate")
 @export var NAV_AGENT: NavigationAgent3D 
 @export var MESH: Node3D ## The mesh that has functions to face the target
@@ -16,6 +17,9 @@ extends Node3D
 @export_subgroup("Range")
 @export var STOP_CHASE_AREA: Area3D ## What alerts enemies to give chase. If no area is specified they are omincient and always chase
 @export var AWARENESS_AREA: Area3D ## How close they have to be to give chase. If none is specified its everywhere
+@export var AWARENESS_ANIMATION: String = "Attack" ## Animation to play when they gain awareness
+@export var AWARENESS_ANIM: AnimationPlayer ## Which animation to play awareness animation
+@export var AWARENESS_DISABLED: bool = false ## Determines wether enemy will never give chase
 
 @export_subgroup("Tracking")
 @export var SPEED = 9.0 ## speed in which target will give chase
@@ -76,8 +80,11 @@ func _on_body_exited_stop_area(body: Node) -> void:
 		should_chase = true
 
 func _on_body_entered_awareness(body: Node) -> void:
+	if AWARENESS_DISABLED: return
 	if body.is_in_group(TARGET_GROUP):
 		should_chase = true
+		if AWARENESS_ANIM and AWARENESS_ANIMATION != "":
+			AWARENESS_ANIM.play(AWARENESS_ANIMATION)
 
 func _ready() -> void:
 	if STOP_CHASE_AREA:

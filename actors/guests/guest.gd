@@ -1,4 +1,8 @@
 extends Node3D
+
+@export var start_animation: String = "Guest_1"
+@export var anim: AnimationPlayer
+
 @export var mesh: MeshInstance3D
 @export var skeleton: Skeleton3D
 
@@ -55,6 +59,12 @@ func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMat
 			target_mesh.mesh.surface_set_material(i, mat)
 
 func _ready():
+	
+	if anim and start_animation != "":
+		anim.play(start_animation, 0,1)
+		anim.seek(0, true)
+	
+	
 	var value := male_blend
 	if random_gender:
 		value = randi() % 2

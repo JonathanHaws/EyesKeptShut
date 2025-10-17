@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=4 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=33 format=4 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
 [ext_resource type="Script" uid="uid://cth8bv5rebve0" path="res://actors/player/fov_lerp.gd" id="2_12xki"]
 [ext_resource type="AudioStream" uid="uid://ceynu0f2rn47n" path="res://audio/movement/Footstep 1.ogg" id="2_g6k8r"]
 [ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="2_hg6s5"]
@@ -16,6 +17,9 @@
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="11_2ieo8"]
 [ext_resource type="FontFile" uid="uid://dshfm8qyr6em8" path="res://pause/Stockport - Serif Personal Use.otf" id="13_yllr7"]
 [ext_resource type="Script" uid="uid://c18hagl0ve7b7" path="res://actors/player/masks_collected.gd" id="16_rt46e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt46e"]
+size = Vector3(0.347107, 0.868835, 0.348022)
 
 [sub_resource type="Animation" id="Animation_rgyib"]
 resource_name = "Jump"
@@ -216,6 +220,13 @@ script = ExtResource("1_4flbx")
 cam = NodePath("Camera3D")
 fov_lerp = NodePath("FovLerp")
 audio_anim = NodePath("Audio/AnimationPlayer")
+
+[node name="Hitshape" type="Area3D" parent="."]
+script = ExtResource("2_0wchr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitshape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00112915, 0.515472, 0.00421143)
+shape = SubResource("BoxShape3D_rt46e")
 
 [node name="FovLerp" type="Node" parent="." node_paths=PackedStringArray("camera_node")]
 script = ExtResource("2_12xki")

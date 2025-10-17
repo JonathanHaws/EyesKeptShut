@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=31 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -34,8 +34,24 @@ albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 radius = 0.0938112
 height = 0.876953
 
+[sub_resource type="Animation" id="Animation_7rt5t"]
+resource_name = "Chase"
+length = 0.833338
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("guests/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Run"),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_7w6bm"]
-resource_name = "POSE_1"
+resource_name = "Guest_1"
 length = 1.66667
 loop_mode = 1
 step = 0.0416667
@@ -50,9 +66,55 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_b4h0t"]
+resource_name = "Bodyguard_1"
+length = 1.66667
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("guests/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Idle"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Target:AWARENESS_DISABLED")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fcf65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Target:AWARENESS_DISABLED")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2afm"]
 _data = {
-&"POSE_1": SubResource("Animation_7w6bm")
+&"Bodyguard_1": SubResource("Animation_b4h0t"),
+&"Chase": SubResource("Animation_7rt5t"),
+&"Guest_1": SubResource("Animation_7w6bm"),
+&"RESET": SubResource("Animation_fcf65")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p647i"]
@@ -116,8 +178,9 @@ metadata/extras = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_b4h0t"]
 radius = 2.00056
 
-[node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("mesh", "skeleton", "masks_bone_attachment")]
+[node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("anim", "mesh", "skeleton", "masks_bone_attachment")]
 script = ExtResource("1_vhaxy")
+anim = NodePath("guests/AnimationPlayer")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
@@ -138,11 +201,10 @@ shape = SubResource("CapsuleShape3D_4reb1")
 libraries = {
 &"": SubResource("AnimationLibrary_j2afm")
 }
-autoplay = "POSE_1"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Target" type="Node3D" parent="." node_paths=PackedStringArray("NAV_AGENT", "MESH", "BODY", "AWARENESS_AREA")]
+[node name="Target" type="Node3D" parent="." node_paths=PackedStringArray("NAV_AGENT", "MESH", "BODY", "AWARENESS_AREA", "AWARENESS_ANIM")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78441, 0, 0.867959)
 script = ExtResource("13_b4h0t")
 NAV_AGENT = NodePath("../NavigationAgent3D")
@@ -150,7 +212,9 @@ MESH = NodePath("../guests")
 BODY = NodePath("..")
 FLIPPED_TRACKING = true
 AWARENESS_AREA = NodePath("../Awareness")
-SPEED = 1.0
+AWARENESS_ANIMATION = "Chase"
+AWARENESS_ANIM = NodePath("../AnimationPlayer")
+SPEED = 2.0
 
 [node name="Offset" type="Node3D" parent="Target"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
@@ -158,7 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 [node name="guests" parent="." instance=ExtResource("3_vhaxy")]
 
 [node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("masks")]
-transform = Transform3D(0.748549, 0.00851635, -0.663025, -1.3411e-07, 0.999918, 0.0128435, 0.66308, -0.00961403, 0.748487, 2.65733e-14, 0.75189, -0.0203925)
+transform = Transform3D(0.748549, 0.00851635, -0.663025, -1.3411e-07, 0.999918, 0.0128435, 0.66308, -0.00961404, 0.748487, 2.82567e-14, 0.75189, -0.0203926)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")
@@ -170,14 +234,12 @@ visible = false
 material_override = ExtResource("8_ocwtx")
 mesh = SubResource("ArrayMesh_trjle")
 skeleton = NodePath("")
-blend_shapes/Male = 0.0
 
 [node name="basic_2" type="MeshInstance3D" parent="guests/metarig/Skeleton3D/Mask"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82576e-10, 0.0364215, 0.0501603)
 visible = false
 mesh = SubResource("ArrayMesh_6rkbc")
 skeleton = NodePath("")
-blend_shapes/Male = 0.0
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="2"]
 target_node = NodePath("../../../../Target/Offset")
@@ -192,6 +254,9 @@ primary_limit_angle = 2.32827
 primary_damp_threshold = 1.0
 secondary_limit_angle = 0.955568
 secondary_damp_threshold = 1.0
+
+[node name="AnimationPlayer" parent="guests" index="1"]
+playback_default_blend_time = 0.2
 
 [node name="mask_2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513949, 0, -0.527114)
