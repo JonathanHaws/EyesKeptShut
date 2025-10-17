@@ -379,29 +379,29 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_4atgp"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmh3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4atgp"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmh3"]
 resource_local_to_scene = true
 albedo_color = Color(0.4316, 0.455173, 0.52, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sl4o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -451,38 +451,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33569, 2.06373, -6.0728)
 
 [node name="Guest" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.949069, 0, -0.315069, 0, 1, 0, 0.315069, 0, 0.949069, 3.49382, 0, -6.9479)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4atgp")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_atmh3"), SubResource("StandardMaterial3D_pc6s5")])
 
 [node name="Guest2" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.315417, 0, -0.948953, 0, 1, 0, 0.948953, 0, 0.315417, 4.16655, 0, -6.34929)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_jy176")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_depdm"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_5sl4o")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ekvb4")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_jy176"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_depdm")])
 
 [node name="Guest3" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(-0.0402016, 0, -0.999192, 0, 1, 0, 0.999192, 0, -0.0402016, 4.54153, 0, -2.30062)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_jy176")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_depdm"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_5sl4o")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ekvb4")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_jy176"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_depdm")])
 
 [node name="Guest4" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(-0.723967, 0, 0.689834, 0, 1, 0, -0.689834, 0, -0.723967, -2.41138, 0, 3.22855)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4atgp")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_atmh3"), SubResource("StandardMaterial3D_pc6s5")])
 
 [node name="Guest5" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(-0.356836, 0, 0.934167, 0, 1, 0, -0.934167, 0, -0.356836, -2.48255, 0, 2.03511)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4atgp")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_atmh3"), SubResource("StandardMaterial3D_pc6s5")])
 
 [node name="Guest6" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(-0.356836, 0, 0.934167, 0, 1, 0, -0.934167, 0, -0.356836, -2.21126, 0, -6.01966)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4atgp")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_atmh3"), SubResource("StandardMaterial3D_pc6s5")])
 
 [node name="Guest7" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.994171, 0, 0.107809, 0, 1, 0, -0.107809, 0, 0.994171, -1.89786, 0, -7.21888)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_atmh3")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_pc6s5"), SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_4atgp")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_atmh3"), SubResource("StandardMaterial3D_pc6s5")])
 
 [node name="OmniLight3D2" parent="." instance=ExtResource("3_q774w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818413, 2.38377, 1.71118)

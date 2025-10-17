@@ -16,16 +16,16 @@
 [ext_resource type="Material" uid="uid://cgbsy0bpnn4b6" path="res://guests/hair/materials/brunette.tres" id="7_famnq"]
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://guests/masks/materials/basic_1.tres" id="8_ocwtx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sl4o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -88,9 +88,9 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_jy176")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ekvb4")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_depdm"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_5sl4o")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_jy176"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_depdm")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
