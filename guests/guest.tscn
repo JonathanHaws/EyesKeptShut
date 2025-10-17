@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=26 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -16,16 +16,16 @@
 [ext_resource type="Material" uid="uid://cgbsy0bpnn4b6" path="res://guests/hair/materials/brunette.tres" id="7_famnq"]
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://guests/masks/materials/basic_1.tres" id="8_ocwtx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4wvg"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_famnq"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikuwf"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -82,15 +82,45 @@ metadata/extras = {
 "targetNames": ["Male"]
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p30q3"]
+resource_name = "Mask"
+cull_mode = 2
+albedo_color = Color(0.398188, 0.398188, 0.398188, 1)
+emission_enabled = true
+emission = Color(0.194553, 0.194553, 0.194553, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6rkbc"]
+resource_name = "mask_2_Cube_001"
+_blend_shape_names = PackedStringArray("Male")
+_surfaces = [{
+"aabb": AABB(-0.0506386, -0.0238665, -0.0612611, 0.0969131, 0.0858621, 0.0939044),
+"attribute_data": PackedByteArray("AADAPgAAgD4AACA/AAAAAAAAID/4//89AADAPgAAAAAAAMA+BAAAPgAAwD4AAIA+AADAPgQAAD4AACA/+P//PQAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AAAAAAACAPwAAAAAAAIA/AAAgPwAAgD4AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AACA/AACAPgAAwD4AAIA+AAAAAAAAgD8AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AAMA+AACAPgAAID8AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAAAAAAgD8AAAAAAACAPwAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAID8AAIA+AADAPgAAgD4AACA/AACAPgAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAAAAAAgD8AAMA+AAAAPgAAwD4AAAAAAADAPgAAgD7//78+AACAMwAAwD4AAAA+AQDAPgAAAD4BAMA+AAAAPgAAwD4AAIA+AADAPgAAAAAAAMA+AAAAPgAAwD4AAAA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAAAAAAgD8AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAAAAAAgD8AAMA+AACAPg=="),
+"blend_shapes": PackedByteArray("lm1DPLwDwTyBh7M8MQEPuyrKYz29CYo8CpBKO+TkZz2d/Y48MQEPuwAfnTzptAU9UHfVO8CZpjylfOc8F3eFvLwDwTyBh7M8QDwyvMCZpjylfOc8Nkn0u+TkZz2d/Y48RCAbPJtwQj3K/xI8+m0HPMm/dD1ReJI8H224PBbvfT3axS88dNwCPGJJKj0aNhY8zM2zPD+HRD2Et/M78OMxPDxfEz3SvRA8ck60PITK+zz8jq87M0PhPIiSvDwktPE7Hp8APU+XDT0w9co6lyUOPXTbvzxUcZK7J9wOPTkKcT1gEWY60HT7PBD/Lj2IRSI7Hp8APU+XDT0w9co6Y1c5PVONRz2+PJ68UYo9PYCVbT2ooYS8n/0vPcDmHj35WZ68mFgpPR8E7TxUhHe81ywmPcC/JD3G3lG9h0w6PcBrQj3s2Wm9TbwgvTkKcT1gEWY6iTdLvVONRz2+PJ68d2pPvYCVbT2ooYS8/Qw4vcC/JD3G3lG9rSxMvcBrQj3s2Wm9xd1BvcDmHj35WZ68vQUgvXTbvzxUcZK7vjg7vR8E7TxUhHe8jpoPvRD/Lj2IRSI7RH8SvU+XDT0w9co6GI7XvD+HRD2Et/M7ay3cvBbvfT3axS883KBivJtwQj3K/xI8ku5OvMm/dD1ReJI8DF1KvGJJKj0aNhY8iGR5vDxfEz3SvRA8vg7YvITK+zz8jq87wIECvYiSvDwktPE7RH8SvU+XDT0w9co6RdoWOwgtRT1FE4E8MQEPuwjiPT393Jk8ndvXO1NgTj3iMU08MQEPu+jvGD0BzM88VG7auwgtRT1FE4E8M4EKO7AuHj2pF6M8ykHUu7AuHj2pF6M8Z24zvFNgTj3iMU08MQEPuzCQAz0frQA9YsYGvN/C/zzNWNU8KBd9O9/C/zzNWNU8bAIUvCKzJD06EGw8vFpivHYC+jwFjpE8LuL/vMPS2TxcDLg7r2UovYyoBD34AEG7r2UovYyoBD34AEG7Dq0ovTk+QD0APby450rcvPm8Xz2KGRg86MwWPTk+QD0APby4m4q4PPm8Xz2KGRg8qAOZOyKzJD06EGw8I9oaPHYC+jwFjpE84iHcPMPS2TxcDLg7iYUWPYyoBD34AEG7iYUWPYyoBD34AEG7T7A7ov///z//f0SAA3jdA4WgNWu0h1vw/3/jlv///z9SsFCW////P69PO6L///8/rE9Qlv///z95XzVrSnijDwWqfmj///8/8J/OYemITuraps9s////P3jDQ47///8/VpzxZf///z+2r9Oq////P06mUqn///8/PbZPlv///z/wrZ6D////P6bJfXf///8/wr6he////z/6qNhx////P/CtnoP///8/JdVFbf///z+ozw57////P1zWDGv///8/gdLZdP///z9Z2opX////v1nailf///+/PEGhe////z/ZKkVt////P1YwDnv///8/pSWKV////7+lJYpX////v6IpDGv///8/WDZ9d////z99Ldl0////PwRX2HH///8/DlKeg////z+oY/Fl////PyRZz2z///8/+VV+aP///z8OYM5hFXewFYY8Q47///8/SFDTqv///z+wWVKp////P8FJT5b///8/DlKeg////z9csVCDoI4V/f9/KKDWXwAA7ao3aiGJhO7/f369gEIAAKJOUINecekCMLHioVZJffzOTuKhqLaBAxFVN2rddnoR/391q0JKN/iCUNegOrTnAnyv16DESxf9RkKFlXFPLAJkT+Sm////P3lNWJT///8/EzqQeP///z8TOpB4////P0tBanb///8/tlzfav///z+zvmp2////P0ij32r///8/uL2FlY2w0v2asOSm////P4WyWJT///8/68WQeP///z/rxZB4////Pw=="),
+"format": 34359742487,
+"index_count": 276,
+"index_data": PackedByteArray("LgABAAIALgAvAAEAMAAuAAIAMAACAAkALgAxAC8AMgABAC8AMgAvADEAMgAHAAEALgAzADEAMAAzAC4AMgAxADQANQAHADIANQAyADQANQAoAAcANAAxADYAMwA2ADEANAA2ADcAMwA4ADYANwA2AAMAOAADADYANwADAAYAOAAEAAMAOQA0ADcANQA0ADkAOgA3AAYAOQA3ADoAOgAGAAUANQA5ACkAOQAqACkAOQA6ACoANQApACcAOgAFACwAOgArACoAOgAsADsAOgA7ACsAOwAtACsAOwA8AC0AIQA7ACwAIQA8ADsAIAAhACIAIAA9ACEAHAA9ACAAHAAgAB4AHAAeAB8AHAA+AD0APQAjACQAPQA+ACMAPgAlACMAGwA+ABwAGwAcAB0AJgA+ABsAPgA/ACUAJgA/AD4APwAnACUAKAA/ACYAPwA1ACcAKAA1AD8ACgBAAEEACQAKAEEACgASAEAACQBBADAAQQAIADAAQQAMAAgAQAAMAEEAMAAIAAsAQAATAAwAMAALAEIAMABCADMAQgALAA0AQgA4ADMAQgANAEMAQgBDADgAQwAEADgAQwAAAAQAQwANAA4AQwAPAAAAQwAOAEQAQwBEAA8ARAAOABAARAAQAEUAEQAPAEQAEQBEAEUAFwAYABEAFwARAEYARgAUABMARgATAEAAFQAXAEYAFQBGAEAAFQAZABcAFQAaABkAEgAVAEAAEgAWABUA"),
+"lods": [0.00534296, PackedByteArray("AAABAAIAAAADAAEAAAAEAAMABQABAAMABQADAAYABQAHAAEACAAAAAIACAACAAkACQAKAAgACAALAAAACgAMAAgACwANAAAAAAANAA4AAAAOAA8ADwAOABAADwAQABEAEgAMAAoAEgATAAwAEQATABIAEQAUABMAFQARABIAEgAWABUAFQAXABEAFwAYABEAFQAZABcAFQAaABkAGwAcAB0AHAAeAB8AHAAgAB4AHAAhACAAHAAbACEAIAAhACIAIQAbACMAIQAjACQAGwAlACMAGwAmACUAJgAnACUAKAAnACYAJwAoAAcAJwAHAAUAJwAFACkAKQAFACoABQArACoABQAsACsALAAtACsALAAhAC0A")],
+"material": SubResource("StandardMaterial3D_p30q3"),
+"name": "Mask",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 71,
+"vertex_data": PackedByteArray("lm1DPASfn7xwYZE8MQEPuyjjTTxYx088CpBKOxBOXjwYr1k8MQEPu8CDw7zBQ+k8UHfVOwAJuryUVsU8F3eFvASfn7xwYZE8QDwyvAAJuryUVsU8Nkn0uxBOXjwYr1k8RCAbPNj5kDtQZ507+m0HPNLciDyApGA8H224PGw7mzxw89Y7dNwCPMD/wLrw06M7zM2zPPiuoTuAPlY78OMxPCCR57tg45g7ck60PHiwSbzg2ps6M0PhPDgQpLzAN1I7Hp8APUToCrzwtSu7lyUOPUzHoLzMhA28J9wOPbJxgTwwrFe70HT7PAAoqbkA1t26Hp8APUToCrzwtSu7Y1c5PZjfuTvPYsC8UYo9PYAQdTy5x6a8n/0vPQBVi7sKgMC8mFgpPUI9Z7w76J281ywmPQAaObvQ8WK9h0w6PQDTkDv07Hq9TbwgvbJxgTwwrFe7iTdLvZjfuTvPYsC8d2pPvYAQdTy5x6a8/Qw4vQAaObvQ8WK9rSxMvQDTkDv07Hq9xd1BvQBVi7sKgMC8vQUgvUzHoLzMhA28vjg7vUI9Z7w76J28jpoPvQAoqbkA1t26RH8SvUToCrzwtSu7GI7XvPiuoTuAPlY7ay3cvGw7mzxw89Y73KBivNj5kDtQZ507ku5OvNLciDyApGA8DF1KvMD/wLrw06M7iGR5vCCR57tg45g7vg7YvHiwSbzg2ps6wIECvTgQpLzAN1I7RH8SvUToCrzwtSu7RdoWO0Ddpjto2j08MQEPu4AKWTvYbW88ndvXO5h38DvA5Qg8MQEPu8ALu7vwpa08VG7au0Ddpjto2j08M4EKO4AVkbuY8YA8ykHUu4AVkbuY8YA8Z24zvJh38DvA5Qg8MQEPu8AEM7wtNN88YsYGvMK/Qby8MrM8KBd9O8K/Qby8MrM8bAIUvODjObsYxCc8vFpivJRATbzoz148LuL/vP3Phrxg0L06r2UovVCjLrzAGOm7r2UovVCjLrzAGOm7Dq0ovZDNfjs4iYu750rcvGSuPTzQmqc76MwWPZDNfjs4iYu7m4q4PGSuPTzQmqc7qAOZO+DjObsYxCc8I9oaPJRATbzoz1484iHcPP3Phrxg0L06iYUWPVCjLrzAGOm7iYUWPVCjLrzAGOm7T7A7ov///z//f0SAA3jdA4WgNWu0h1vw/3/jlv///z9SsFCW////P69PO6L///8/rE9Qlv///z95XzVrSnijDwWqfmj///8/8J/OYemITuraps9s////P3jDQ47///8/VpzxZf///z+2r9Oq////P06mUqn///8/PbZPlv///z/wrZ6D////P6bJfXf///8/wr6he////z/6qNhx////P/CtnoP///8/JdVFbf///z+ozw57////P1zWDGv///8/gdLZdP///z9Z2opX////v1nailf///+/PEGhe////z/ZKkVt////P1YwDnv///8/pSWKV////7+lJYpX////v6IpDGv///8/WDZ9d////z99Ldl0////PwRX2HH///8/DlKeg////z+oY/Fl////PyRZz2z///8/+VV+aP///z8OYM5hFXewFYY8Q47///8/SFDTqv///z+wWVKp////P8FJT5b///8/DlKeg////z9csVCDoI4V/f9/KKDWXwAA7ao3aiGJhO7/f369gEIAAKJOUINecekCMLHioVZJffzOTuKhqLaBAxFVN2rddnoR/391q0JKN/iCUNegO7TnAnyv16DDSxf9RkKFlXFPLAJkT+Sm////P3lNWJT///8/EzqQeP///z8TOpB4////P0tBanb///8/tlzfav///z+zvmp2////P0ij32r///8/uL2FlY2w0v2asOSm////P4WyWJT///8/68WQeP///z/rxZB4////Pw==")
+}]
+blend_shape_mode = 0
+metadata/extras = {
+"targetNames": ["Male"]
+}
+
 [node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("mesh", "skeleton", "masks_bone_attachment")]
 script = ExtResource("1_vhaxy")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_ekvb4")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_d4wvg")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_jy176"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_depdm")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_famnq"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_ikuwf")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
@@ -121,10 +151,18 @@ bone_name = "spine.006"
 bone_idx = 6
 
 [node name="basic_1" type="MeshInstance3D" parent="guests/metarig/Skeleton3D/Mask"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47791e-09, 0.0345768, 0.0464384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000768903, 0.0345768, 0.0464384)
+visible = false
 material_override = ExtResource("8_ocwtx")
 mesh = SubResource("ArrayMesh_trjle")
 skeleton = NodePath("")
+
+[node name="basic_2" type="MeshInstance3D" parent="guests/metarig/Skeleton3D/Mask"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82576e-10, 0.0364215, 0.0501603)
+visible = false
+mesh = SubResource("ArrayMesh_6rkbc")
+skeleton = NodePath("")
+blend_shapes/Male = 0.0
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="2"]
 target_node = NodePath("../../../../Target/Offset")
@@ -139,5 +177,8 @@ primary_limit_angle = 2.32827
 primary_damp_threshold = 1.0
 secondary_limit_angle = 0.955568
 secondary_damp_threshold = 1.0
+
+[node name="mask_2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513949, 0, -0.527114)
 
 [editable path="guests"]

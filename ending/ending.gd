@@ -9,4 +9,5 @@ func _on_body_entered(body):
 	call_deferred("_reload_scene")
 
 func _reload_scene():
+	Mask.set_random_target()
 	get_tree().reload_current_scene()

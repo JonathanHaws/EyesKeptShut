@@ -52,6 +52,9 @@ _subresources={
 "PATH:basic_1": {
 "import/skip_import": true
 },
+"PATH:basic_2": {
+"import/skip_import": true
+},
 "PATH:metarig/Skeleton3D/dress_1": {
 "import/skip_import": true
 },

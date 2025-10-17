@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://c85cv4k56huqk"
 
 Controls="*res://pause/controls.gd"
 Config="*res://pause/config.gd"
+Mask="*res://guests/masks/mask_global.gd"
 
 [display]
 

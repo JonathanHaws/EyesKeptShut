@@ -2,6 +2,7 @@ extends Node3D
 @export var mesh: MeshInstance3D
 @export var skeleton: Skeleton3D
 
+@export var wearing_target_mask: bool = false
 @export var masks_bone_attachment: BoneAttachment3D
 
 #@exportsubgroup
@@ -10,10 +11,6 @@ extends Node3D
 @export var underwear_materials: Array[StandardMaterial3D] = []
 @export var undershirt_materials: Array[StandardMaterial3D] = []
 @export var socks_materials: Array[StandardMaterial3D] = []
-
-
-
-
 
 @export var dress_materials: Array[StandardMaterial3D] = []
 @export var hair_materials: Array[StandardMaterial3D] = []
@@ -83,7 +80,22 @@ func _ready():
 
 	if hair: set_mesh_material(hair, hair_materials)
 	
+
+	
+	var masks = masks_bone_attachment.get_children()
+	var normalized_index = Mask.target_index % masks.size() # Normalize inside size of array
+	var random_index = randi() % masks.size()
+	if random_index == normalized_index:
+		random_index = (random_index + 1) % masks.size()
+	
+	if wearing_target_mask: masks[normalized_index].visible = true
+	else: masks[random_index].visible = true
+	
+	for i in range(masks.size()):
+		var mask = masks[i]
+		if not mask.visible: mask.queue_free()
+	
+
 	for child in masks_bone_attachment.get_children():
 		child.set("blend_shapes/Male", male_blend)
-	
 	

@@ -12,6 +12,7 @@ func _ready():
 func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("god_mode") and player:
+		old_player_position = player.global_position
 		god_mode = !god_mode
 		if god_mode:
 			player.set_collision_layer(0)

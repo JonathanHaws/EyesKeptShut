@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.592147, 0)
 shape = SubResource("BoxShape3D_r7gcc")
 
 [node name="Guest" parent="." instance=ExtResource("2_r7gcc")]
+wearing_target_mask = true
 skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_r7gcc")])
 dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_o7yp5"), SubResource("StandardMaterial3D_05p0a"), SubResource("StandardMaterial3D_nix8d")])
 hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v65"), SubResource("StandardMaterial3D_pr4ya"), SubResource("StandardMaterial3D_mrnca")])

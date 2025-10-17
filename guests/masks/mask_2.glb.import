@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btbs51gqs1xny"
-path="res://.godot/imported/guests.fbx-44fa3678024af1408c21b540085560b0.scn"
+uid="uid://1ptnajqxt8dh"
+path="res://.godot/imported/mask_2.glb-d1c2d78fa76507a73d8f142ae4c17865.scn"
 
 [deps]
 
-source_file="res://guests/guests.fbx"
-dest_files=["res://.godot/imported/guests.fbx-44fa3678024af1408c21b540085560b0.scn"]
+source_file="res://guests/masks/mask_2.glb"
+dest_files=["res://.godot/imported/mask_2.glb-d1c2d78fa76507a73d8f142ae4c17865.scn"]
 
 [params]
 
@@ -28,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1
