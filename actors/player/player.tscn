@@ -1,36 +1,21 @@
-[gd_scene load_steps=28 format=4 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=31 format=4 uid="uid://dgxi6v5gdyebj"]
 
-[ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cth8bv5rebve0" path="res://actors/player/fov_lerp.gd" id="2_12xki"]
 [ext_resource type="AudioStream" uid="uid://ceynu0f2rn47n" path="res://audio/movement/Footstep 1.ogg" id="2_g6k8r"]
 [ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="2_hg6s5"]
-[ext_resource type="Script" uid="uid://cvrqbeennkyhn" path="res://player/god_mode.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://c5sgctkaajppp" path="res://actors/player/play_time_tracker.gd" id="2_kb6p2"]
+[ext_resource type="Script" uid="uid://cvrqbeennkyhn" path="res://actors/player/god_mode.gd" id="2_rkbax"]
 [ext_resource type="AudioStream" uid="uid://hwtw25a3882c" path="res://audio/movement/Footstep 2.ogg" id="3_boad6"]
 [ext_resource type="AudioStream" uid="uid://st2e3y6ell24" path="res://audio/movement/Footstep 3.ogg" id="4_rgyib"]
 [ext_resource type="AudioStream" uid="uid://ch5n8mex2hrhx" path="res://audio/movement/Footstep 4.ogg" id="5_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://ew0q2j6jmwyv" path="res://audio/movement/Jump 1.ogg" id="6_rgyib"]
 [ext_resource type="AudioStream" uid="uid://y5h0ifhscjh1" path="res://audio/movement/Jump 2.ogg" id="7_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://dsne4h8vqjin8" path="res://audio/movement/Thud.ogg" id="9_8t03j"]
-[ext_resource type="Script" uid="uid://413cswlm72ca" path="res://guests/show_correct_mask.gd" id="10_ebec5"]
-[ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://guests/masks/materials/basic_1.tres" id="11_2ieo8"]
+[ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="10_ebec5"]
+[ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="11_2ieo8"]
 [ext_resource type="FontFile" uid="uid://dshfm8qyr6em8" path="res://pause/Stockport - Serif Personal Use.otf" id="13_yllr7"]
-
-[sub_resource type="Animation" id="Animation_8t03j"]
-resource_name = "Run"
-length = 0.2145
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/Footsteps")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_play"
-}]
-}
+[ext_resource type="Script" uid="uid://c18hagl0ve7b7" path="res://actors/player/masks_collected.gd" id="16_rt46e"]
 
 [sub_resource type="Animation" id="Animation_rgyib"]
 resource_name = "Jump"
@@ -63,6 +48,24 @@ tracks/0/keys = {
 "values": [{
 "args": [0.0],
 "method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "Run"
+length = 0.2145
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
 }]
 }
 
@@ -205,13 +208,21 @@ _data = {
 &"RESET": SubResource("Animation_g1dw6")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "audio_anim") groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "fov_lerp", "audio_anim") groups=["player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_4flbx")
 cam = NodePath("Camera3D")
+fov_lerp = NodePath("FovLerp")
 audio_anim = NodePath("Audio/AnimationPlayer")
+
+[node name="FovLerp" type="Node" parent="." node_paths=PackedStringArray("camera_node")]
+script = ExtResource("2_12xki")
+camera_node = NodePath("../Camera3D")
+
+[node name="PlayTimeTracker" type="Node" parent="."]
+script = ExtResource("2_kb6p2")
 
 [node name="Audio" type="Node" parent="."]
 
@@ -324,7 +335,7 @@ grow_horizontal = 0
 layout_mode = 0
 offset_left = -263.0
 offset_right = 3.0
-offset_bottom = 174.0
+offset_bottom = 206.0
 color = Color(0, 0, 0, 0.615686)
 
 [node name="TextureRect" type="TextureRect" parent="TargetUI"]
@@ -337,12 +348,32 @@ texture = SubResource("ViewportTexture_yllr7")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="TargetUI"]
+layout_mode = 0
 offset_left = -230.0
 offset_top = 26.0
 offset_right = -27.0
 offset_bottom = 50.0
 theme = SubResource("Theme_kb6p2")
 text = "FIND THE WEARER!"
+
+[node name="Label2" type="Label" parent="TargetUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 161.0
+offset_right = -89.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kb6p2")
+text = "0
+"
+horizontal_alignment = 1
+script = ExtResource("16_rt46e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

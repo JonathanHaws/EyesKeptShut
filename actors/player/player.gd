@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export var gravity := 9.8
 var was_on_floor := true
 
+@export var fov_lerp := Node
+
 @export var audio_anim: AnimationPlayer
 
 var pitch := 0.0
@@ -50,6 +52,13 @@ func _physics_process(_d):
 	if is_on_floor():
 		if velocity.length() > 0.2:
 			audio_anim.play("Run")
+	
+	if velocity.length() == 0:
+		fov_lerp.target_fov = 80 # Idle
+	elif velocity.length() > speed:
+		fov_lerp.target_fov = 90 # Sprint
+	else:
+		fov_lerp.target_fov = 85 # Walk
 	
 	var on_floor_now = is_on_floor()
 	if not was_on_floor and on_floor_now:

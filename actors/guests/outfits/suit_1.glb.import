@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://by2x8lphlm02n"
-path="res://.godot/imported/f_hair1.glb-b8686e4de509d04bc8c872852da0e728.scn"
+uid="uid://j4sswi017qmr"
+path="res://.godot/imported/suit_1.glb-0d318f9aa92096662d7d80271114afad.scn"
 
 [deps]
 
-source_file="res://guests/hair/f_hair1.glb"
-dest_files=["res://.godot/imported/f_hair1.glb-b8686e4de509d04bc8c872852da0e728.scn"]
+source_file="res://actors/guests/outfits/suit_1.glb"
+dest_files=["res://.godot/imported/suit_1.glb-0d318f9aa92096662d7d80271114afad.scn"]
 
 [params]
 

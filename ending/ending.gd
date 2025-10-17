@@ -9,5 +9,7 @@ func _on_body_entered(body):
 	call_deferred("_reload_scene")
 
 func _reload_scene():
+	if not Save.data.has("Masks_collected"): Save.data["Masks_collected"] = 0
+	Save.data["Masks_collected"] += 1
 	Mask.set_random_target()
 	get_tree().reload_current_scene()

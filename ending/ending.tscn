@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2x4py0bkprgv"]
 
 [ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/ending.gd" id="1_lvm68"]
-[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://guests/guest.tscn" id="2_r7gcc"]
+[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_r7gcc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7gcc"]
 
@@ -53,9 +53,6 @@ hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v6
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
 transform = Transform3D(0.748549, 0.00851633, -0.663025, -1.2666e-07, 0.999918, 0.0128435, 0.66308, -0.00961403, 0.748487, 2.65733e-14, 0.75189, -0.0203925)
 wearing_target_mask = true
-
-[node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
-blend_shapes/Male = 0.0
 
 [editable path="Guest"]
 [editable path="Guest/guests"]
