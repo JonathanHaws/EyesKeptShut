@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=28 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
 [ext_resource type="Material" uid="uid://dcmcftp3gxhi2" path="res://actors/guests/body/eyes/eyes.tres" id="2_06uk3"]
 [ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://actors/guests/outfits/materials/black_dress.tres" id="2_31eai"]
-[ext_resource type="Script" uid="uid://cqyv4b85w6r3" path="res://actors/guests/target.gd" id="2_j2afm"]
 [ext_resource type="Material" uid="uid://4abqal1ncp7w" path="res://actors/guests/body/socks/socks.tres" id="3_d4wvg"]
 [ext_resource type="PackedScene" uid="uid://beqcg4mpxtp82" path="res://actors/guests/hair/f_hair2.glb" id="3_ltj53"]
 [ext_resource type="PackedScene" uid="uid://bcin7w6n6uiru" path="res://actors/guests/guests.blend" id="3_vhaxy"]
@@ -15,6 +14,7 @@
 [ext_resource type="Material" uid="uid://dqnj6enwpgvih" path="res://actors/guests/hair/materials/ginger.tres" id="6_d4wvg"]
 [ext_resource type="Material" uid="uid://cgbsy0bpnn4b6" path="res://actors/guests/hair/materials/brunette.tres" id="7_famnq"]
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="8_ocwtx"]
+[ext_resource type="Script" uid="uid://dnj101c6tvouo" path="res://actors/chase_target.gd" id="13_b4h0t"]
 [ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="15_famnq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4h0t"]
@@ -113,6 +113,9 @@ metadata/extras = {
 "targetNames": ["Male"]
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_b4h0t"]
+radius = 2.00056
+
 [node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("mesh", "skeleton", "masks_bone_attachment")]
 script = ExtResource("1_vhaxy")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
@@ -137,9 +140,17 @@ libraries = {
 }
 autoplay = "POSE_1"
 
-[node name="Target" type="Node3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Target" type="Node3D" parent="." node_paths=PackedStringArray("NAV_AGENT", "MESH", "BODY", "AWARENESS_AREA")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78441, 0, 0.867959)
-script = ExtResource("2_j2afm")
+script = ExtResource("13_b4h0t")
+NAV_AGENT = NodePath("../NavigationAgent3D")
+MESH = NodePath("../guests")
+BODY = NodePath("..")
+FLIPPED_TRACKING = true
+AWARENESS_AREA = NodePath("../Awareness")
+SPEED = 1.0
 
 [node name="Offset" type="Node3D" parent="Target"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
@@ -147,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 [node name="guests" parent="." instance=ExtResource("3_vhaxy")]
 
 [node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("masks")]
-transform = Transform3D(1, 5.32907e-15, -9.9476e-14, -1.91847e-13, 1, -1.78814e-07, 5.68434e-14, 2.98023e-08, 1, 2.65733e-14, 0.75189, -0.0203925)
+transform = Transform3D(0.748549, 0.00851635, -0.663025, -1.3411e-07, 0.999918, 0.0128435, 0.66308, -0.00961403, 0.748487, 2.65733e-14, 0.75189, -0.0203925)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")
@@ -159,12 +170,14 @@ visible = false
 material_override = ExtResource("8_ocwtx")
 mesh = SubResource("ArrayMesh_trjle")
 skeleton = NodePath("")
+blend_shapes/Male = 0.0
 
 [node name="basic_2" type="MeshInstance3D" parent="guests/metarig/Skeleton3D/Mask"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82576e-10, 0.0364215, 0.0501603)
 visible = false
 mesh = SubResource("ArrayMesh_6rkbc")
 skeleton = NodePath("")
+blend_shapes/Male = 0.0
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="2"]
 target_node = NodePath("../../../../Target/Offset")
@@ -182,5 +195,10 @@ secondary_damp_threshold = 1.0
 
 [node name="mask_2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513949, 0, -0.527114)
+
+[node name="Awareness" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Awareness"]
+shape = SubResource("SphereShape3D_b4h0t")
 
 [editable path="guests"]

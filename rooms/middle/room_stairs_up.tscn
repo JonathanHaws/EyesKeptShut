@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d346ej2b2u1ep"]
+[gd_scene load_steps=7 format=3 uid="uid://d346ej2b2u1ep"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="1_taa0s"]
+[ext_resource type="NavigationMesh" uid="uid://c7a46inh7hqf2" path="res://modular_gridmap/navigation_mesh.tres" id="1_xvlgr"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="2_xvlgr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_taa0s"]
@@ -23,7 +24,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01429, 1.96152, -7.02077)
 shape = SubResource("BoxShape3D_taa0s")
 debug_color = Color(0.878431, 0.584314, 0.278431, 1)
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("1_xvlgr")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
 mesh_library = ExtResource("1_taa0s")
 data = {

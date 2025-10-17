@@ -54,5 +54,11 @@ hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_18v6
 transform = Transform3D(0.748549, 0.00851633, -0.663025, -1.2666e-07, 0.999918, 0.0128435, 0.66308, -0.00961403, 0.748487, 2.65733e-14, 0.75189, -0.0203925)
 wearing_target_mask = true
 
+[node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
+blend_shapes/Male = 0.0
+
+[node name="basic_2" parent="Guest/guests/metarig/Skeleton3D/Mask" index="1"]
+blend_shapes/Male = 0.0
+
 [editable path="Guest"]
 [editable path="Guest/guests"]

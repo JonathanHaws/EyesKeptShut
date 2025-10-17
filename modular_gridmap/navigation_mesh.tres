@@ -1,0 +1,12 @@
+[gd_resource type="NavigationMesh" format=3 uid="uid://c7a46inh7hqf2"]
+
+[resource]
+vertices = PackedVector3Array(-3, 4.2, -7.9, -3, 4.2, 4, 4.9, 4.3, 4, 4.9, 4.3, -7.9, -1.1, 0.2, -7.7, -2.7, 0.2, -7.7, -2.8, 0.2, -5.9, 4.7, 0.2, -7.7, -1, 0.2, -7.9, -2.7, 0.2, 3.7, 4.7, 0.2, 3.7, 4.8, 0.2, 2)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(7, 4, 8), PackedInt32Array(4, 7, 6), PackedInt32Array(6, 7, 11), PackedInt32Array(6, 11, 10), PackedInt32Array(6, 10, 9)]
+cell_size = 0.1
+cell_height = 0.1
+border_size = 0.1
+agent_height = 0.1
+agent_radius = 0.1
+region_min_size = 2.68
+region_merge_size = 69.55
