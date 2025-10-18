@@ -50,13 +50,13 @@ _data = {
 &"DEATH": SubResource("Animation_0wchr")
 }
 
-[sub_resource type="Animation" id="Animation_8t03j"]
-resource_name = "Run"
-length = 0.2145
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "Jump"
+length = 0.001
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/Footsteps")
+tracks/0/path = NodePath("Audio/Jump")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,13 +86,13 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_rgyib"]
-resource_name = "Jump"
-length = 0.001
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "Run"
+length = 0.2145
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/Jump")
+tracks/0/path = NodePath("Audio/Footsteps")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -109,6 +109,24 @@ _data = {
 &"Jump": SubResource("Animation_rgyib"),
 &"Land": SubResource("Animation_hg6s5"),
 &"Run": SubResource("Animation_8t03j")
+}
+
+[sub_resource type="Animation" id="Animation_lj3dd"]
+resource_name = "Reload"
+length = 0.02
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reload")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_icg72"]
@@ -140,24 +158,6 @@ tracks/1/keys = {
 "values": [{
 "args": [0.05, 0.0],
 "method": &"impact"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_lj3dd"]
-resource_name = "Reload"
-length = 0.02
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Reload")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_play"
 }]
 }
 

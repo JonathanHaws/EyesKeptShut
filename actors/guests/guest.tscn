@@ -393,7 +393,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 [node name="guests" parent="." instance=ExtResource("3_vhaxy")]
 
 [node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("masks")]
-transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
+transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.79397e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")
