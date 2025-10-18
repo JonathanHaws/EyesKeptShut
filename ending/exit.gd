@@ -1,5 +1,5 @@
 extends Node3D
-@export var trigger_area: Area3D
+@export var guest: Node
 @export var anim: AnimationPlayer
 @export var animation: String = "exit"
 
@@ -7,12 +7,11 @@ extends Node3D
 @export_file("*.tscn") var ending_scene_file: String
 
 func _ready():
-	trigger_area.body_entered.connect(_on_body_entered)
+	if is_instance_valid(guest):
+		guest.connect("tree_exited", Callable(self, "_guest_killed"))
 
-func _on_body_entered(body):
-	if not body.is_in_group("player"): return
+func _guest_killed():
 	anim.play(animation)
-	
 	
 func _go_to_next_level():
 	call_deferred("_reload_scene")

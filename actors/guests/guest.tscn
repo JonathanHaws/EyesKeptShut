@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=42 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -27,16 +27,16 @@
 [ext_resource type="Material" uid="uid://5beu6pu455xf" path="res://actors/guests/masks/materials/mask_3.tres" id="25_77q5o"]
 [ext_resource type="Material" uid="uid://bc2exa1ma52k5" path="res://actors/guests/masks/materials/mask_1.tres" id="26_vpj3f"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7ddy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwux2"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnf6t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77q5o"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cuou"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpj3f"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -136,6 +136,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitshape/Vengeance:venge_increase")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5]
+}
 
 [sub_resource type="Animation" id="Animation_7rt5t"]
 resource_name = "Chase"
@@ -204,6 +216,18 @@ tracks/0/keys = {
 "clips": PackedStringArray("Idle"),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitshape/Vengeance:venge_increase")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3]
+}
 
 [sub_resource type="Animation" id="Animation_fcf65"]
 length = 0.001
@@ -255,12 +279,53 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitshape/Vengeance:venge_increase")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_hwux2"]
+resource_name = "Leader_1"
+length = 1.66667
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("guests/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Idle"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitshape/Vengeance:venge_increase")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2afm"]
 _data = {
 &"Bodyguard_1": SubResource("Animation_b4h0t"),
 &"Chase": SubResource("Animation_7rt5t"),
 &"Guest_1": SubResource("Animation_7w6bm"),
+&"Leader_1": SubResource("Animation_hwux2"),
 &"RESET": SubResource("Animation_fcf65")
 }
 
@@ -277,9 +342,9 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_n7ddy")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hwux2")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_tnf6t"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_6cuou")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_77q5o"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_vpj3f")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
@@ -368,16 +433,14 @@ primary_damp_threshold = 1.0
 secondary_limit_angle = 0.348542
 secondary_damp_threshold = 1.0
 
-[node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="1" node_paths=PackedStringArray("masks", "mask_parent", "look_at_modifier")]
+[node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="1" node_paths=PackedStringArray("masks", "mask_parent")]
 transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")
 masks = NodePath(".")
-wearing_target_mask = null
 mask_parent = NodePath("../../..")
 mask_scenes = Array[PackedScene]([ExtResource("21_tnf6t"), ExtResource("22_6cuou"), ExtResource("23_jsbfx")])
-look_at_modifier = NodePath("../LookAtModifier3D")
 mask_materials = Array[StandardMaterial3D]([ExtResource("26_vpj3f"), ExtResource("24_hwux2"), ExtResource("25_77q5o")])
 
 [node name="AnimationPlayer" parent="guests" index="1"]

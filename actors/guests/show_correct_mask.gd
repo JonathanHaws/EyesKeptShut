@@ -1,17 +1,12 @@
-extends Node
+extends Node3D
 @export var masks: Node3D
 @export var wearing_target_mask: bool = false
 @export var mask_parent: Node3D
 @export var mask_scenes: Array[PackedScene] = []
-@export var look_at_modifier: LookAtModifier3D
 @export var mask_materials: Array[StandardMaterial3D] = []
 var mask
 
 func _ready():
-
-	var old_influence = 1.0 # bandaid fix look at modifier messing up initial placement 
-	if look_at_modifier:
-		look_at_modifier.influence 
 
 	if not mask_scenes.size() > 0: return
 
@@ -31,6 +26,7 @@ func _ready():
 	mask.owner = null
 	add_child(mask)
 	mask.global_transform = mask_parent.global_transform
+	mask.global_transform.basis = global_transform.basis
 
 	if mask_materials.size() > 0:
 		if wearing_target_mask:
@@ -43,8 +39,4 @@ func _ready():
 			var surface_count = mask.mesh.get_surface_count()
 			for i in range(surface_count):
 				mask.set_surface_override_material(i, mask_materials[randi() % mask_materials.size()])
-	
-	if look_at_modifier:
-		look_at_modifier.influence = old_influence
-
 	
