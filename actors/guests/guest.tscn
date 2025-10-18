@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=33 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -16,17 +16,18 @@
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="8_ocwtx"]
 [ext_resource type="Script" uid="uid://dnj101c6tvouo" path="res://actors/chase_target.gd" id="13_b4h0t"]
 [ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="15_famnq"]
+[ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="17_fcf65"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4h0t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf65"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf65"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxrhj"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxrhj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rt5t"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -61,6 +62,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Target:TRACKING_MULTIPLIER")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_7rt5t"]
 resource_name = "Chase"
@@ -75,7 +88,43 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": PackedStringArray("Run"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.0416667)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Target:TRACKING_MULTIPLIER")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Target:TRACKING_SPEED")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CaughtPlayer/CollisionShape3D:disabled")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7w6bm"]
@@ -105,8 +154,44 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Target:TRACKING_MULTIPLIER")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Target:TRACKING_SPEED")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CaughtPlayer/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2afm"]
@@ -178,6 +263,9 @@ metadata/extras = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_b4h0t"]
 radius = 2.00056
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4h0t"]
+size = Vector3(0.222733, 0.366329, 0.326279)
+
 [node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("anim", "mesh", "skeleton", "masks_bone_attachment")]
 script = ExtResource("1_vhaxy")
 anim = NodePath("AnimationPlayer")
@@ -185,9 +273,9 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_b4h0t")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_fcf65")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_fcf65"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_lxrhj")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_lxrhj"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_7rt5t")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
@@ -211,10 +299,11 @@ NAV_AGENT = NodePath("../NavigationAgent3D")
 MESH = NodePath("../guests")
 BODY = NodePath("..")
 FLIPPED_TRACKING = true
+TRACKING_SPEED = 0.0
+TRACKING_MULTIPLIER = 0.0
 AWARENESS_AREA = NodePath("../Awareness")
 AWARENESS_ANIMATION = "Chase"
 AWARENESS_ANIM = NodePath("../AnimationPlayer")
-AWARENESS_DISABLED = false
 SPEED = 2.0
 
 [node name="Offset" type="Node3D" parent="Target"]
@@ -223,7 +312,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767256, 0)
 [node name="guests" parent="." instance=ExtResource("3_vhaxy")]
 
 [node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("masks")]
-transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.51457e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
+transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.79397e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")
@@ -266,5 +355,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513949, 0, -0.527114)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Awareness"]
 shape = SubResource("SphereShape3D_b4h0t")
+
+[node name="CaughtPlayer" type="Area3D" parent="."]
+script = ExtResource("17_fcf65")
+damage = 10000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaughtPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000434875, 0.69655, 0.0750504)
+shape = SubResource("BoxShape3D_b4h0t")
+disabled = true
 
 [editable path="guests"]

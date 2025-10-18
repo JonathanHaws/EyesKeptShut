@@ -60,6 +60,10 @@ func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMat
 
 func _ready():
 	
+	if start_animation == "Bodyguard_1":
+		random_gender = false
+		male_blend = 1.0
+	
 	if anim and start_animation != "":
 		anim.play(start_animation, 0,1)
 		anim.seek(0, true)

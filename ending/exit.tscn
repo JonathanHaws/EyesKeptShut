@@ -3,6 +3,21 @@
 [ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/exit.gd" id="1_latt8"]
 [ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_hsqxx"]
 
+[sub_resource type="Animation" id="Animation_hsqxx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_latt8"]
 resource_name = "exit"
 length = 1.66667
@@ -31,21 +46,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"_go_to_next_level"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_hsqxx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rn2p6"]
