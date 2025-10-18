@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmkhqcwlanki1"]
+
+[ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="1_88vcl"]
+[ext_resource type="Script" uid="uid://delea11g1i8x5" path="res://actors/player/projectile.gd" id="1_b1q5g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1q5g"]
+size = Vector3(0.0541382, 0.0407715, 2.13548)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1q5g"]
+albedo_color = Color(0.8, 0.668, 0.56, 1)
+roughness = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b1q5g"]
+
+[sub_resource type="Animation" id="Animation_b1q5g"]
+resource_name = "shoot"
+length = 2.3425
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_o6gs8"]
+resource_name = "collison"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6gs8"]
+_data = {
+&"collison": SubResource("Animation_o6gs8"),
+&"shoot": SubResource("Animation_b1q5g")
+}
+
+[node name="Bullet" type="Node3D" node_paths=PackedStringArray("ray", "collision_animation_player", "hurt_box")]
+script = ExtResource("1_b1q5g")
+ray = NodePath("RayCast3D")
+exclude_groups = Array[String](["enemies_bodies"])
+collision_animation_player = NodePath("AnimationPlayer")
+collision_animation_name = "collison"
+hurt_box = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_88vcl")
+damage = 500.0
+damage_groups = Array[String](["enemies_hitshapes"])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.00411, 0, 0, 0, 1.00411, 0, 0, 0, 1.00411, 9.64403e-05, -0.000367714, 1.04141)
+shape = SubResource("BoxShape3D_b1q5g")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.023, 0, 0, 0, -9.17939e-10, 0.02, 0, -0.021, -8.74228e-10, 5.16176e-05, 0, -0.00168972)
+material_override = SubResource("StandardMaterial3D_b1q5g")
+mesh = SubResource("CapsuleMesh_b1q5g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o6gs8")
+}
+autoplay = "shoot"

@@ -55,19 +55,23 @@ auto_play = true
 audio_players = [NodePath("AudioStreamPlayer"), NodePath("AudioStreamPlayer2"), NodePath("AudioStreamPlayer3"), NodePath("AudioStreamPlayer4")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
 stream = ExtResource("8_srgtr")
 volume_db = -8.665
 bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
 stream = ExtResource("3_teaka")
 bus = &"Music"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
 stream = ExtResource("4_ovqqf")
 bus = &"Music"
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
 stream = ExtResource("5_r58pa")
 bus = &"Music"
 

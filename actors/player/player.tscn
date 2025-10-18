@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=45 format=4 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
@@ -6,17 +6,23 @@
 [ext_resource type="AudioStream" uid="uid://ceynu0f2rn47n" path="res://audio/movement/Footstep 1.ogg" id="2_g6k8r"]
 [ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="2_hg6s5"]
 [ext_resource type="Script" uid="uid://c5sgctkaajppp" path="res://actors/player/play_time_tracker.gd" id="2_kb6p2"]
+[ext_resource type="PackedScene" uid="uid://cmkhqcwlanki1" path="res://actors/player/bullet.tscn" id="2_qrxv1"]
 [ext_resource type="Script" uid="uid://cvrqbeennkyhn" path="res://actors/player/god_mode.gd" id="2_rkbax"]
 [ext_resource type="AudioStream" uid="uid://hwtw25a3882c" path="res://audio/movement/Footstep 2.ogg" id="3_boad6"]
 [ext_resource type="AudioStream" uid="uid://st2e3y6ell24" path="res://audio/movement/Footstep 3.ogg" id="4_rgyib"]
 [ext_resource type="AudioStream" uid="uid://ch5n8mex2hrhx" path="res://audio/movement/Footstep 4.ogg" id="5_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://ew0q2j6jmwyv" path="res://audio/movement/Jump 1.ogg" id="6_rgyib"]
+[ext_resource type="AudioStream" uid="uid://toqcj5qnmnx1" path="res://audio/bullets/gun A 1.wav" id="7_ctwkf"]
 [ext_resource type="AudioStream" uid="uid://y5h0ifhscjh1" path="res://audio/movement/Jump 2.ogg" id="7_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://bovttgduchwtp" path="res://audio/bullets/gun A 2.ogg" id="8_icg72"]
 [ext_resource type="AudioStream" uid="uid://dsne4h8vqjin8" path="res://audio/movement/Thud.ogg" id="9_8t03j"]
+[ext_resource type="AudioStream" uid="uid://cari5a5i05jfc" path="res://audio/bullets/gun A 3.ogg" id="9_lj3dd"]
 [ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="10_ebec5"]
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="11_2ieo8"]
 [ext_resource type="FontFile" uid="uid://dshfm8qyr6em8" path="res://pause/Stockport - Serif Personal Use.otf" id="13_yllr7"]
 [ext_resource type="Script" uid="uid://c18hagl0ve7b7" path="res://actors/player/masks_collected.gd" id="16_rt46e"]
+[ext_resource type="Script" uid="uid://c7s7e86v7heqh" path="res://actors/camera_shake.gd" id="22_icg72"]
+[ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="23_lj3dd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt46e"]
 size = Vector3(0.347107, 0.868835, 0.348022)
@@ -43,40 +49,6 @@ _data = {
 &"DEATH": SubResource("Animation_0wchr")
 }
 
-[sub_resource type="Animation" id="Animation_rgyib"]
-resource_name = "Jump"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/Jump")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_hg6s5"]
-resource_name = "Land"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/Thud")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_8t03j"]
 resource_name = "Run"
 length = 0.2145
@@ -95,11 +67,103 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "Land"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Thud")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "Jump"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Jump")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ieo8"]
 _data = {
 &"Jump": SubResource("Animation_rgyib"),
 &"Land": SubResource("Animation_hg6s5"),
 &"Run": SubResource("Animation_8t03j")
+}
+
+[sub_resource type="Animation" id="Animation_icg72"]
+resource_name = "Shoot"
+length = 0.091
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../SlowMotion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.05, 0.0],
+"method": &"impact"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lj3dd"]
+resource_name = "Reload"
+length = 0.02
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reload")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lj3dd"]
+_data = {
+&"Reload": SubResource("Animation_lj3dd"),
+&"Shoot": SubResource("Animation_icg72")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei6nx"]
@@ -172,6 +236,12 @@ default_font = ExtResource("13_yllr7")
 default_font_size = 24
 Label/colors/font_color = Color(0.53, 0.53, 0.53, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrxv1"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Animation" id="Animation_rkbax"]
 resource_name = "FadeIn"
 length = 1.952
@@ -234,7 +304,7 @@ _data = {
 &"RESET": SubResource("Animation_g1dw6")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "fov_lerp", "audio_anim") groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "fov_lerp", "audio_anim", "gun_audio_anim", "shoot_point") groups=["player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -242,6 +312,9 @@ script = ExtResource("1_4flbx")
 cam = NodePath("Camera3D")
 fov_lerp = NodePath("FovLerp")
 audio_anim = NodePath("Audio/AnimationPlayer")
+gun_audio_anim = NodePath("Audio/Gun/AnimationPlayer")
+bullet_scene = ExtResource("2_qrxv1")
+shoot_point = NodePath("Camera3D/ShootPoint")
 
 [node name="Hitshape" type="Area3D" parent="." node_paths=PackedStringArray("DEATH_ANIMATION_PLAYER") groups=["player_hitshape"]]
 script = ExtResource("2_0wchr")
@@ -269,6 +342,44 @@ script = ExtResource("2_kb6p2")
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_2ieo8")
+}
+
+[node name="Gun" type="Node" parent="Audio" node_paths=PackedStringArray("audio_players")]
+script = ExtResource("2_hg6s5")
+audio_players = [NodePath("GunA_1"), NodePath("GunA_2"), NodePath("GunA_3")]
+
+[node name="Reload" type="Node" parent="Audio/Gun" node_paths=PackedStringArray("audio_players")]
+script = ExtResource("2_hg6s5")
+audio_players = [NodePath("GunA_1")]
+
+[node name="GunA_1" type="AudioStreamPlayer" parent="Audio/Gun/Reload"]
+process_mode = 3
+stream = ExtResource("9_8t03j")
+volume_db = -3.888
+pitch_scale = 0.66
+bus = &"SFX"
+
+[node name="GunA_1" type="AudioStreamPlayer" parent="Audio/Gun"]
+process_mode = 3
+stream = ExtResource("7_ctwkf")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="GunA_2" type="AudioStreamPlayer" parent="Audio/Gun"]
+process_mode = 3
+stream = ExtResource("8_icg72")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="GunA_3" type="AudioStreamPlayer" parent="Audio/Gun"]
+process_mode = 3
+stream = ExtResource("9_lj3dd")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Audio/Gun"]
+libraries = {
+&"": SubResource("AnimationLibrary_lj3dd")
 }
 
 [node name="Footsteps" type="Node" parent="Audio" node_paths=PackedStringArray("audio_players")]
@@ -318,6 +429,9 @@ shape = SubResource("CapsuleShape3D_ei6nx")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75577, 0)
 fov = 80.0
+
+[node name="ShootPoint" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00822538, -0.733213)
 
 [node name="GodMode" type="Node" parent="." node_paths=PackedStringArray("player", "cam")]
 script = ExtResource("2_rkbax")
@@ -414,6 +528,22 @@ text = "0/3"
 horizontal_alignment = 1
 script = ExtResource("16_rt46e")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qrxv1")
+value = 1.0
+show_percentage = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -428,3 +558,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
 autoplay = "FadeIn"
+
+[node name="CameraShake" type="Node" parent="."]
+script = ExtResource("22_icg72")
+
+[node name="SlowMotion" type="Node" parent="."]
+script = ExtResource("23_lj3dd")

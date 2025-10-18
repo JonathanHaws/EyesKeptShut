@@ -1,6 +1,6 @@
 extends Node
 @export var target_index: int = -1
-@export var masks_needed_for_completion: int = 10
+@export var masks_needed_for_completion: int = 2
 
 func set_random_target():
 	target_index = randi()

@@ -124,11 +124,5 @@ autoplay = "Guest_1"
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
 wearing_target_mask = true
 
-[node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
-blend_shapes/Male = 0.0
-
-[node name="basic_2" parent="Guest/guests/metarig/Skeleton3D/Mask" index="1"]
-blend_shapes/Male = 0.0
-
 [editable path="Guest"]
 [editable path="Guest/guests"]

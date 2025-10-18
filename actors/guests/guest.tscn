@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=39 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -15,7 +15,10 @@
 [ext_resource type="Material" uid="uid://cgbsy0bpnn4b6" path="res://actors/guests/hair/materials/brunette.tres" id="7_famnq"]
 [ext_resource type="Material" uid="uid://dk8odjtfkot5q" path="res://actors/guests/masks/materials/basic_1.tres" id="8_ocwtx"]
 [ext_resource type="Script" uid="uid://dnj101c6tvouo" path="res://actors/chase_target.gd" id="13_b4h0t"]
+[ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="13_lxrhj"]
+[ext_resource type="Script" uid="uid://c7s7e86v7heqh" path="res://actors/camera_shake.gd" id="14_kl4fg"]
 [ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="15_famnq"]
+[ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="15_n7ddy"]
 [ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="17_fcf65"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf65"]
@@ -30,6 +33,45 @@ albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rt5t"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcf65"]
+size = Vector3(0.156658, 0.849304, 0.208862)
+
+[sub_resource type="Animation" id="Animation_lxrhj"]
+resource_name = "DEATH"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlowMotion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.1, 0.0],
+"method": &"impact"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rt5t"]
+_data = {
+&"DEATH": SubResource("Animation_lxrhj")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4reb1"]
 radius = 0.11836
@@ -266,7 +308,7 @@ radius = 2.00056
 [sub_resource type="BoxShape3D" id="BoxShape3D_b4h0t"]
 size = Vector3(0.222733, 0.366329, 0.326279)
 
-[node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("anim", "mesh", "skeleton", "masks_bone_attachment")]
+[node name="Guest" type="CharacterBody3D" node_paths=PackedStringArray("anim", "mesh", "skeleton", "masks_bone_attachment") groups=["enemies_bodies"]]
 script = ExtResource("1_vhaxy")
 anim = NodePath("AnimationPlayer")
 mesh = NodePath("guests/metarig/Skeleton3D/body")
@@ -280,6 +322,25 @@ hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource(
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
 male_outfits_gltf = Array[PackedScene]([ExtResource("5_4reb1")])
+
+[node name="Hitshape" type="Area3D" parent="." node_paths=PackedStringArray("DEATH_ANIMATION_PLAYER") groups=["enemies_hitshapes"]]
+script = ExtResource("13_lxrhj")
+DEATH_ANIMATION_PLAYER = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitshape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00185966, 0.465179, -0.00262451)
+shape = SubResource("BoxShape3D_fcf65")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hitshape"]
+libraries = {
+&"": SubResource("AnimationLibrary_7rt5t")
+}
+
+[node name="CameraShake" type="Node" parent="Hitshape"]
+script = ExtResource("14_kl4fg")
+
+[node name="SlowMotion" type="Node" parent="Hitshape"]
+script = ExtResource("15_n7ddy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444062, 0)
@@ -324,12 +385,14 @@ visible = false
 material_override = ExtResource("8_ocwtx")
 mesh = SubResource("ArrayMesh_trjle")
 skeleton = NodePath("")
+blend_shapes/Male = 0.0
 
 [node name="basic_2" type="MeshInstance3D" parent="guests/metarig/Skeleton3D/Mask"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82576e-10, 0.0364215, 0.0501603)
 visible = false
 mesh = SubResource("ArrayMesh_6rkbc")
 skeleton = NodePath("")
+blend_shapes/Male = 0.0
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="2"]
 target_node = NodePath("../../../../Target/Offset")

@@ -13,9 +13,50 @@ var ignore_first_was_on_floor : bool = true
 @export var fov_lerp := Node
 
 @export var audio_anim: AnimationPlayer
+@export var gun_audio_anim: AnimationPlayer
+
+@export var max_ammo := 3
+@export var shot_speed := 0.2
+@export var reload_time := 1.5
+@export var bullet_scene: PackedScene
+@export var shoot_point: Node3D
+var ammo := max_ammo
+var reloading := false
+var can_shoot := true
+var shot_timer := Timer.new()
+var reload_timer := Timer.new()
+
+func gun_ready():
+	if not Save.data.has("max_ammo"): Save.data["max_ammo"] = max_ammo
+	else: max_ammo = Save.data["max_ammo"]
+	
+	if not Save.data.has("reload_time"): Save.data["reload_time"] = reload_time
+	else: reload_time = Save.data["reload_time"]
+	
+	if not Save.data.has("shot_speed"): Save.data["shot_speed"] = shot_speed
+	else: shot_speed = Save.data["shot_speed"]
+	
+	
+	for t in [shot_timer, reload_timer]: add_child(t); t.one_shot = true
+	shot_timer.timeout.connect(func(): can_shoot = true)
+	reload_timer.timeout.connect(func(): ammo = max_ammo; reloading = false)
+
+func shoot():
+	if not can_shoot or reloading or ammo <= 0: return
+	ammo -= 1; can_shoot = false
+	var b = bullet_scene.instantiate()
+	b.global_transform = shoot_point.global_transform
+	get_tree().current_scene.add_child(b)
+	gun_audio_anim.play("Shoot")
+	shot_timer.start(shot_speed)
+	if ammo <= 0:
+		reloading = true
+		gun_audio_anim.queue("Reload")
+		reload_timer.start(reload_time)
 
 var pitch := 0.0
 var mouse_delta := Vector2.ZERO
+
 
 func die():
 	if not Save.data.has("Deaths"):
@@ -25,6 +66,7 @@ func die():
 	get_tree().reload_current_scene()
 
 func _ready(): 
+	gun_ready()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	
@@ -33,6 +75,9 @@ func _input(event):
 		mouse_delta += event.relative
 
 func _physics_process(_d):
+		
+	if Input.is_action_just_pressed("shoot"):
+		if bullet_scene and shoot_point: shoot()
 		
 	# Move Camera
 	rotate_y(-mouse_delta.x * sens)

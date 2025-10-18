@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n30mebllpuys"
+path="res://.godot/imported/gun B 2.ogg-8f142d6d2d360839cec133c46d0a7753.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/bullets/gun B 2.ogg"
+dest_files=["res://.godot/imported/gun B 2.ogg-8f142d6d2d360839cec133c46d0a7753.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
