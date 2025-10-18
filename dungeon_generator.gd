@@ -86,3 +86,7 @@ func _process(_delta):
 			get_tree().reload_current_scene()
 		if Input.is_action_just_pressed("expand"):
 			expand()
+		if Input.is_action_just_pressed("venge"):
+			Save.data["venge"] += 100000
+		if Input.is_action_just_pressed("mask"):
+			Save.data["Masks_collected"] += 10

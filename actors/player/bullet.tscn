@@ -63,7 +63,7 @@ hurt_box = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_88vcl")
-damage = 500.0
+damage = 50.0
 damage_groups = Array[String](["enemies_hitshapes"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

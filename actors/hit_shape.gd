@@ -38,7 +38,7 @@ func hit(area: Area3D = null, damage: int = 0)-> void:
 		if DEATH_ANIMATION_PLAYER and DEATH_ANIMATION_PLAYER.has_animation(DEATH_ANIM):
 			DISABLED = true
 			DEATH_ANIMATION_PLAYER.play(DEATH_ANIM)
-			DEATH_ANIMATION_PLAYER.seek(0, true)		
+			#DEATH_ANIMATION_PLAYER.seek(0, true)	 # Causes glitches of being triggered twice	
 	if damage < 0: # HEAL
 		if HEAL_ANIMATION_PLAYER and HEAL_ANIMATION_PLAYER.has_animation(HEAL_ANIM):
 			HEAL_ANIMATION_PLAYER.play(HEAL_ANIM)
