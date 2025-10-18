@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=45 format=3 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
@@ -23,12 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://dn0yj3fogrhms" path="res://actors/guests/masks/mask_1.glb" id="19_qct7d"]
 [ext_resource type="PackedScene" uid="uid://1ptnajqxt8dh" path="res://actors/guests/masks/mask_2.glb" id="20_2vokq"]
 [ext_resource type="PackedScene" uid="uid://bb68i5208cadi" path="res://actors/guests/masks/mask_3.glb" id="21_tpopl"]
-[ext_resource type="Material" uid="uid://cpt7iu0mefne2" path="res://actors/guests/masks/materials/mask_2.tres" id="22_0nck3"]
+[ext_resource type="PackedScene" uid="uid://dm32eg0idpg8s" path="res://actors/guests/masks/mask_4.glb" id="22_1c637"]
 [ext_resource type="Script" uid="uid://c7s7e86v7heqh" path="res://actors/camera_shake.gd" id="22_icg72"]
 [ext_resource type="Script" uid="uid://o8ieytygfvyj" path="res://actors/player/venge_collected.gd" id="22_nsxbo"]
-[ext_resource type="Material" uid="uid://5beu6pu455xf" path="res://actors/guests/masks/materials/mask_3.tres" id="23_1c637"]
 [ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="23_lj3dd"]
-[ext_resource type="Material" uid="uid://bc2exa1ma52k5" path="res://actors/guests/masks/materials/mask_1.tres" id="24_4ihbh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt46e"]
 size = Vector3(0.347107, 0.868835, 0.348022)
@@ -405,8 +403,7 @@ script = ExtResource("10_ebec5")
 masks = NodePath(".")
 wearing_target_mask = true
 mask_parent = NodePath(".")
-mask_scenes = Array[PackedScene]([ExtResource("19_qct7d"), ExtResource("20_2vokq"), ExtResource("21_tpopl")])
-mask_materials = Array[StandardMaterial3D]([ExtResource("24_4ihbh"), ExtResource("22_0nck3"), ExtResource("23_1c637")])
+mask_scenes = Array[PackedScene]([ExtResource("19_qct7d"), ExtResource("20_2vokq"), ExtResource("21_tpopl"), ExtResource("22_1c637")])
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73793, 0)

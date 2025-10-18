@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2x4py0bkprgv"]
+[gd_scene load_steps=11 format=3 uid="uid://c2x4py0bkprgv"]
 
 [ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/exit.gd" id="1_latt8"]
 [ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_hsqxx"]
+[ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://actors/guests/outfits/materials/black_dress.tres" id="3_rn2p6"]
+[ext_resource type="Material" uid="uid://q4j6fjnj1vce" path="res://actors/guests/outfits/materials/white_dress.tres" id="4_6qjqh"]
 
 [sub_resource type="Animation" id="Animation_hsqxx"]
 length = 0.001
@@ -54,34 +56,18 @@ _data = {
 &"exit": SubResource("Animation_latt8")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_latt8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsqxx"]
-resource_local_to_scene = true
-albedo_color = Color(0.3952, 0.42848, 0.52, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
-resource_local_to_scene = true
-albedo_color = Color(0.51, 0.3417, 0.383775, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
 resource_local_to_scene = true
-albedo_color = Color(0.136826, 0.136826, 0.136826, 1)
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6kxi"]
 resource_local_to_scene = true
-albedo_color = Color(0.791605, 0.635283, 0.522788, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vehme"]
-resource_local_to_scene = true
-albedo_color = Color(0.261747, 0.210023, 0.194281, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvi5s"]
-resource_local_to_scene = true
-albedo_color = Color(0.72, 0.43464, 0.4248, 1)
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
 [node name="Ending" type="Node3D" node_paths=PackedStringArray("guest", "anim") groups=["end"]]
 script = ExtResource("1_latt8")
@@ -108,15 +94,13 @@ color = Color(0, 0, 0, 1)
 [node name="Guest" parent="." instance=ExtResource("2_hsqxx")]
 start_animation = "Leader_1"
 wearing_target_mask = true
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_latt8")])
-dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hsqxx"), SubResource("StandardMaterial3D_rn2p6"), SubResource("StandardMaterial3D_6qjqh")])
-hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_y6kxi"), SubResource("StandardMaterial3D_vehme"), SubResource("StandardMaterial3D_pvi5s")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_rn2p6")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("3_rn2p6"), SubResource("StandardMaterial3D_6qjqh"), ExtResource("4_6qjqh"), SubResource("StandardMaterial3D_y6kxi")])
+random_gender = false
+male_blend = 1.0
 
-[node name="AnimationPlayer" parent="Guest" index="2"]
-autoplay = "Guest_1"
-
-[node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="1"]
-transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.79397e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
+[node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
+transform = Transform3D(1, 3.11751e-13, -1.66267e-12, -2.0961e-13, 0.984853, 0.17339, 1.74794e-12, -0.17339, 0.984853, 2.82567e-14, 0.75189, -0.0203926)
 wearing_target_mask = true
 
 [editable path="Guest"]

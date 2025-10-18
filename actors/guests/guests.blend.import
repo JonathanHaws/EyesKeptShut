@@ -49,13 +49,16 @@ _subresources={
 "PATH:Side": {
 "import/skip_import": true
 },
-"PATH:basic_1": {
+"PATH:mask_1": {
 "import/skip_import": true
 },
-"PATH:basic_2": {
+"PATH:mask_2": {
 "import/skip_import": true
 },
-"PATH:basic_3": {
+"PATH:mask_3": {
+"import/skip_import": true
+},
+"PATH:mask_4": {
 "import/skip_import": true
 },
 "PATH:metarig/Skeleton3D/dress_1": {

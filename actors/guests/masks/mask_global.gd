@@ -7,7 +7,7 @@ extends Node
 func set_random_target():
 	target_index = randi()
 	for i in range(4):
-		random_materials.append(randi())
+		random_materials[i] = randi()
 
 func _ready():
 	Save.data["venge"] = 0

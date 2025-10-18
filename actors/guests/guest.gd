@@ -94,6 +94,4 @@ func _ready():
 
 	if hair: set_mesh_material(hair, hair_materials)
 	
-	for child in masks_bone_attachment.get_children():
-		child.set("blend_shapes/Male", male_blend)
 	
