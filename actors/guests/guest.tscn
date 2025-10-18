@@ -31,7 +31,7 @@ resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4reb1"]
-radius = 0.0938112
+radius = 0.11836
 height = 0.876953
 
 [sub_resource type="Animation" id="Animation_b4h0t"]

@@ -21,7 +21,7 @@ func _reload_scene():
 	Save.data["Masks_collected"] += 1
 	Mask.set_random_target()
 	
-	if Save.data["Masks_collected"] >= 1:
+	if Save.data["Masks_collected"] >= Mask.masks_needed_for_completion:
 		get_tree().change_scene_to_file(scene_file)
 	else:
 		get_tree().reload_current_scene()

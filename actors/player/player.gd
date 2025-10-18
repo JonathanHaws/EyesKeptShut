@@ -6,7 +6,9 @@ extends CharacterBody3D
 @export var sens := 0.002
 @export var cam : Camera3D
 @export var gravity := 9.8
-var was_on_floor := true
+
+var was_on_floor : bool = true
+var ignore_first_was_on_floor : bool = true
 
 @export var fov_lerp := Node
 
@@ -19,10 +21,12 @@ func die():
 	if not Save.data.has("Deaths"):
 		Save.data["Deaths"] = 0
 	if Save: Save.data["Deaths"] += 1
-	if get_tree(): get_tree().reload_current_scene()
+	if not is_inside_tree(): return
+	get_tree().reload_current_scene()
 
 func _ready(): 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -66,6 +70,11 @@ func _physics_process(_d):
 		else: fov_lerp.target_fov = 85 # Walk
 	
 	var on_floor_now = is_on_floor()
+	
+	if ignore_first_was_on_floor and not was_on_floor: #bandaid super annoying bug 
+		was_on_floor = true
+		ignore_first_was_on_floor = false
+		
 	if not was_on_floor and on_floor_now:
 		audio_anim.play("Land")	
 	was_on_floor = on_floor_now

@@ -392,16 +392,16 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_4atgp"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8g0n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnik0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lvnt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -460,8 +460,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818413, 2.38377, 1.71118)
 
 [node name="Guest" parent="." instance=ExtResource("3_d7dw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22023, 0.00246582, -0.75121)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_m8g0n")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_qnik0"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_1lvnt")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_pc6s5")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_ekvb4"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_jy176")])
 
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
 transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.70084e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
@@ -473,7 +473,7 @@ blend_shapes/Male = 0.0
 blend_shapes/Male = 0.0
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("8_pc6s5")]
-transform = Transform3D(0.98807, 0, 0.154003, 0, 1, 0, -0.154003, 0, 0.98807, 0.52192, -0.130854, 0.578223)
+transform = Transform3D(0.98807, 0, 0.154003, 0, 1, 0, -0.154003, 0, 0.98807, 0.522, -0.0269466, 0.578)
 
 [editable path="Guest"]
 [editable path="Guest/guests"]

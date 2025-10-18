@@ -122,7 +122,6 @@ hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_y6kx
 autoplay = "Guest_1"
 
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
-transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
 wearing_target_mask = true
 
 [node name="basic_1" parent="Guest/guests/metarig/Skeleton3D/Mask" index="0"]
