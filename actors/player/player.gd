@@ -27,15 +27,16 @@ var shot_timer := Timer.new()
 var reload_timer := Timer.new()
 
 func gun_ready():
+
 	if not Save.data.has("max_ammo"): Save.data["max_ammo"] = max_ammo
 	else: max_ammo = Save.data["max_ammo"]
-	
+	ammo = max_ammo
+
 	if not Save.data.has("reload_time"): Save.data["reload_time"] = reload_time
 	else: reload_time = Save.data["reload_time"]
 	
 	if not Save.data.has("shot_speed"): Save.data["shot_speed"] = shot_speed
 	else: shot_speed = Save.data["shot_speed"]
-	
 	
 	for t in [shot_timer, reload_timer]: add_child(t); t.one_shot = true
 	shot_timer.timeout.connect(func(): can_shoot = true)

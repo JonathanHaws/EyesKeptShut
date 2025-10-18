@@ -154,24 +154,24 @@ _data = {
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0561798), -0.0730353, -0.0730353, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_nix8d"]
+[sub_resource type="CurveTexture" id="CurveTexture_05p0a"]
 curve = SubResource("Curve_05p0a")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18v65"]
 ground_bottom_color = Color(0.384314, 0.454902, 0.54902, 1)
 ground_curve = 0.48503
 
-[sub_resource type="Sky" id="Sky_pr4ya"]
+[sub_resource type="Sky" id="Sky_nix8d"]
 sky_material = SubResource("ProceduralSkyMaterial_18v65")
 
 [sub_resource type="Environment" id="Environment_mrnca"]
 background_mode = 2
-sky = SubResource("Sky_pr4ya")
+sky = SubResource("Sky_nix8d")
 fog_enabled = true
 fog_density = 0.0028
 adjustment_enabled = true
 adjustment_saturation = 0.86
-adjustment_color_correction = SubResource("CurveTexture_nix8d")
+adjustment_color_correction = SubResource("CurveTexture_05p0a")
 
 [node name="FinishCutscene" type="Node3D"]
 

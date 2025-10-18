@@ -1,0 +1,512 @@
+[gd_scene load_steps=29 format=3 uid="uid://dc5v6c8gpets0"]
+
+[ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="1_8xmq4"]
+[ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_mixf3"]
+[ext_resource type="Script" uid="uid://o8ieytygfvyj" path="res://actors/player/venge_collected.gd" id="1_x57a4"]
+[ext_resource type="Script" uid="uid://c4trfm68alqyc" path="res://skill_tree/show_cursor.gd" id="1_y08ot"]
+[ext_resource type="Texture2D" uid="uid://c3poid5lxygq8" path="res://skill_tree/textures/ammo1.png" id="4_2b7yj"]
+[ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="4_86svx"]
+[ext_resource type="Script" uid="uid://cmvxnud8qti1g" path="res://skill_tree/back_to_mansion.gd" id="5_0g56x"]
+[ext_resource type="Script" uid="uid://dsvjegrhghs7d" path="res://skill_tree/skill_node.gd" id="5_8kxff"]
+[ext_resource type="Texture2D" uid="uid://jb31vfk70d24" path="res://skill_tree/textures/ammo2.png" id="6_ohskb"]
+[ext_resource type="Texture2D" uid="uid://iwlw6hplp68c" path="res://skill_tree/textures/ammo3.png" id="6_xi5ej"]
+[ext_resource type="Texture2D" uid="uid://b376083hfsc8i" path="res://skill_tree/textures/ammo4.png" id="7_qmcb7"]
+[ext_resource type="Texture2D" uid="uid://bjmt7geogf53k" path="res://skill_tree/textures/ammo5.png" id="8_ruidu"]
+[ext_resource type="Texture2D" uid="uid://b4uy5un4nbn3c" path="res://skill_tree/textures/reload1.png" id="9_f58q7"]
+[ext_resource type="Texture2D" uid="uid://bdyu0q6egbrsa" path="res://skill_tree/textures/reload2.png" id="10_mjkn7"]
+[ext_resource type="Texture2D" uid="uid://chltijqxxct68" path="res://skill_tree/textures/reload3.png" id="11_mjkn7"]
+[ext_resource type="Texture2D" uid="uid://7jp0tms4shpv" path="res://skill_tree/textures/reload4.png" id="12_ohskb"]
+[ext_resource type="Texture2D" uid="uid://dqlkp7ib1a8c6" path="res://skill_tree/textures/shootspeed1.png" id="13_eu7fj"]
+[ext_resource type="Texture2D" uid="uid://dw2ktxnj40jf3" path="res://skill_tree/textures/shootspeed2.png" id="14_5o8st"]
+[ext_resource type="Texture2D" uid="uid://wpqjca5lrb1a" path="res://skill_tree/textures/shootspeed3.png" id="15_52v67"]
+
+[sub_resource type="Curve" id="Curve_x57a4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0561798), -0.0730353, -0.0730353, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nix8d"]
+curve = SubResource("Curve_x57a4")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mixf3"]
+ground_bottom_color = Color(0.384314, 0.454902, 0.54902, 1)
+ground_curve = 0.48503
+
+[sub_resource type="Sky" id="Sky_pr4ya"]
+sky_material = SubResource("ProceduralSkyMaterial_mixf3")
+
+[sub_resource type="Environment" id="Environment_86svx"]
+background_mode = 2
+sky = SubResource("Sky_pr4ya")
+fog_enabled = true
+fog_density = 0.0028
+adjustment_enabled = true
+adjustment_saturation = 0.86
+adjustment_color_correction = SubResource("CurveTexture_nix8d")
+
+[sub_resource type="Animation" id="Animation_8kxff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0g56x"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:visible")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ewh6l"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_scene_to_mansion"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kxff"]
+_data = {
+&"RESET": SubResource("Animation_8kxff"),
+&"fade_in": SubResource("Animation_0g56x"),
+&"fade_out": SubResource("Animation_ewh6l")
+}
+
+[node name="SkillTree" type="Node3D"]
+script = ExtResource("1_y08ot")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
+offset_right = 351.0
+grow_vertical = 0
+size_flags_horizontal = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.35
+offset_top = -20.0
+offset_right = 171.35
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Venge" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_mixf3")
+text = "VENGE"
+vertical_alignment = 1
+script = ExtResource("1_x57a4")
+
+[node name="Cost" type="Label" parent="ColorRect/HBoxContainer" groups=["cost_skilltree"]]
+layout_mode = 2
+theme = ExtResource("1_mixf3")
+text = "COST: 0"
+horizontal_alignment = 1
+
+[node name="Tree" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 162.0
+offset_top = 202.0
+offset_right = 202.0
+offset_bottom = 242.0
+scale = Vector2(1.29, 1.29)
+
+[node name="Lines" type="Control" parent="Tree"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="Tree/Lines"]
+points = PackedVector2Array(257, 193, 222, 216)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Tree/Lines"]
+points = PackedVector2Array(386, 167, 357, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="Tree/Lines"]
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="Tree/Lines"]
+position = Vector2(132, 0)
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="Tree/Lines"]
+position = Vector2(63, 112)
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="Tree/Lines"]
+position = Vector2(198, 112)
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D7" type="Line2D" parent="Tree/Lines"]
+position = Vector2(136, 225)
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D8" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-9, 227)
+points = PackedVector2Array(520, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D9" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-121, 112)
+points = PackedVector2Array(528, 218, 510, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D10" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-96, 112)
+points = PackedVector2Array(533, 167, 485, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D11" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-131, 98)
+points = PackedVector2Array(386, 167, 357, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Ammo1" type="TextureButton" parent="Tree"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 202.0
+offset_right = 223.0
+offset_bottom = 295.0
+texture_normal = ExtResource("4_2b7yj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+new_amount = 3.0
+
+[node name="Ammo2" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 127.0
+offset_right = 352.0
+offset_bottom = 220.0
+texture_normal = ExtResource("6_ohskb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 50
+new_amount = 4.0
+preeq = NodePath("../Ammo1")
+
+[node name="Ammo3" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 122.0
+offset_right = 483.0
+offset_bottom = 215.0
+texture_normal = ExtResource("6_xi5ej")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 100
+new_amount = 5.0
+preeq = NodePath("../Ammo2")
+
+[node name="Ammo4" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 125.0
+offset_right = 616.0
+offset_bottom = 218.0
+texture_normal = ExtResource("7_qmcb7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 500
+new_amount = 8.0
+preeq = NodePath("../Ammo3")
+
+[node name="Ammo5" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 122.0
+offset_right = 745.0
+offset_bottom = 215.0
+texture_normal = ExtResource("8_ruidu")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 5000
+new_amount = 10.0
+preeq = NodePath("../Ammo4")
+
+[node name="Reload" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 231.0
+offset_right = 359.0
+offset_bottom = 324.0
+texture_normal = ExtResource("9_f58q7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 30
+new_amount = 1.25
+upgrade_key = "reload_time"
+preeq = NodePath("../Ammo1")
+
+[node name="Reload2" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 237.0
+offset_right = 541.0
+offset_bottom = 330.0
+texture_normal = ExtResource("10_mjkn7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 70
+upgrade_key = "reload_time"
+preeq = NodePath("../Reload")
+
+[node name="Reload3" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 238.0
+offset_right = 680.0
+offset_bottom = 331.0
+texture_normal = ExtResource("11_mjkn7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 100
+new_amount = 0.75
+upgrade_key = "reload_time"
+preeq = NodePath("../Reload2")
+
+[node name="Reload4" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 236.0
+offset_right = 814.0
+offset_bottom = 329.0
+texture_normal = ExtResource("12_ohskb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 300
+new_amount = 0.5
+upgrade_key = "reload_time"
+preeq = NodePath("../Reload3")
+
+[node name="ShotSpeed" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 350.0
+offset_right = 465.0
+offset_bottom = 443.0
+texture_normal = ExtResource("13_eu7fj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 500
+new_amount = 0.15
+upgrade_key = "shot_speed"
+preeq = NodePath("../Reload")
+
+[node name="ShotSpeed2" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 353.0
+offset_right = 613.0
+offset_bottom = 446.0
+texture_normal = ExtResource("14_5o8st")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 500
+new_amount = 0.1
+upgrade_key = "shot_speed"
+preeq = NodePath("../ShotSpeed")
+
+[node name="ShotSpeed3" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 353.0
+offset_right = 754.0
+offset_bottom = 446.0
+texture_normal = ExtResource("15_52v67")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 1000
+new_amount = 0.05
+upgrade_key = "shot_speed"
+preeq = NodePath("../ShotSpeed2")
+hover_modulate = Color(0.525101, 0.525101, 0.525101, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_86svx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.026177, -0.537292, 0.84299, 9.31323e-10, 0.843279, 0.537476, -0.999657, -0.0140695, 0.0220745, 4.72307, 5.17583, -0.10126)
+fov = 25.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-09, -5.326e-08, -3.04207)
+light_color = Color(0.777258, 0.429096, 0.388896, 1)
+light_energy = 5.0
+omni_range = 7.67819
+
+[node name="ending" parent="." instance=ExtResource("1_8xmq4")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.620523, -0.579481, 0.52835, 0.253556, 0.785825, 0.564083, -0.742065, -0.21606, 0.634553, 0, 7.32366, 0)
+light_color = Color(0.990871, 0.733807, 0.550533, 1)
+shadow_enabled = true
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("anim")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -46.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 4
+theme = ExtResource("1_mixf3")
+text = "CONTINUE"
+script = ExtResource("5_0g56x")
+mansion_scene_file = "uid://dfkna8eviveaf"
+anim = NodePath("../Fade/AnimationPlayer")
+
+[node name="Fade" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_8kxff")
+}
+autoplay = "fade_in"
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_86svx")]
+visible = false

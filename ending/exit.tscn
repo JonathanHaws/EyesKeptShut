@@ -89,7 +89,8 @@ albedo_color = Color(0.72, 0.43464, 0.4248, 1)
 script = ExtResource("1_latt8")
 trigger_area = NodePath("Area3D")
 anim = NodePath("AnimationPlayer")
-scene_file = "uid://bw6y72sjgf46l"
+skill_tree_scene_file = "uid://dvp2f3b4xdbao"
+ending_scene_file = "uid://bw6y72sjgf46l"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -118,10 +119,11 @@ skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_latt
 dress_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hsqxx"), SubResource("StandardMaterial3D_rn2p6"), SubResource("StandardMaterial3D_6qjqh")])
 hair_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_y6kxi"), SubResource("StandardMaterial3D_vehme"), SubResource("StandardMaterial3D_pvi5s")])
 
-[node name="AnimationPlayer" parent="Guest" index="1"]
+[node name="AnimationPlayer" parent="Guest" index="2"]
 autoplay = "Guest_1"
 
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="0"]
+transform = Transform3D(0.992257, 0.0215354, -0.122321, -2.79397e-08, 0.984853, 0.17339, 0.124202, -0.172048, 0.977227, 2.82567e-14, 0.75189, -0.0203926)
 wearing_target_mask = true
 
 [editable path="Guest"]

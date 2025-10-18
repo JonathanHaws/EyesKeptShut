@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=40 format=4 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -20,17 +20,18 @@
 [ext_resource type="Script" uid="uid://413cswlm72ca" path="res://actors/guests/show_correct_mask.gd" id="15_famnq"]
 [ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="15_n7ddy"]
 [ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="17_fcf65"]
+[ext_resource type="Script" uid="uid://c4nqq1nykr6fg" path="res://actors/guests/venge.gd" id="21_n7ddy"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf65"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7ddy"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxrhj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnf6t"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rt5t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cuou"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -63,8 +64,22 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0.1, 0.0],
+"args": [0.05, 0.0],
 "method": &"impact"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vengeance")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"increase_venge"
 }]
 }
 
@@ -315,9 +330,9 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_fcf65")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_n7ddy")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_lxrhj"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_7rt5t")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_tnf6t"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_6cuou")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
@@ -335,6 +350,9 @@ shape = SubResource("BoxShape3D_fcf65")
 libraries = {
 &"": SubResource("AnimationLibrary_7rt5t")
 }
+
+[node name="Vengeance" type="Node" parent="Hitshape"]
+script = ExtResource("21_n7ddy")
 
 [node name="CameraShake" type="Node" parent="Hitshape"]
 script = ExtResource("14_kl4fg")
@@ -410,9 +428,6 @@ secondary_damp_threshold = 1.0
 
 [node name="AnimationPlayer" parent="guests" index="1"]
 playback_default_blend_time = 0.2
-
-[node name="mask_2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513949, 0, -0.527114)
 
 [node name="Awareness" type="Area3D" parent="."]
 

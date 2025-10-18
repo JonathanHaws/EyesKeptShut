@@ -6,5 +6,6 @@ func set_random_target():
 	target_index = randi()
 
 func _ready():
+	Save.data["venge"] = 10000
 	Save.data["Masks_collected"] = 0
 	set_random_target()

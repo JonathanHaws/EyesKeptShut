@@ -3,7 +3,8 @@ extends Node3D
 @export var anim: AnimationPlayer
 @export var animation: String = "exit"
 
-@export_file("*.tscn") var scene_file: String
+@export_file("*.tscn") var skill_tree_scene_file: String
+@export_file("*.tscn") var ending_scene_file: String
 
 func _ready():
 	trigger_area.body_entered.connect(_on_body_entered)
@@ -22,7 +23,7 @@ func _reload_scene():
 	Mask.set_random_target()
 	
 	if Save.data["Masks_collected"] >= Mask.masks_needed_for_completion:
-		get_tree().change_scene_to_file(scene_file)
+		get_tree().change_scene_to_file(ending_scene_file)
 	else:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file(skill_tree_scene_file)
 	

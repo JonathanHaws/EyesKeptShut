@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=46 format=4 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://dshfm8qyr6em8" path="res://pause/Stockport - Serif Personal Use.otf" id="13_yllr7"]
 [ext_resource type="Script" uid="uid://c18hagl0ve7b7" path="res://actors/player/masks_collected.gd" id="16_rt46e"]
 [ext_resource type="Script" uid="uid://c7s7e86v7heqh" path="res://actors/camera_shake.gd" id="22_icg72"]
+[ext_resource type="Script" uid="uid://o8ieytygfvyj" path="res://actors/player/venge_collected.gd" id="22_nsxbo"]
 [ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="23_lj3dd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt46e"]
@@ -510,23 +511,40 @@ offset_bottom = 50.0
 theme = SubResource("Theme_kb6p2")
 text = "FIND THE WEARER!"
 
-[node name="Label2" type="Label" parent="TargetUI"]
+[node name="Progress" type="Label" parent="TargetUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -170.0
-offset_top = 161.0
-offset_right = -89.0
-offset_bottom = 212.0
+offset_left = -274.0
+offset_top = 173.0
+offset_right = -193.0
+offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_kb6p2")
 text = "0/3"
 horizontal_alignment = 1
 script = ExtResource("16_rt46e")
+
+[node name="Venge" type="Label" parent="TargetUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = 172.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kb6p2")
+text = "venge:"
+horizontal_alignment = 1
+script = ExtResource("22_nsxbo")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 8
