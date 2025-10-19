@@ -189,10 +189,10 @@ horizontal_alignment = 1
 [node name="Tree" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 162.0
-offset_top = 202.0
-offset_right = 202.0
-offset_bottom = 242.0
+offset_left = 139.0
+offset_top = 133.0
+offset_right = 179.0
+offset_bottom = 173.0
 scale = Vector2(1.29, 1.29)
 
 [node name="Lines" type="Control" parent="Tree"]
@@ -397,7 +397,7 @@ texture_normal = ExtResource("8_ruidu")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
-venge_cost = 500
+venge_cost = 350
 new_amount = 10.0
 preeq = NodePath("../Ammo4")
 
@@ -412,6 +412,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 30
+new_amount = 0.8
 upgrade_key = "reload_time"
 preeq = NodePath("../Ammo1")
 
@@ -426,7 +427,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 100
-new_amount = 0.75
+new_amount = 0.6
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload")
 
@@ -441,7 +442,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 200
-new_amount = 0.5
+new_amount = 0.4
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload2")
 
@@ -456,7 +457,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 300
-new_amount = 0.25
+new_amount = 0.2
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload3")
 
@@ -471,7 +472,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 150
-new_amount = 0.15
+new_amount = 0.125
 upgrade_key = "shot_speed"
 preeq = NodePath("../Reload")
 
@@ -486,7 +487,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 250
-new_amount = 0.1
+new_amount = 0.075
 upgrade_key = "shot_speed"
 preeq = NodePath("../ShotSpeed")
 
@@ -500,8 +501,8 @@ texture_normal = ExtResource("15_52v67")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
-venge_cost = 400
-new_amount = 0.05
+venge_cost = 350
+new_amount = 0.025
 upgrade_key = "shot_speed"
 preeq = NodePath("../ShotSpeed2")
 hover_modulate = Color(0.525101, 0.525101, 0.525101, 1)
@@ -622,3 +623,4 @@ libraries = {
 autoplay = "fade_in"
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_86svx")]
+visible = false

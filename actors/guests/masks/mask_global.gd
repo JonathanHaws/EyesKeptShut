@@ -2,7 +2,7 @@ extends Node
 @export var target_index: int = -1
 @export var random_materials: Array[int] = [1,2,3,4]
 
-@export var masks_needed_for_completion: int = 16
+@export var masks_needed_for_completion: int = 10
 
 func set_random_target():
 	target_index = randi()

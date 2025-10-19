@@ -392,29 +392,29 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_4atgp"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8g0n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnik0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lvnt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy176"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf4d0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_depdm"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3snj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sl4o"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr82o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdov6"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -474,14 +474,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818413, 2.38377, 1.71118)
 [node name="Bodyguard" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.855292, 0, 0.518146, 0, 1, 0, -0.518146, 0, 0.855292, -1.28133, 0.0010355, -7.44458)
 start_animation = "Bodyguard_1"
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_m8g0n")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_qnik0"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_1lvnt")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_pc6s5")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_ekvb4"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_jy176")])
 
 [node name="Bodyguard2" parent="Guests" instance=ExtResource("3_d7dw0")]
 transform = Transform3D(0.914197, 0, -0.405269, 0, 1, 0, 0.405269, 0, 0.914197, 1.41071, 0.0010355, -7.47152)
 start_animation = "Bodyguard_1"
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hf4d0")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_h3snj"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_nr82o")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_depdm")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("5_1w06p"), SubResource("StandardMaterial3D_5sl4o"), ExtResource("6_4atgp"), SubResource("StandardMaterial3D_hdov6")])
 
 [node name="Ending" parent="." instance=ExtResource("4_atmh3")]
 transform = Transform3D(-0.78757, 0, 0.616226, 0, 1, 0, -0.616226, 0, -0.78757, -2.59685, 0.00246582, 3.43603)

@@ -1,5 +1,4 @@
 extends TextureButton
-
 @export var venge_cost := 5
 @export var new_amount := 1.0
 @export var upgrade_key: String = "max_ammo"
@@ -12,9 +11,6 @@ var preeq_flag
 @export var hover_modulate: Color = Color(0.525,0.525,0.525,1.0)	
 
 func _ready():
-	
-
-	
 	
 	upgrade_flag = Save.get_unique_key(self,"skill_node")
 	if preeq: preeq_flag = Save.get_unique_key(preeq, "skill_node")

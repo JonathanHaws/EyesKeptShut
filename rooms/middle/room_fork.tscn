@@ -197,7 +197,7 @@ material_override = ExtResource("4_l7uai")
 mesh = SubResource("BoxMesh_ndi8a")
 
 [node name="Ending" parent="." instance=ExtResource("3_ay4le")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 1.10671, -0.0125785, 11.1244)
+transform = Transform3D(-0.775881, 0, -0.630879, 0, 1, 0, 0.630879, 0, -0.775881, 4.27249, -0.0125785, 11.1244)
 
 [node name="OmniLight3D" parent="." instance=ExtResource("4_ndi8a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01489, 2.2369, 7.21745)
@@ -235,13 +235,13 @@ skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_we5e
 dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_fjsxl"), ExtResource("7_1ysy8"), SubResource("StandardMaterial3D_2rvnl")])
 
 [node name="Guest7" parent="Guests" instance=ExtResource("5_ndi8a")]
-transform = Transform3D(-0.780037, 0, 0.625733, 0, 1, 0, -0.625733, 0, -0.780037, -2.1508, 0.0010355, 8.15331)
+transform = Transform3D(-0.780037, 0, 0.625733, 0, 1, 0, -0.625733, 0, -0.780037, -2.1508, 0.0010355, 11.3352)
 start_animation = "Bodyguard_1"
 skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_r3nlk")])
 dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_6ncun"), ExtResource("7_1ysy8"), SubResource("StandardMaterial3D_kkcyv")])
 
 [node name="Bodyguard2" parent="Guests" instance=ExtResource("5_ndi8a")]
-transform = Transform3D(0.153382, 0, -0.988167, 0, 1, 0, 0.988167, 0, 0.153382, 4.51124, 0.0010355, 3.36614)
+transform = Transform3D(0.425652, 0, -0.904887, 0, 1, 0, 0.904887, 0, 0.425652, 4.51124, 0.0010355, 1.80408)
 start_animation = "Bodyguard_1"
 skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_knw1n")])
 dress_materials = Array[StandardMaterial3D]([ExtResource("6_xqlsd"), SubResource("StandardMaterial3D_p1aw7"), ExtResource("7_1ysy8"), SubResource("StandardMaterial3D_dpsfu")])

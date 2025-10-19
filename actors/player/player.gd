@@ -7,13 +7,10 @@ extends CharacterBody3D
 @export var cam : Camera3D
 @export var gravity := 9.8
 
-
 @export var jump_buffer_time: float = .2
 @export var coyote_time: float = .25
 var jump_buffer = 0;
 var falling = coyote_time;
-
-
 
 var was_on_floor : bool = true
 var ignore_first_was_on_floor : bool = true
@@ -24,8 +21,8 @@ var ignore_first_was_on_floor : bool = true
 @export var gun_audio_anim: AnimationPlayer
 
 @export var max_ammo := 3
-@export var shot_speed := 0.2
-@export var reload_time := 1.25
+@export var shot_speed := 0.175
+@export var reload_time := 1.0
 @export var bullet_scene: PackedScene
 @export var shoot_point: Node3D
 var ammo := max_ammo
@@ -121,8 +118,9 @@ func _physics_process(_d):
 	if Input.is_action_pressed("sprint"):
 		current_speed *= sprint_multiplier
 
-	velocity.x = (cam.global_transform.basis.x * movement_vector.x + cam.global_transform.basis.z * movement_vector.z).normalized().x * current_speed
-	velocity.z = (cam.global_transform.basis.x * movement_vector.x + cam.global_transform.basis.z * movement_vector.z).normalized().z * current_speed
+	var dir = movement_vector.rotated(Vector3.UP, cam.global_rotation.y).normalized()
+	velocity.x = dir.x * current_speed
+	velocity.z = dir.z * current_speed
 	move_and_slide()
 	
 	if is_on_floor():
@@ -144,5 +142,3 @@ func _physics_process(_d):
 	if not was_on_floor and on_floor_now:
 		audio_anim.play("Land")	
 	was_on_floor = on_floor_now
-
-	
