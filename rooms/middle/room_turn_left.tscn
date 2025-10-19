@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4qjxjhthyt12"]
+[gd_scene load_steps=23 format=3 uid="uid://4qjxjhthyt12"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_iseoo"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_msq30"]
@@ -43,6 +43,30 @@ resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxldf"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vpaq"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf6mc"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2jyw"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dobs6"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhw15"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mp5g"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -104,20 +128,20 @@ dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource
 
 [node name="Guest2" parent="Guests" instance=ExtResource("5_87nms")]
 transform = Transform3D(-0.965953, 0, 0.258718, 0, 1, 0, -0.258718, 0, -0.965953, -2.29726, 0.0190016, 4.47592)
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_enmom"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_gvdxd")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_3vd2m"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_cxldf")])
 
 [node name="Guest3" parent="Guests" instance=ExtResource("5_87nms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40193, 0.0190016, 8.60943)
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_enmom"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_gvdxd")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_5vpaq"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_tf6mc")])
 
 [node name="Guest4" parent="Guests" instance=ExtResource("5_87nms")]
 transform = Transform3D(-0.965953, 0, 0.258718, 0, 1, 0, -0.258718, 0, -0.965953, 4.35242, 0.0190016, 9.27408)
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_enmom"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_gvdxd")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_d2jyw"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_dobs6")])
 
 [node name="Bodyguard" parent="." instance=ExtResource("5_87nms")]
 transform = Transform3D(0.346035, 0, -0.938222, 0, 1, 0, 0.938222, 0, 0.346035, 4.42199, 0.0010355, 1.45931)
 start_animation = "Bodyguard_1"
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_3vd2m"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_cxldf")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_dhw15"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_7mp5g")])
 
 [node name="window7" parent="." instance=ExtResource("8_enmom")]
 transform = Transform3D(-0.999961, 0, -0.00884862, 0, 1, 0, 0.00884862, 0, -0.999961, -1.35281, 1.56328, 9.89684)
