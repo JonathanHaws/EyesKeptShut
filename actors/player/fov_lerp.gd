@@ -6,5 +6,5 @@ extends Node
 func _process(delta):
 	if camera_node == null:
 		return
-	if delta < 0.001 or delta > 0.2: return # stop extreme lag from making it weird
+	delta = clamp(delta, 0.001, 0.2)
 	camera_node.fov = lerp(camera_node.fov, target_fov, lerp_speed * delta)

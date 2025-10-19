@@ -494,6 +494,7 @@ preeq = NodePath("../ShotSpeed2")
 hover_modulate = Color(0.525101, 0.525101, 0.525101, 1)
 
 [node name="Speed1" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
 offset_left = 214.729
 offset_top = 338.76
 offset_right = 308.729
@@ -508,6 +509,7 @@ upgrade_key = "max_speed"
 preeq = NodePath("../Ammo1")
 
 [node name="Speed2" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 462.016
 offset_right = 394.0
@@ -522,6 +524,7 @@ upgrade_key = "max_speed"
 preeq = NodePath("../Speed1")
 
 [node name="Speed3" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
 offset_left = 444.961
 offset_top = 465.116
 offset_right = 538.961
@@ -536,6 +539,7 @@ upgrade_key = "max_speed"
 preeq = NodePath("../Speed2")
 
 [node name="Speed4" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+layout_mode = 0
 offset_left = 591.473
 offset_top = 468.992
 offset_right = 685.473
@@ -605,4 +609,3 @@ libraries = {
 autoplay = "fade_in"
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_86svx")]
-visible = false
