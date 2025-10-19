@@ -1,11 +1,19 @@
 extends CharacterBody3D
 @export var speed := 3.0
 @export var speed_multiplier := 1.0
-@export var jump_height := 5.0
+@export var jump_height := 4.0
 @export var sprint_multiplier := 2.0
 @export var sens := 0.002
 @export var cam : Camera3D
 @export var gravity := 9.8
+
+
+@export var jump_buffer_time: float = .2
+@export var coyote_time: float = .25
+var jump_buffer = 0;
+var falling = coyote_time;
+
+
 
 var was_on_floor : bool = true
 var ignore_first_was_on_floor : bool = true
@@ -17,7 +25,7 @@ var ignore_first_was_on_floor : bool = true
 
 @export var max_ammo := 3
 @export var shot_speed := 0.2
-@export var reload_time := 1.5
+@export var reload_time := 1.25
 @export var bullet_scene: PackedScene
 @export var shoot_point: Node3D
 var ammo := max_ammo
@@ -69,6 +77,12 @@ func die():
 func _ready(): 
 	gun_ready()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if not Save.data.has("max_speed"):
+		Save.data["max_speed"] = speed
+	
+	if Save.data.has("max_speed"):
+		speed = Save.data["max_speed"]
 
 	
 func _input(event):
@@ -76,6 +90,9 @@ func _input(event):
 		mouse_delta += event.relative
 
 func _physics_process(_d):
+		
+	if Input.is_action_just_pressed("jump"): jump_buffer = jump_buffer_time;
+	elif jump_buffer > 0: jump_buffer -= _d	
 		
 	if Input.is_action_just_pressed("shoot"):
 		if bullet_scene and shoot_point: shoot()
@@ -93,7 +110,10 @@ func _physics_process(_d):
 		
 	if not is_on_floor(): velocity.y -= gravity * _d
 		
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	falling = 0.0 if is_on_floor() else falling + _d	
+		
+	if falling < coyote_time and jump_buffer > 0:
+		falling = coyote_time + 1;
 		audio_anim.play("Jump")
 		velocity.y = jump_height 
 	

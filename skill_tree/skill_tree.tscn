@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dc5v6c8gpets0"]
+[gd_scene load_steps=32 format=3 uid="uid://dc5v6c8gpets0"]
 
 [ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="1_8xmq4"]
 [ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_mixf3"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dqlkp7ib1a8c6" path="res://skill_tree/textures/shootspeed1.png" id="13_eu7fj"]
 [ext_resource type="Texture2D" uid="uid://dw2ktxnj40jf3" path="res://skill_tree/textures/shootspeed2.png" id="14_5o8st"]
 [ext_resource type="Texture2D" uid="uid://wpqjca5lrb1a" path="res://skill_tree/textures/shootspeed3.png" id="15_52v67"]
+[ext_resource type="Texture2D" uid="uid://ty0pjw3vvvv8" path="res://skill_tree/textures/speed1.png" id="17_52v67"]
+[ext_resource type="Texture2D" uid="uid://c8y8468bnlpyg" path="res://skill_tree/textures/speed2.png" id="18_50qlf"]
+[ext_resource type="Texture2D" uid="uid://dstqpgfa8qbbk" path="res://skill_tree/textures/speed3.png" id="19_x7rdj"]
 
 [sub_resource type="Curve" id="Curve_x57a4"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0561798), -0.0730353, -0.0730353, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -280,6 +283,42 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="Line2D12" type="Line2D" parent="Tree/Lines"]
+position = Vector2(44.186, 340.31)
+points = PackedVector2Array(386, 167, 357, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D13" type="Line2D" parent="Tree/Lines"]
+position = Vector2(195.349, 341.86)
+points = PackedVector2Array(386, 167, 357, 167)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D14" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-62.7907, 259.69)
+points = PackedVector2Array(377.519, 197.674, 356.589, 170.543)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D15" type="Line2D" parent="Tree/Lines"]
+position = Vector2(-76.7442, 266.667)
+points = PackedVector2Array(308.527, 72.093, 274.419, 30.2325)
+width = 4.095
+default_color = Color(0.219501, 0.219501, 0.219501, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="Ammo1" type="TextureButton" parent="Tree"]
 layout_mode = 0
 offset_left = 129.0
@@ -360,7 +399,6 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 30
-new_amount = 1.25
 upgrade_key = "reload_time"
 preeq = NodePath("../Ammo1")
 
@@ -375,6 +413,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 100
+new_amount = 0.75
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload")
 
@@ -389,7 +428,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 200
-new_amount = 0.75
+new_amount = 0.5
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload2")
 
@@ -404,7 +443,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
 venge_cost = 300
-new_amount = 0.5
+new_amount = 0.25
 upgrade_key = "reload_time"
 preeq = NodePath("../Reload3")
 
@@ -448,11 +487,67 @@ texture_normal = ExtResource("15_52v67")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_8kxff")
-venge_cost = 500
+venge_cost = 400
 new_amount = 0.05
 upgrade_key = "shot_speed"
 preeq = NodePath("../ShotSpeed2")
 hover_modulate = Color(0.525101, 0.525101, 0.525101, 1)
+
+[node name="Speed1" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+offset_left = 214.729
+offset_top = 338.76
+offset_right = 308.729
+offset_bottom = 431.76
+texture_normal = ExtResource("17_52v67")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 20
+new_amount = 1.75
+upgrade_key = "max_speed"
+preeq = NodePath("../Ammo1")
+
+[node name="Speed2" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+offset_left = 300.0
+offset_top = 462.016
+offset_right = 394.0
+offset_bottom = 555.016
+texture_normal = ExtResource("18_50qlf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 50
+new_amount = 1.9
+upgrade_key = "max_speed"
+preeq = NodePath("../Speed1")
+
+[node name="Speed3" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+offset_left = 444.961
+offset_top = 465.116
+offset_right = 538.961
+offset_bottom = 558.116
+texture_normal = ExtResource("19_x7rdj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 220
+new_amount = 2.05
+upgrade_key = "max_speed"
+preeq = NodePath("../Speed2")
+
+[node name="Speed4" type="TextureButton" parent="Tree" node_paths=PackedStringArray("preeq")]
+offset_left = 591.473
+offset_top = 468.992
+offset_right = 685.473
+offset_bottom = 561.992
+texture_normal = ExtResource("19_x7rdj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_8kxff")
+venge_cost = 350
+new_amount = 2.4
+upgrade_key = "max_speed"
+preeq = NodePath("../Speed3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_86svx")

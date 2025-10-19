@@ -255,12 +255,20 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_4flbx")
+speed = 1.6
 cam = NodePath("Camera3D")
 fov_lerp = NodePath("FovLerp")
 audio_anim = NodePath("Audio/AnimationPlayer")
 gun_audio_anim = NodePath("Audio/Gun/AnimationPlayer")
 bullet_scene = ExtResource("2_qrxv1")
 shoot_point = NodePath("Camera3D/ShootPoint")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485018, -0.345034)
+light_color = Color(0.737494, 0.487801, 0.342993, 1)
+light_energy = 0.5
+light_specular = 0.0
+omni_range = 1.13199
 
 [node name="Hitshape" type="Area3D" parent="." node_paths=PackedStringArray("DEATH_ANIMATION_PLAYER") groups=["player_hitshape"]]
 script = ExtResource("2_0wchr")
