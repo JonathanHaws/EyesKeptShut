@@ -2,6 +2,6 @@
 
 [node name="OmniLight3D" type="OmniLight3D"]
 light_color = Color(0.77, 0.6314, 0.539, 1)
-light_energy = 5.0
+light_energy = 6.0
 light_specular = 0.0
 omni_range = 13.3271
