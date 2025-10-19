@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=20 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
@@ -30,16 +30,29 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_lgf22"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knw1n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq2mk"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1aw7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ans3s"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpsfu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wpla"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5gam"]
+resource_local_to_scene = true
+albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tji1n"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iehmd"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -101,14 +114,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927687, 2.10336, 7.09527)
 [node name="Bodyguard2" parent="Guests" instance=ExtResource("5_gq2mk")]
 transform = Transform3D(-0.827649, 0, 0.561246, 0, 1, 0, -0.561246, 0, -0.827649, -2.357, 0.0010355, 7.70629)
 start_animation = "Bodyguard_1"
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_knw1n")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_p1aw7"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_dpsfu")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_gq2mk")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_ans3s"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_8wpla")])
 
 [node name="Bodyguard3" parent="Guests" instance=ExtResource("5_gq2mk")]
 transform = Transform3D(-0.496141, 0, -0.868242, 0, 1, 0, 0.868242, 0, -0.496141, 4.16397, 0.0010355, 7.20811)
 start_animation = "Bodyguard_1"
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_knw1n")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_p1aw7"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_dpsfu")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_b5gam")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_tji1n"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_iehmd")])
 
 [node name="Area3D2" type="Area3D" parent="."]
 script = ExtResource("5_pclft")

@@ -51,7 +51,9 @@ func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, target_skeleton:
 func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMaterial3D], slot: int = -1) -> void:
 	if target_mesh == null or target_mesh.mesh == null: return
 	if materials.size() == 0: return
-	var mat = materials[randi() % materials.size()].duplicate()
+	var mat = materials[randi() % materials.size()]
+	if mat == null: return
+	mat = mat.duplicate()
 	if slot >= 0 and slot < target_mesh.mesh.get_surface_count():
 		target_mesh.mesh.surface_set_material(slot, mat)
 	else:

@@ -29,16 +29,16 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_op4xn"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s60vd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87nms"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4pa1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enmom"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cylis"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvdxd"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -109,8 +109,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425457, 1.85051, 3.90404)
 
 [node name="Guest" parent="Guests" instance=ExtResource("5_87nms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24774, 0.557878, 3.81126)
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_s60vd"), null])
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_p4pa1"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_cylis")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_87nms"), null])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_enmom"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_gvdxd")])
 
 [node name="Bodyguard" parent="." instance=ExtResource("5_87nms")]
 transform = Transform3D(0.346035, 0, -0.938222, 0, 1, 0, 0.938222, 0, 0.346035, 4.12467, 0.0010355, 0.653172)
