@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=55 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -22,24 +22,32 @@
 [ext_resource type="Script" uid="uid://degwvhusn5lf0" path="res://actors/slow_motion.gd" id="15_n7ddy"]
 [ext_resource type="PackedScene" uid="uid://15l0qecaqd5w" path="res://actors/guests/particles/blood.tscn" id="15_tp2t0"]
 [ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="17_fcf65"]
+[ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="20_81mp5"]
+[ext_resource type="AudioStream" uid="uid://ceynu0f2rn47n" path="res://audio/movement/Footstep 1.ogg" id="21_gdmmo"]
 [ext_resource type="Script" uid="uid://c4nqq1nykr6fg" path="res://actors/guests/venge.gd" id="21_n7ddy"]
 [ext_resource type="PackedScene" uid="uid://dn0yj3fogrhms" path="res://actors/guests/masks/mask_1.glb" id="21_tnf6t"]
 [ext_resource type="PackedScene" uid="uid://1ptnajqxt8dh" path="res://actors/guests/masks/mask_2.glb" id="22_6cuou"]
+[ext_resource type="AudioStream" uid="uid://hwtw25a3882c" path="res://audio/movement/Footstep 2.ogg" id="22_m3urh"]
 [ext_resource type="PackedScene" uid="uid://bb68i5208cadi" path="res://actors/guests/masks/mask_3.glb" id="23_jsbfx"]
+[ext_resource type="AudioStream" uid="uid://st2e3y6ell24" path="res://audio/movement/Footstep 3.ogg" id="23_s60vd"]
 [ext_resource type="PackedScene" uid="uid://dm32eg0idpg8s" path="res://actors/guests/masks/mask_4.glb" id="24_77q5o"]
+[ext_resource type="AudioStream" uid="uid://ch5n8mex2hrhx" path="res://audio/movement/Footstep 4.ogg" id="24_p4pa1"]
+[ext_resource type="AudioStream" uid="uid://dsne4h8vqjin8" path="res://audio/movement/Thud.ogg" id="25_gdmmo"]
+[ext_resource type="AudioStream" uid="uid://480ugt3jxtsm" path="res://audio/hurt/grunt 1.ogg" id="25_m3urh"]
 [ext_resource type="Script" uid="uid://2neqvav6k8sw" path="res://actors/guests/ragdoll.gd" id="25_n816u"]
 [ext_resource type="PackedScene" uid="uid://2hxfp3cyob8e" path="res://actors/guests/ragdoll.tscn" id="26_hwux2"]
+[ext_resource type="AudioStream" uid="uid://cg5s23np3rt5i" path="res://audio/hurt/grunt 2.ogg" id="26_s60vd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp2t0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s60vd"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bakcp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4pa1"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u32xl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cylis"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -218,6 +226,48 @@ tracks/12/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Killed")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Audio/Grunts")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Audio/Thud")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_n816u"]
 length = 0.001
@@ -285,29 +335,29 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Vengeance")
+tracks/1/path = NodePath("BloodParticles")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"increase_venge"
+"args": [0, null],
+"method": &"spawn"
 }]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BloodParticles")
+tracks/2/path = NodePath("Audio/Grunts")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0, null],
-"method": &"spawn"
+"args": [],
+"method": &"_play"
 }]
 }
 
@@ -424,6 +474,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitshape/Audio/Footsteps")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25, 0.677965),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_play"
+}, {
+"args": [],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_7w6bm"]
@@ -567,13 +634,15 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_tp2t0"), null])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_s60vd"), null])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_bakcp"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_u32xl")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_p4pa1"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_cylis")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
 male_outfits_gltf = Array[PackedScene]([ExtResource("5_4reb1")])
+
+[node name="Killed" type="Node" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.946162, 0.106894)
@@ -615,6 +684,55 @@ script = ExtResource("14_kl4fg")
 
 [node name="SlowMotion" type="Node" parent="Hitshape"]
 script = ExtResource("15_n7ddy")
+
+[node name="Audio" type="Node" parent="Hitshape"]
+
+[node name="Footsteps" type="Node" parent="Hitshape/Audio" node_paths=PackedStringArray("audio_players")]
+script = ExtResource("20_81mp5")
+audio_players = [NodePath("Footstep_1"), NodePath("Footstep_2"), NodePath("Footstep_3"), NodePath("Footstep_4")]
+
+[node name="Footstep_1" type="AudioStreamPlayer" parent="Hitshape/Audio/Footsteps"]
+stream = ExtResource("21_gdmmo")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Footstep_2" type="AudioStreamPlayer" parent="Hitshape/Audio/Footsteps"]
+stream = ExtResource("22_m3urh")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Footstep_3" type="AudioStreamPlayer" parent="Hitshape/Audio/Footsteps"]
+stream = ExtResource("23_s60vd")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Footstep_4" type="AudioStreamPlayer" parent="Hitshape/Audio/Footsteps"]
+stream = ExtResource("24_p4pa1")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Grunts" type="Node" parent="Hitshape/Audio" node_paths=PackedStringArray("audio_players")]
+script = ExtResource("20_81mp5")
+audio_players = [NodePath("Grunt_1"), NodePath("Grunt_2")]
+
+[node name="Grunt_1" type="AudioStreamPlayer" parent="Hitshape/Audio/Grunts"]
+stream = ExtResource("25_m3urh")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Grunt_2" type="AudioStreamPlayer" parent="Hitshape/Audio/Grunts"]
+stream = ExtResource("26_s60vd")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Thud" type="Node" parent="Hitshape/Audio" node_paths=PackedStringArray("audio_players")]
+script = ExtResource("20_81mp5")
+audio_players = [NodePath("Thud_1")]
+
+[node name="Thud_1" type="AudioStreamPlayer" parent="Hitshape/Audio/Thud"]
+stream = ExtResource("25_gdmmo")
+volume_db = 2.0
+bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444062, 0)
@@ -666,7 +784,7 @@ ragdoll_scene = ExtResource("26_hwux2")
 skeleton = NodePath("..")
 
 [node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="1" node_paths=PackedStringArray("masks", "mask_parent", "look_at_modifier", "guest")]
-transform = Transform3D(0.999986, -0.0052551, 0.000962771, 0.00534258, 0.983615, -0.180205, 7.57211e-09, 0.180207, 0.983629, 0.00108887, 0.73763, 0.113632)
+transform = Transform3D(0.999996, 0.00267064, -0.000489209, -0.00271508, 0.983625, -0.180207, -7.25216e-08, 0.180207, 0.983629, -0.000553249, 0.729375, 0.113632)
 bone_name = "spine.006"
 bone_idx = 6
 script = ExtResource("15_famnq")

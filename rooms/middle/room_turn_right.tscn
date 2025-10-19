@@ -1,16 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=17 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
 [ext_resource type="PackedScene" uid="uid://c2x4py0bkprgv" path="res://ending/exit.tscn" id="3_lgf22"]
 [ext_resource type="PackedScene" uid="uid://c5cjlmay4qhby" path="res://lighting/omni_light_3d_1.tscn" id="4_lgf22"]
+[ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="5_gq2mk"]
 [ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="5_pclft"]
+[ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://actors/guests/outfits/materials/black_dress.tres" id="6_ans3s"]
+[ext_resource type="Material" uid="uid://q4j6fjnj1vce" path="res://actors/guests/outfits/materials/white_dress.tres" id="7_8wpla"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
 size = Vector3(7.66821, 8.00037, 11.7023)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_lgf22"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_gq2mk"]
+vertices = PackedVector3Array(-3, 4.2, -2.23517e-08, -3, 4.2, 12, 5, 4.2, 12, 5, 4.2, -2.23517e-08, 0.3, 0.2, 0.3, 0.2, 0.2, 0.1, -0.2, 0.2, 0.1, -0.3, 0.2, 0.3, -2.8, 0.2, 2.1, -2.7, 0.1, 4.1, 4.8, 0.2, 4, 4.7, 0.2, 0.3, -2.7, 0.2, 0.3, -2.7, -3.9, 4.3, -2.7, -3.9, 5.7, 4.7, -3.9, 5.7, 4.7, -3.9, 4.3, -2.8, 0.2, 6.2, -3, 0.2, 6.2, -3, 0.2, 7.9, -2.7, 0.2, 8.2, 4.8, 0.1, 5.9, -2.7, 0.1, 5.9, 4.7, 0.2, 11.7, 4.8, 0.2, 10, -2.7, 0.2, 11.7)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(8, 4, 9), PackedInt32Array(9, 4, 11), PackedInt32Array(9, 11, 10), PackedInt32Array(8, 12, 7), PackedInt32Array(8, 7, 4), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(17, 22, 19), PackedInt32Array(19, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(24, 23, 21), PackedInt32Array(21, 23, 20), PackedInt32Array(20, 23, 25)]
 cell_size = 0.1
 cell_height = 0.1
 border_size = 0.1
@@ -24,6 +29,19 @@ size = Vector3(1, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lgf22"]
 size = Vector3(0.25, 1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knw1n"]
+resource_local_to_scene = true
+albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1aw7"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpsfu"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aio8d"]
 size = Vector3(8.98067, 1, 2.92328)
@@ -39,7 +57,7 @@ shape = SubResource("BoxShape3D_xaf06")
 debug_color = Color(0.877855, 0.585429, 0.277921, 1)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_lgf22")
+navigation_mesh = SubResource("NavigationMesh_gq2mk")
 
 [node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10)
@@ -79,6 +97,18 @@ transform = Transform3D(-0.779863, 0, -0.625951, 0, 1, 0, 0.625951, 0, -0.779863
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927687, 2.10336, 7.09527)
 
 [node name="Guests" type="Node3D" parent="."]
+
+[node name="Bodyguard2" parent="Guests" instance=ExtResource("5_gq2mk")]
+transform = Transform3D(-0.827649, 0, 0.561246, 0, 1, 0, -0.561246, 0, -0.827649, -2.357, 0.0010355, 7.70629)
+start_animation = "Bodyguard_1"
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_knw1n")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_p1aw7"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_dpsfu")])
+
+[node name="Bodyguard3" parent="Guests" instance=ExtResource("5_gq2mk")]
+transform = Transform3D(-0.496141, 0, -0.868242, 0, 1, 0, 0.868242, 0, -0.496141, 4.16397, 0.0010355, 7.20811)
+start_animation = "Bodyguard_1"
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_knw1n")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_p1aw7"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_dpsfu")])
 
 [node name="Area3D2" type="Area3D" parent="."]
 script = ExtResource("5_pclft")

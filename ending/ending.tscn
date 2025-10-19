@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw6y72sjgf46l"]
+[gd_scene load_steps=15 format=3 uid="uid://bw6y72sjgf46l"]
 
+[ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="1_18v65"]
 [ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_o7yp5"]
 [ext_resource type="Script" uid="uid://dvdliak3hdm3t" path="res://actors/player/time_taken.gd" id="2_05p0a"]
+[ext_resource type="AudioStream" uid="uid://bslvpkvli03er" path="res://audio/music/Finished.ogg" id="2_pr4ya"]
 [ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="3_nix8d"]
 [ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="4_05p0a"]
 
@@ -174,6 +176,16 @@ adjustment_saturation = 0.86
 adjustment_color_correction = SubResource("CurveTexture_05p0a")
 
 [node name="FinishCutscene" type="Node3D"]
+
+[node name="RandomSong" type="Node" parent="." node_paths=PackedStringArray("audio_players")]
+script = ExtResource("1_18v65")
+auto_play = true
+audio_players = [NodePath("AudioStreamPlayer")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
+stream = ExtResource("2_pr4ya")
+bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

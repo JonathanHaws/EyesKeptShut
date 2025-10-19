@@ -1,9 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://dc5v6c8gpets0"]
+[gd_scene load_steps=34 format=3 uid="uid://dc5v6c8gpets0"]
 
 [ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="1_8xmq4"]
 [ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_mixf3"]
 [ext_resource type="Script" uid="uid://o8ieytygfvyj" path="res://actors/player/venge_collected.gd" id="1_x57a4"]
 [ext_resource type="Script" uid="uid://c4trfm68alqyc" path="res://skill_tree/show_cursor.gd" id="1_y08ot"]
+[ext_resource type="Script" uid="uid://dci5gfgqmqkl7" path="res://audio/random_sound.gd" id="2_x7rdj"]
+[ext_resource type="AudioStream" uid="uid://1udje3wb12yl" path="res://audio/music/Skilltree.ogg" id="3_eww4n"]
 [ext_resource type="Texture2D" uid="uid://c3poid5lxygq8" path="res://skill_tree/textures/ammo1.png" id="4_2b7yj"]
 [ext_resource type="PackedScene" uid="uid://c2n4qf764ytnb" path="res://pause/menu.tscn" id="4_86svx"]
 [ext_resource type="Script" uid="uid://cmvxnud8qti1g" path="res://skill_tree/back_to_mansion.gd" id="5_0g56x"]
@@ -138,6 +140,17 @@ _data = {
 
 [node name="SkillTree" type="Node3D"]
 script = ExtResource("1_y08ot")
+
+[node name="RandomSong" type="Node" parent="." node_paths=PackedStringArray("audio_players")]
+script = ExtResource("2_x7rdj")
+auto_play = true
+audio_players = [NodePath("AudioStreamPlayer")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomSong"]
+process_mode = 3
+stream = ExtResource("3_eww4n")
+volume_db = -3.0
+bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 2

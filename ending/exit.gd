@@ -7,8 +7,8 @@ extends Node3D
 @export_file("*.tscn") var ending_scene_file: String
 
 func _ready():
-	if is_instance_valid(guest):
-		guest.connect("tree_exited", Callable(self, "_guest_killed"))
+	if is_instance_valid(guest.get_node("Killed")):
+		guest.get_node("Killed").connect("tree_exited", Callable(self, "_guest_killed"))
 
 func _guest_killed():
 	anim.play(animation)

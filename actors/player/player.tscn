@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dgxi6v5gdyebj"]
+[gd_scene load_steps=46 format=3 uid="uid://dgxi6v5gdyebj"]
 
 [ext_resource type="Script" uid="uid://fk7lry0r6wvc" path="res://actors/player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="2_0wchr"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ew0q2j6jmwyv" path="res://audio/movement/Jump 1.ogg" id="6_rgyib"]
 [ext_resource type="AudioStream" uid="uid://toqcj5qnmnx1" path="res://audio/bullets/gun A 1.wav" id="7_ctwkf"]
 [ext_resource type="AudioStream" uid="uid://y5h0ifhscjh1" path="res://audio/movement/Jump 2.ogg" id="7_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://dydrjr8tj1k6a" path="res://audio/bullets/Reload.ogg" id="7_tpopl"]
 [ext_resource type="AudioStream" uid="uid://bovttgduchwtp" path="res://audio/bullets/gun A 2.ogg" id="8_icg72"]
 [ext_resource type="AudioStream" uid="uid://dsne4h8vqjin8" path="res://audio/movement/Thud.ogg" id="9_8t03j"]
 [ext_resource type="AudioStream" uid="uid://cari5a5i05jfc" path="res://audio/bullets/gun A 3.ogg" id="9_lj3dd"]
@@ -308,7 +309,7 @@ audio_players = [NodePath("GunA_1")]
 
 [node name="GunA_1" type="AudioStreamPlayer" parent="Audio/Gun/Reload"]
 process_mode = 3
-stream = ExtResource("9_8t03j")
+stream = ExtResource("7_tpopl")
 volume_db = -3.888
 pitch_scale = 0.66
 bus = &"SFX"

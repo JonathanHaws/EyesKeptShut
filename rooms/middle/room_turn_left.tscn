@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4qjxjhthyt12"]
+[gd_scene load_steps=18 format=3 uid="uid://4qjxjhthyt12"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_iseoo"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_msq30"]
@@ -28,6 +28,19 @@ size = Vector3(1, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_op4xn"]
 size = Vector3(0.25, 1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s60vd"]
+resource_local_to_scene = true
+albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4pa1"]
+resource_local_to_scene = true
+albedo_color = Color(0.39, 0.2106, 0.25545, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cylis"]
+resource_local_to_scene = true
+albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vd2m"]
 resource_local_to_scene = true
@@ -93,6 +106,11 @@ transform = Transform3D(-0.849672, 0, 0.527312, 0, 1, 0, -0.527312, 0, -0.849672
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425457, 1.85051, 3.90404)
 
 [node name="Guests" type="Node3D" parent="."]
+
+[node name="Guest" parent="Guests" instance=ExtResource("5_87nms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24774, 0.557878, 3.81126)
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_s60vd"), null])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_enmom"), SubResource("StandardMaterial3D_p4pa1"), ExtResource("7_gvdxd"), SubResource("StandardMaterial3D_cylis")])
 
 [node name="Bodyguard" parent="." instance=ExtResource("5_87nms")]
 transform = Transform3D(0.346035, 0, -0.938222, 0, 1, 0, 0.938222, 0, 0.346035, 4.12467, 0.0010355, 0.653172)
