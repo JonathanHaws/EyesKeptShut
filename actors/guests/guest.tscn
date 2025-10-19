@@ -42,11 +42,11 @@
 [ext_resource type="AudioStream" uid="uid://cg5s23np3rt5i" path="res://audio/hurt/grunt 2.ogg" id="26_s60vd"]
 [ext_resource type="AudioStream" uid="uid://q2vnryyd6rjw" path="res://audio/hurt/splat_sound.ogg" id="28_p4pa1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfb08"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ln4kc"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -649,7 +649,7 @@ masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
 skin_color_materials = Array[StandardMaterial3D]([ExtResource("3_gfb08"), ExtResource("3_he4xx")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_pc6s5"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_ekvb4")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_gfb08"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_ln4kc")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])

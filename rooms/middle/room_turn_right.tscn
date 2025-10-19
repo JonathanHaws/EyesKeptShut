@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btp82fmwrwhyh"]
+[gd_scene load_steps=18 format=3 uid="uid://btp82fmwrwhyh"]
 
 [ext_resource type="MeshLibrary" uid="uid://qvxl4ouj04dm" path="res://modular_gridmap/tiles.meshlib" id="2_dhd0k"]
 [ext_resource type="Material" uid="uid://boqex8ji6yx6r" path="res://materials/arrow.tres" id="3_kj7pg"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://belsnvl4c3y3y" path="res://actors/hurt_shape.gd" id="5_pclft"]
 [ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://actors/guests/outfits/materials/black_dress.tres" id="6_ans3s"]
 [ext_resource type="Material" uid="uid://q4j6fjnj1vce" path="res://actors/guests/outfits/materials/white_dress.tres" id="7_8wpla"]
+[ext_resource type="PackedScene" uid="uid://du4bubv5mffvu" path="res://decoration/spikes.blend" id="9_ans3s"]
+[ext_resource type="PackedScene" uid="uid://ctb6ukap5phlj" path="res://decoration/window.blend" id="10_8wpla"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaf06"]
 resource_local_to_scene = true
@@ -30,16 +32,11 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="BoxMesh" id="BoxMesh_lgf22"]
 size = Vector3(0.25, 1, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq2mk"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ans3s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wpla"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wpla"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5gam"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -101,8 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.927687, 2.10336, 7.09527)
 [node name="Bodyguard2" parent="Guests" instance=ExtResource("5_gq2mk")]
 transform = Transform3D(-0.827649, 0, 0.561246, 0, 1, 0, -0.561246, 0, -0.827649, -1.23623, 0.0010355, 7.39325)
 start_animation = "Bodyguard_1"
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_gq2mk")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_ans3s"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_8wpla")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("6_ans3s"), SubResource("StandardMaterial3D_8wpla"), ExtResource("7_8wpla"), SubResource("StandardMaterial3D_b5gam")])
 
 [node name="Area3D2" type="Area3D" parent="."]
 script = ExtResource("5_pclft")
@@ -111,3 +107,30 @@ damage = 100000.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08581, -3.10825, 5.00392)
 shape = SubResource("BoxShape3D_aio8d")
+
+[node name="spikes" parent="." instance=ExtResource("9_ans3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36684, -4.10848, 5.38812)
+
+[node name="spikes2" parent="." instance=ExtResource("9_ans3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110329, -4.10848, 5.38812)
+
+[node name="spikes3" parent="." instance=ExtResource("9_ans3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51899, -4.10848, 5.38812)
+
+[node name="spikes4" parent="." instance=ExtResource("9_ans3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98355, -4.10848, 5.38812)
+
+[node name="spikes5" parent="." instance=ExtResource("9_ans3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35106, -4.10848, 5.38812)
+
+[node name="window" parent="." instance=ExtResource("10_8wpla")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.90886, 1.56328, 7.14236)
+
+[node name="window2" parent="." instance=ExtResource("10_8wpla")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.90886, 1.56328, 8.51835)
+
+[node name="window3" parent="." instance=ExtResource("10_8wpla")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.90886, 1.56328, 9.9697)
+
+[node name="window4" parent="." instance=ExtResource("10_8wpla")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.592534, 1.56328, 11.9045)

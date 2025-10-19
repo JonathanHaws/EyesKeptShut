@@ -56,11 +56,11 @@ _data = {
 &"exit": SubResource("Animation_latt8")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6kxi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -96,7 +96,7 @@ color = Color(0, 0, 0, 1)
 [node name="Guest" parent="." instance=ExtResource("2_hsqxx")]
 start_animation = "Leader_1"
 wearing_target_mask = true
-dress_materials = Array[StandardMaterial3D]([ExtResource("3_rn2p6"), SubResource("StandardMaterial3D_6qjqh"), ExtResource("4_6qjqh"), SubResource("StandardMaterial3D_y6kxi")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("3_rn2p6"), SubResource("StandardMaterial3D_rn2p6"), ExtResource("4_6qjqh"), SubResource("StandardMaterial3D_6qjqh")])
 random_gender = false
 male_blend = 1.0
 
