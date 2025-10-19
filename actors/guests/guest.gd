@@ -11,7 +11,7 @@ extends Node3D
 
 #@exportsubgroup
 @export var eyes_materials: Array[StandardMaterial3D] = []
-@export var skin_materials: Array[StandardMaterial3D] = []
+@export var skin_color_materials: Array[StandardMaterial3D] = []
 @export var underwear_materials: Array[StandardMaterial3D] = []
 @export var undershirt_materials: Array[StandardMaterial3D] = []
 @export var socks_materials: Array[StandardMaterial3D] = []
@@ -39,7 +39,7 @@ func add_skinned_mesh_gltf_to_skeleton(gltf_scene: PackedScene, target_skeleton:
 	var new_mesh = instance.get_child(0).get_child(0).get_child(0) as MeshInstance3D
 	new_mesh.skeleton = target_skeleton.get_path()
 	
-	new_mesh.mesh = new_mesh.mesh.duplicate()
+	new_mesh.mesh = new_mesh.mesh.duplicate(true)
 	
 	var old_global_transform = new_mesh.global_transform
 	new_mesh.get_parent().remove_child(new_mesh)
@@ -53,7 +53,7 @@ func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMat
 	if materials.size() == 0: return
 	var mat = materials[randi() % materials.size()]
 	if mat == null: return
-	mat = mat.duplicate()
+	mat = mat.duplicate(true)
 	if slot >= 0 and slot < target_mesh.mesh.get_surface_count():
 		target_mesh.mesh.surface_set_material(slot, mat)
 	else:
@@ -61,6 +61,8 @@ func set_mesh_material(target_mesh: MeshInstance3D, materials: Array[StandardMat
 			target_mesh.mesh.surface_set_material(i, mat)
 
 func _ready():
+	
+	mesh.mesh = mesh.mesh.duplicate(true)  
 	
 	if start_animation == "Bodyguard_1":
 		random_gender = false
@@ -78,11 +80,11 @@ func _ready():
 	male_blend = mesh.get("blend_shapes/Male")
 	
 	
+	set_mesh_material(mesh, skin_color_materials, 0)
 	set_mesh_material(mesh, eyes_materials, 1)
-	set_mesh_material(mesh, skin_materials, 0)
 	set_mesh_material(mesh, socks_materials, 2)
-	set_mesh_material(mesh, underwear_materials, 2)
-	set_mesh_material(mesh, undershirt_materials, 2)
+	set_mesh_material(mesh, underwear_materials, 3)
+	set_mesh_material(mesh, undershirt_materials, 4)
 	
 	if male_blend == 0.0:
 		hair = add_skinned_mesh_gltf_to_skeleton(female_hair_gltf.pick_random(), skeleton)

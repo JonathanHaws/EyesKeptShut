@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://ci2gg24unwals" path="res://actors/guests/particles/tobius_open_game_artblood_splat.png" id="1_2hotr"]
 
+[sub_resource type="Animation" id="Animation_2hotr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_6mfjt"]
 resource_name = "new_animation"
 tracks/0/type = "value"
@@ -29,21 +44,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_2hotr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5i4q"]
@@ -86,5 +86,6 @@ autoplay = "new_animation"
 material_override = SubResource("StandardMaterial3D_6mfjt")
 amount = 32
 explosiveness = 1.0
+interpolate = false
 process_material = SubResource("ParticleProcessMaterial_2hotr")
 draw_pass_1 = SubResource("QuadMesh_m5i4q")

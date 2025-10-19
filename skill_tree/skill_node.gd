@@ -4,6 +4,10 @@ extends TextureButton
 @export var upgrade_key: String = "max_ammo"
 @export var cost_group:= "cost_skilltree"
 @export var preeq: Node
+
+@export var sfx_bought: AudioStreamPlayer
+@export var sfx_insufficient: AudioStreamPlayer 
+
 var upgrade_flag 
 var preeq_flag
 
@@ -11,6 +15,9 @@ var preeq_flag
 @export var hover_modulate: Color = Color(0.525,0.525,0.525,1.0)	
 
 func _ready():
+	sfx_bought = get_node_or_null("../Sufficient")
+	sfx_insufficient = get_node_or_null("../Insufficient")
+
 	
 	upgrade_flag = Save.get_unique_key(self,"skill_node")
 	if preeq: preeq_flag = Save.get_unique_key(preeq, "skill_node")
@@ -29,12 +36,17 @@ func _ready():
 	
 	
 func _on_pressed():
-	if preeq and not Save.data.has(preeq_flag): return
-	if Save.data["venge"] < venge_cost or Save.data.has(upgrade_flag): return
+	if preeq and not Save.data.has(preeq_flag) or Save.data["venge"] < venge_cost:
+		if sfx_insufficient: sfx_insufficient.play()
+		return
+	
+	if Save.data.has(upgrade_flag): return
 	Save.data["venge"] -= venge_cost
 	
 	Save.data[upgrade_key] = new_amount
 	#print('upgraded ', upgrade_key, " ", new_amount)
+	
+	if sfx_bought: sfx_bought.play()
 	
 	Save.data[upgrade_flag] = true
 	disabled = true

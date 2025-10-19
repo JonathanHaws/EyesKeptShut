@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dc5v6c8gpets0"]
+[gd_scene load_steps=38 format=3 uid="uid://dc5v6c8gpets0"]
 
 [ext_resource type="PackedScene" uid="uid://ces2j060hnnsk" path="res://ending/ending.blend" id="1_8xmq4"]
 [ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="1_mixf3"]
@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://ty0pjw3vvvv8" path="res://skill_tree/textures/speed1.png" id="17_52v67"]
 [ext_resource type="Texture2D" uid="uid://c8y8468bnlpyg" path="res://skill_tree/textures/speed2.png" id="18_50qlf"]
 [ext_resource type="Texture2D" uid="uid://dstqpgfa8qbbk" path="res://skill_tree/textures/speed3.png" id="19_x7rdj"]
+[ext_resource type="AudioStream" uid="uid://cf62jl3u88gi6" path="res://audio/SkillTree.ogg" id="22_6knqn"]
+[ext_resource type="AudioStream" uid="uid://baecpistcpyec" path="res://audio/SkillTreeInsufficent.ogg" id="23_v78hi"]
+[ext_resource type="Script" uid="uid://bbc11i08ctw2i" path="res://pause/menu_audio.gd" id="25_jatjc"]
+[ext_resource type="AudioStream" uid="uid://vl4sks2obpvu" path="res://audio/MenuHover.ogg" id="26_c75s4"]
 
 [sub_resource type="Curve" id="Curve_x57a4"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0561798), -0.0730353, -0.0730353, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -567,6 +571,12 @@ new_amount = 2.4
 upgrade_key = "max_speed"
 preeq = NodePath("../Speed3")
 
+[node name="Sufficient" type="AudioStreamPlayer" parent="Tree"]
+stream = ExtResource("22_6knqn")
+
+[node name="Insufficient" type="AudioStreamPlayer" parent="Tree"]
+stream = ExtResource("23_v78hi")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_86svx")
 
@@ -624,3 +634,8 @@ autoplay = "fade_in"
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_86svx")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("hover_targets")]
+script = ExtResource("25_jatjc")
+hover_sound = ExtResource("26_c75s4")
+hover_targets = [NodePath("../Tree/Ammo1"), NodePath("../Tree/Ammo2"), NodePath("../Tree/Ammo3"), NodePath("../Tree/Ammo4"), NodePath("../Tree/Ammo5"), NodePath("../Tree/Reload"), NodePath("../Tree/Reload2"), NodePath("../Tree/Reload3"), NodePath("../Tree/Reload4"), NodePath("../Tree/ShotSpeed"), NodePath("../Tree/ShotSpeed2"), NodePath("../Tree/ShotSpeed3"), NodePath("../Tree/Speed1"), NodePath("../Tree/Speed2"), NodePath("../Tree/Speed3"), NodePath("../Tree/Speed4"), NodePath("../Button")]

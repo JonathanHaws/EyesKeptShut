@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2x4py0bkprgv"]
+[gd_scene load_steps=10 format=3 uid="uid://c2x4py0bkprgv"]
 
 [ext_resource type="Script" uid="uid://t6ykmhu52ymu" path="res://ending/exit.gd" id="1_latt8"]
 [ext_resource type="PackedScene" uid="uid://b13fw37sa4dh6" path="res://actors/guests/guest.tscn" id="2_hsqxx"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_latt8"]
 resource_name = "exit"
-length = 1.66667
+length = 2.0522
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +30,7 @@ tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.233333, 0.866667),
+"times": PackedFloat32Array(1.16667, 1.46667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -56,11 +56,6 @@ _data = {
 &"exit": SubResource("Animation_latt8")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
@@ -79,6 +74,7 @@ ending_scene_file = "uid://bw6y72sjgf46l"
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26537, 0.0285841)
 light_color = Color(0.74, 0.524413, 0.3996, 1)
+light_energy = 1.3
 light_specular = 0.0
 omni_range = 1.50404
 
@@ -100,13 +96,11 @@ color = Color(0, 0, 0, 1)
 [node name="Guest" parent="." instance=ExtResource("2_hsqxx")]
 start_animation = "Leader_1"
 wearing_target_mask = true
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_rn2p6")])
 dress_materials = Array[StandardMaterial3D]([ExtResource("3_rn2p6"), SubResource("StandardMaterial3D_6qjqh"), ExtResource("4_6qjqh"), SubResource("StandardMaterial3D_y6kxi")])
 random_gender = false
 male_blend = 1.0
 
 [node name="Mask" parent="Guest/guests/metarig/Skeleton3D" index="1"]
-transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
 wearing_target_mask = true
 
 [editable path="Guest"]

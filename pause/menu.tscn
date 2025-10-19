@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2n4qf764ytnb"]
+[gd_scene load_steps=10 format=3 uid="uid://c2n4qf764ytnb"]
 
 [ext_resource type="Script" uid="uid://b8p8erp3eltc" path="res://pause/toggle.gd" id="1_iwc58"]
 [ext_resource type="Theme" uid="uid://b30qiap05v184" path="res://pause/menu.tres" id="2_m5bgr"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://2lqoj4mjgk6j" path="res://pause/window_mode.gd" id="5_i384g"]
 [ext_resource type="Script" uid="uid://drlmwek5j5fu2" path="res://pause/quit.gd" id="6_drxtb"]
 [ext_resource type="Script" uid="uid://c7pftahol15er" path="res://pause/new_game.gd" id="6_m5bgr"]
+[ext_resource type="Script" uid="uid://bbc11i08ctw2i" path="res://pause/menu_audio.gd" id="8_rr6mn"]
+[ext_resource type="AudioStream" uid="uid://vl4sks2obpvu" path="res://audio/MenuHover.ogg" id="9_0q8sd"]
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 3
@@ -114,3 +116,8 @@ size_flags_horizontal = 4
 text = "Quit
 "
 script = ExtResource("6_drxtb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("hover_targets")]
+script = ExtResource("8_rr6mn")
+hover_sound = ExtResource("9_0q8sd")
+hover_targets = [NodePath("../VBoxContainer/Restart"), NodePath("../VBoxContainer/Master/HSlider"), NodePath("../VBoxContainer/Music/HSlider"), NodePath("../VBoxContainer/SFX/HSlider"), NodePath("../VBoxContainer/OptionButton"), NodePath("../VBoxContainer/NewGame"), NodePath("../VBoxContainer/Quit")]

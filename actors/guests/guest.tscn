@@ -1,19 +1,22 @@
-[gd_scene load_steps=55 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=58 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
 [ext_resource type="Material" uid="uid://dcmcftp3gxhi2" path="res://actors/guests/body/eyes/eyes.tres" id="2_06uk3"]
 [ext_resource type="Material" uid="uid://bladrdv7k4vo0" path="res://actors/guests/outfits/materials/black_dress.tres" id="2_31eai"]
 [ext_resource type="Material" uid="uid://4abqal1ncp7w" path="res://actors/guests/body/socks/socks.tres" id="3_d4wvg"]
+[ext_resource type="Material" uid="uid://curpbnb634uxo" path="res://actors/guests/body/skin/skin_1.tres" id="3_gfb08"]
+[ext_resource type="Material" uid="uid://ns6i7txf3u3a" path="res://actors/guests/body/skin/skin_2.tres" id="3_he4xx"]
 [ext_resource type="PackedScene" uid="uid://beqcg4mpxtp82" path="res://actors/guests/hair/f_hair2.glb" id="3_ltj53"]
 [ext_resource type="PackedScene" uid="uid://bcin7w6n6uiru" path="res://actors/guests/guests.blend" id="3_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://5oo8tgoey4cd" path="res://actors/guests/outfits/dress_1.glb" id="4_hipnf"]
-[ext_resource type="PackedScene" uid="uid://j4sswi017qmr" path="res://actors/guests/outfits/suit_1.glb" id="5_4reb1"]
 [ext_resource type="Material" uid="uid://bnw4rhhp0ceor" path="res://actors/guests/hair/materials/blonde.tres" id="5_06uk3"]
 [ext_resource type="Material" uid="uid://q4j6fjnj1vce" path="res://actors/guests/outfits/materials/white_dress.tres" id="5_famnq"]
 [ext_resource type="Material" uid="uid://dqnj6enwpgvih" path="res://actors/guests/hair/materials/ginger.tres" id="6_d4wvg"]
 [ext_resource type="Material" uid="uid://cgbsy0bpnn4b6" path="res://actors/guests/hair/materials/brunette.tres" id="7_famnq"]
 [ext_resource type="Script" uid="uid://dnj101c6tvouo" path="res://actors/chase_target.gd" id="13_b4h0t"]
+[ext_resource type="PackedScene" uid="uid://b5i3rwuq7k1ww" path="res://actors/guests/outfits/robe.glb" id="13_cylis"]
+[ext_resource type="PackedScene" uid="uid://bcpfd32au8ig" path="res://actors/guests/outfits/suit.glb" id="13_he4xx"]
 [ext_resource type="Script" uid="uid://b0ossn7vck4o8" path="res://actors/hit_shape.gd" id="13_lxrhj"]
 [ext_resource type="Script" uid="uid://c7s7e86v7heqh" path="res://actors/camera_shake.gd" id="14_kl4fg"]
 [ext_resource type="Script" uid="uid://ck458ax2bj8o2" path="res://actors/guests/3d_scene_spawner.gd" id="14_vpj3f"]
@@ -37,17 +40,13 @@
 [ext_resource type="Script" uid="uid://2neqvav6k8sw" path="res://actors/guests/ragdoll.gd" id="25_n816u"]
 [ext_resource type="PackedScene" uid="uid://2hxfp3cyob8e" path="res://actors/guests/ragdoll.tscn" id="26_hwux2"]
 [ext_resource type="AudioStream" uid="uid://cg5s23np3rt5i" path="res://audio/hurt/grunt 2.ogg" id="26_s60vd"]
+[ext_resource type="AudioStream" uid="uid://q2vnryyd6rjw" path="res://audio/hurt/splat_sound.ogg" id="28_p4pa1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s60vd"]
-resource_local_to_scene = true
-albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
-roughness = 0.77
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4pa1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc6s5"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cylis"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekvb4"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -268,6 +267,20 @@ tracks/15/keys = {
 "method": &"_play"
 }]
 }
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Audio/Splat1")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_tp2t0"]
 resource_name = "HURT"
@@ -421,7 +434,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [10]
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_7rt5t"]
@@ -634,13 +647,13 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_s60vd"), null])
+skin_color_materials = Array[StandardMaterial3D]([ExtResource("3_gfb08"), ExtResource("3_he4xx")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_p4pa1"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_cylis")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_pc6s5"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_ekvb4")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
-male_outfits_gltf = Array[PackedScene]([ExtResource("5_4reb1")])
+male_outfits_gltf = Array[PackedScene]([ExtResource("13_cylis"), ExtResource("13_he4xx")])
 
 [node name="Killed" type="Node" parent="."]
 
@@ -732,6 +745,11 @@ audio_players = [NodePath("Thud_1")]
 [node name="Thud_1" type="AudioStreamPlayer" parent="Hitshape/Audio/Thud"]
 stream = ExtResource("25_gdmmo")
 volume_db = 2.0
+bus = &"SFX"
+
+[node name="Splat1" type="AudioStreamPlayer" parent="Hitshape/Audio"]
+stream = ExtResource("28_p4pa1")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

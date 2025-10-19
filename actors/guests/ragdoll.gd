@@ -11,6 +11,12 @@ func _spawn_ragdoll():
 	rag_doll.global_transform = skeleton.global_transform
 	rag_doll.physical_bones_start_simulation()
 	
+	#await get_tree().process_frame
+	for b in rag_doll.get_children():
+		if b is PhysicalBone3D:
+			var dir = Vector3(randf() - 0.5, randf(), randf() - 0.5).normalized() * 2.0
+			b.linear_velocity = dir
+		
 	
 func _freeze_ragdoll():
 	rag_doll.active = false
