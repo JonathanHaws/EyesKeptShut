@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b13fw37sa4dh6"]
+[gd_scene load_steps=43 format=3 uid="uid://b13fw37sa4dh6"]
 
 [ext_resource type="Script" uid="uid://c6ahdplyoquso" path="res://actors/guests/guest.gd" id="1_vhaxy"]
 [ext_resource type="PackedScene" uid="uid://by2x8lphlm02n" path="res://actors/guests/hair/f_hair1.glb" id="2_4s7mr"]
@@ -24,17 +24,19 @@
 [ext_resource type="PackedScene" uid="uid://1ptnajqxt8dh" path="res://actors/guests/masks/mask_2.glb" id="22_6cuou"]
 [ext_resource type="PackedScene" uid="uid://bb68i5208cadi" path="res://actors/guests/masks/mask_3.glb" id="23_jsbfx"]
 [ext_resource type="PackedScene" uid="uid://dm32eg0idpg8s" path="res://actors/guests/masks/mask_4.glb" id="24_77q5o"]
+[ext_resource type="Script" uid="uid://2neqvav6k8sw" path="res://actors/guests/ragdoll.gd" id="25_n816u"]
+[ext_resource type="PackedScene" uid="uid://2hxfp3cyob8e" path="res://actors/guests/ragdoll.tscn" id="26_hwux2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn2p6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwux2"]
 resource_local_to_scene = true
 albedo_color = Color(0.900182, 0.759331, 0.73047, 1)
 roughness = 0.77
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjqh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77q5o"]
 resource_local_to_scene = true
 albedo_color = Color(0.39, 0.2106, 0.25545, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6kxi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpj3f"]
 resource_local_to_scene = true
 albedo_color = Color(0.3195, 0.3543, 0.45, 1)
 
@@ -50,7 +52,7 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
+"times": PackedFloat32Array(2.93333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -85,10 +87,100 @@ tracks/2/keys = {
 "method": &"increase_venge"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../guests/metarig/Skeleton3D/RagDoll")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_ragdoll"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CaughtPlayer/CollisionShape3D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CollisionShape3D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_n816u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:collision_layer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CaughtPlayer/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7rt5t"]
 _data = {
-&"DEATH": SubResource("Animation_lxrhj")
+&"DEATH": SubResource("Animation_lxrhj"),
+&"RESET": SubResource("Animation_n816u")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4reb1"]
@@ -340,9 +432,9 @@ mesh = NodePath("guests/metarig/Skeleton3D/body")
 skeleton = NodePath("guests/metarig/Skeleton3D")
 masks_bone_attachment = NodePath("guests/metarig/Skeleton3D/Mask")
 eyes_materials = Array[StandardMaterial3D]([ExtResource("2_06uk3")])
-skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_rn2p6")])
+skin_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_hwux2")])
 socks_materials = Array[StandardMaterial3D]([ExtResource("3_d4wvg")])
-dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_6qjqh"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_y6kxi")])
+dress_materials = Array[StandardMaterial3D]([ExtResource("2_31eai"), SubResource("StandardMaterial3D_77q5o"), ExtResource("5_famnq"), SubResource("StandardMaterial3D_vpj3f")])
 hair_materials = Array[StandardMaterial3D]([ExtResource("5_06uk3"), ExtResource("6_d4wvg"), ExtResource("7_famnq")])
 female_hair_gltf = Array[PackedScene]([ExtResource("2_4s7mr"), ExtResource("3_ltj53")])
 female_outfits_gltf = Array[PackedScene]([ExtResource("4_hipnf")])
@@ -423,7 +515,12 @@ shape = SubResource("SphereShape3D_b4h0t")
 
 [node name="guests" parent="." instance=ExtResource("3_vhaxy")]
 
-[node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("masks", "mask_parent", "look_at_modifier", "guest")]
+[node name="RagDoll" type="Node" parent="guests/metarig/Skeleton3D" index="0" node_paths=PackedStringArray("skeleton")]
+script = ExtResource("25_n816u")
+ragdoll_scene = ExtResource("26_hwux2")
+skeleton = NodePath("..")
+
+[node name="Mask" type="BoneAttachment3D" parent="guests/metarig/Skeleton3D" index="1" node_paths=PackedStringArray("masks", "mask_parent", "look_at_modifier", "guest")]
 transform = Transform3D(1, 2.30926e-14, 7.10543e-14, -2.13163e-13, 1, -1.93715e-07, -2.84217e-14, 4.47035e-08, 1, 2.82567e-14, 0.75189, -0.0203926)
 bone_name = "spine.006"
 bone_idx = 6
@@ -434,7 +531,7 @@ mask_scenes = Array[PackedScene]([ExtResource("21_tnf6t"), ExtResource("22_6cuou
 look_at_modifier = NodePath("../LookAtModifier3D")
 guest = NodePath("../../../..")
 
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="1"]
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="guests/metarig/Skeleton3D" index="2"]
 rotation_edit_mode = 2
 influence = 0.0
 target_node = NodePath("../../../../Target/Offset")
