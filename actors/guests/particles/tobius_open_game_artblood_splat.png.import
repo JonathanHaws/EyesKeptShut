@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci2gg24unwals"
 path.s3tc="res://.godot/imported/tobius_open_game_artblood_splat.png-fc8886aece20a8db205900bfc425795d.s3tc.ctex"
+path.etc2="res://.godot/imported/tobius_open_game_artblood_splat.png-fc8886aece20a8db205900bfc425795d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://actors/guests/particles/tobius_open_game_artblood_splat.png"
-dest_files=["res://.godot/imported/tobius_open_game_artblood_splat.png-fc8886aece20a8db205900bfc425795d.s3tc.ctex"]
+dest_files=["res://.godot/imported/tobius_open_game_artblood_splat.png-fc8886aece20a8db205900bfc425795d.s3tc.ctex", "res://.godot/imported/tobius_open_game_artblood_splat.png-fc8886aece20a8db205900bfc425795d.etc2.ctex"]
 
 [params]
 

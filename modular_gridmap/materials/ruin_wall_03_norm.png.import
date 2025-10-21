@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc80ej5fmiola"
 path.s3tc="res://.godot/imported/ruin_wall_03_norm.png-e976805ad4739e880a234229c0c96fcd.s3tc.ctex"
+path.etc2="res://.godot/imported/ruin_wall_03_norm.png-e976805ad4739e880a234229c0c96fcd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://modular_gridmap/materials/ruin_wall_03_norm.png"
-dest_files=["res://.godot/imported/ruin_wall_03_norm.png-e976805ad4739e880a234229c0c96fcd.s3tc.ctex"]
+dest_files=["res://.godot/imported/ruin_wall_03_norm.png-e976805ad4739e880a234229c0c96fcd.s3tc.ctex", "res://.godot/imported/ruin_wall_03_norm.png-e976805ad4739e880a234229c0c96fcd.etc2.ctex"]
 
 [params]
 
